@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pozoriste.API", "Pozoriste.API\Pozoriste.API.csproj", "{6D051456-204E-4F18-B9A2-C981F7033A75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pozoriste.API", "Pozoriste.API\Pozoriste.API.csproj", "{6D051456-204E-4F18-B9A2-C981F7033A75}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pozoriste.Data", "Pozoriste.Data\Pozoriste.Data.csproj", "{B3CC79D7-BE3C-4457-A892-F3B495D7E83F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pozoriste.Domain", "Pozoriste.Domain\Pozoriste.Domain.csproj", "{CFDAD103-8A58-442F-95C9-F63B941A3627}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pozoriste.Repository", "Pozoriste.Repository\Pozoriste.Repository.csproj", "{2774E6E7-8F27-44D6-A913-FDF8AD815B80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pozoriste.Tests", "Pozoriste.Tests\Pozoriste.Tests.csproj", "{6B45DCC9-3916-4FD5-84E3-FE4036666478}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{6D051456-204E-4F18-B9A2-C981F7033A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D051456-204E-4F18-B9A2-C981F7033A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D051456-204E-4F18-B9A2-C981F7033A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3CC79D7-BE3C-4457-A892-F3B495D7E83F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3CC79D7-BE3C-4457-A892-F3B495D7E83F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3CC79D7-BE3C-4457-A892-F3B495D7E83F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3CC79D7-BE3C-4457-A892-F3B495D7E83F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFDAD103-8A58-442F-95C9-F63B941A3627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFDAD103-8A58-442F-95C9-F63B941A3627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFDAD103-8A58-442F-95C9-F63B941A3627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFDAD103-8A58-442F-95C9-F63B941A3627}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2774E6E7-8F27-44D6-A913-FDF8AD815B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2774E6E7-8F27-44D6-A913-FDF8AD815B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2774E6E7-8F27-44D6-A913-FDF8AD815B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2774E6E7-8F27-44D6-A913-FDF8AD815B80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B45DCC9-3916-4FD5-84E3-FE4036666478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B45DCC9-3916-4FD5-84E3-FE4036666478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B45DCC9-3916-4FD5-84E3-FE4036666478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B45DCC9-3916-4FD5-84E3-FE4036666478}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
