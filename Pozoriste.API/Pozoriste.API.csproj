@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Pozoriste.Data\Pozoriste.Data.csproj" />
+    <ProjectReference Include="..\Pozoriste.Repository\Pozoriste.Repository.csproj" />
   </ItemGroup>
 
 
