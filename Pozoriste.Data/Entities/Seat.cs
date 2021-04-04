@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Pozoriste.Data.Entities
 {
+    [Table("seat")]
     public class Seat
     {
         public int Id { get; set; }
