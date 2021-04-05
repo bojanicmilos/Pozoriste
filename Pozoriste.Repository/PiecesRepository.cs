@@ -3,6 +3,7 @@ using Pozoriste.Data.Context;
 using Pozoriste.Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,8 @@ namespace Pozoriste.Repository
 {
     public interface IPiecesRepository : IRepository<Piece>
     {
-
+        Task<IEnumerable<Piece>> GetActivePiecesAsync();
+        Task<IEnumerable<Piece>> GetTop10ByYearAsync(int year);
     }
     public class PiecesRepository : IPiecesRepository
     {
@@ -29,7 +31,14 @@ namespace Pozoriste.Repository
             return result.Entity;
         }
 
-        public async Task<IEnumerable<Piece>> GetAll()
+        public async Task<IEnumerable<Piece>> GetActivePiecesAsync()
+        {
+            var data = await _theatreContext.Pieces.Where(x => x.IsActive).ToListAsync();
+
+            return data;
+        }
+
+        public async Task<IEnumerable<Piece>> GetAllAsync()
         {
             var data = await _theatreContext.Pieces.ToListAsync();
 
@@ -39,6 +48,13 @@ namespace Pozoriste.Repository
         public async Task<Piece> GetByIdAsync(int id)
         {
             var data = await _theatreContext.Pieces.FindAsync(id);
+
+            return data;
+        }
+
+        public async Task<IEnumerable<Piece>> GetTop10ByYearAsync(int year)
+        {
+            var data = await _theatreContext.Pieces.Where(x => x.Year == year).Take(10).ToListAsync();
 
             return data;
         }

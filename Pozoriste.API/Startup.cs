@@ -53,6 +53,7 @@ namespace Pozoriste.API
             services.AddTransient<IShowsRepository, ShowsRepository>();
 
             // Services
+            services.AddTransient<IPieceService, PieceService>();
             services.AddTransient<IShowService, ShowService>();
 
 
