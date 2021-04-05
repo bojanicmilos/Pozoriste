@@ -47,6 +47,7 @@ namespace Pozoriste.API
             services.AddTransient<IAuditoriumsRepository, AuditoriumsRepository>();
             services.AddTransient<IAddressesRepository, AddressesRepository>();
             services.AddTransient<IActorsRepository, ActorsRepository>();
+            services.AddTransient<IUsersRepository, UsersRepository>();
 
             // Services
 
