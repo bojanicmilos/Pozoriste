@@ -20,7 +20,7 @@ const ShowList = () => {
             }
         };
 
-        fetch(`${serviceConfig.baseURL}/api/shows`)
+        fetch(`${serviceConfig.baseURL}/api/shows`, requestOptions)
             .then((response) => {
                 if (!response.ok) {
                     return Promise.reject(response);
@@ -29,7 +29,7 @@ const ShowList = () => {
             })
             .then((data) => {
                 if (data) {
-                    setShowList([...shows, ...data])
+                    setShowList(prevState => ([...prevState, ...data]))
                     setIsLoading(false)
                 }
             })
@@ -41,19 +41,16 @@ const ShowList = () => {
     const fillPageWithShows = () => {
         return shows.map((show) => {
             return (
-                <>
-                    <ShowItem key={show.id} {...show} />
-                </>
+                <ShowItem key={show.id} {...show} />
             )
-
         })
-
     }
 
+
     return (
-        <>
-            { isLoading ? fillPageWithShows() : <p>loading...</p>}
-        </>
+        <ul className='showContainer'>
+            { isLoading ? <p>loading...</p> : fillPageWithShows()}
+        </ul>
     )
 }
 
