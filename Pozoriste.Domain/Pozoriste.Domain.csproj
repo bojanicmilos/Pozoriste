@@ -5,10 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Models\" />
-    <Folder Include="Common\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\Pozoriste.Data\Pozoriste.Data.csproj" />
+    <ProjectReference Include="..\Pozoriste.Repository\Pozoriste.Repository.csproj" />
   </ItemGroup>
 
 </Project>
