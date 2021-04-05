@@ -29,7 +29,7 @@ namespace Pozoriste.Repository
             return result.Entity;
         }
 
-        public async Task<IEnumerable<Auditorium>> GetAll()
+        public async Task<IEnumerable<Auditorium>> GetAllAsync()
         {
             var data = await _theatreContext.Auditoriums.ToListAsync();
 

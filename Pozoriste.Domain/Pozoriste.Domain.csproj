@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Pozoriste.Data\Pozoriste.Data.csproj" />
     <Folder Include="Common\" />
   </ItemGroup>
 

@@ -26,7 +26,7 @@ namespace Pozoriste.Repository
             return result.Entity;
         }
 
-        public async Task<IEnumerable<Seat>> GetAll()
+        public async Task<IEnumerable<Seat>> GetAllAsync()
         {
             var data = await _theatreContext.Seats.ToListAsync();
 
