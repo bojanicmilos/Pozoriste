@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.4">
       <PrivateAssets>all</PrivateAssets>
@@ -20,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Pozoriste.Data\Pozoriste.Data.csproj" />
+    <ProjectReference Include="..\Pozoriste.Domain\Pozoriste.Domain.csproj" />
     <ProjectReference Include="..\Pozoriste.Repository\Pozoriste.Repository.csproj" />
   </ItemGroup>
 

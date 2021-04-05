@@ -9,6 +9,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Pozoriste.API.TokenServiceExtensions;
 using Pozoriste.Data.Context;
+using Pozoriste.Domain.Interfaces;
+using Pozoriste.Domain.Services;
 using Pozoriste.Repository;
 using System;
 using System.Collections.Generic;
@@ -48,8 +50,10 @@ namespace Pozoriste.API
             services.AddTransient<IAddressesRepository, AddressesRepository>();
             services.AddTransient<IActorsRepository, ActorsRepository>();
             services.AddTransient<IUsersRepository, UsersRepository>();
+            services.AddTransient<IShowsRepository, ShowsRepository>();
 
             // Services
+            services.AddTransient<IShowService, ShowService>();
 
 
             // Allow Cors for client app
