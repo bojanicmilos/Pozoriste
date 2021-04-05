@@ -50,9 +50,12 @@ namespace Pozoriste.API
             services.AddTransient<IAddressesRepository, AddressesRepository>();
             services.AddTransient<IActorsRepository, ActorsRepository>();
             services.AddTransient<IUsersRepository, UsersRepository>();
+            services.AddTransient<IShowsRepository, ShowsRepository>();
 
             // Services
             services.AddTransient<IPieceService, PieceService>();
+            services.AddTransient<IShowService, ShowService>();
+
 
             // Allow Cors for client app
             services.AddCors(options => {

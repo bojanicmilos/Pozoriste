@@ -6,6 +6,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Pozoriste.Data\Pozoriste.Data.csproj" />
+    <Folder Include="Common\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Pozoriste.Repository\Pozoriste.Repository.csproj" />
   </ItemGroup>
 
