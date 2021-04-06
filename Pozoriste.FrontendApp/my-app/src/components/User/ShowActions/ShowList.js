@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { serviceConfig } from '../../AppSettings/serviceConfig'
-import ShowItem from './ShowItem'
-import Spinner from '../Spinner'
-import '../../style/spinner.css'
+import { serviceConfig } from '../../../AppSettings/serviceConfig'
+import ShowItem from '../Items/ShowItem'
+import Spinner from '../../Spinner'
+import '../../../style/spinner.css'
 
 
 
