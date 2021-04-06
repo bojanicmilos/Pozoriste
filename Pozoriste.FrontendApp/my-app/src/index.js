@@ -4,11 +4,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Show from './components/User/ShowActions/ShowList'
 import Piece from './components/User/PieceActions/ShowAllPieces'
+import ActivePiece from './components/User/PieceActions/ShowAllActivePieces'
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Show /> */}
+    {/* <Show />
     <Piece />
+    <ActivePiece /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
