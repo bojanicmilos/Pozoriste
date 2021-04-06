@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { serviceConfig } from '../../AppSettings/serviceConfig'
 import ShowItem from './ShowItem'
+import Spinner from '../Spinner'
+import '../../style/spinner.css'
+
 
 
 const ShowList = () => {
@@ -20,7 +23,7 @@ const ShowList = () => {
             }
         };
 
-        fetch(`${serviceConfig.baseURL}/api/shows`)
+        fetch(`${serviceConfig.baseURL}/api/shows`, requestOptions)
             .then((response) => {
                 if (!response.ok) {
                     return Promise.reject(response);
@@ -29,11 +32,12 @@ const ShowList = () => {
             })
             .then((data) => {
                 if (data) {
-                    setShowList([...shows, ...data])
+                    setShowList(prevState => ([...prevState, ...data]))
                     setIsLoading(false)
                 }
             })
             .catch((response) => {
+                console.log(response)
                 setIsLoading(false);
             })
     }
@@ -41,19 +45,15 @@ const ShowList = () => {
     const fillPageWithShows = () => {
         return shows.map((show) => {
             return (
-                <>
-                    <ShowItem key={show.id} {...show} />
-                </>
+                <ShowItem key={show.id} {...show} />
             )
-
         })
-
     }
 
     return (
-        <>
-            { isLoading ? fillPageWithShows() : <p>loading...</p>}
-        </>
+        <ul className='showContainer'>
+            { isLoading ? <Spinner></Spinner> : fillPageWithShows()}
+        </ul>
     )
 }
 
