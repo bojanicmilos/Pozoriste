@@ -18,6 +18,12 @@ namespace Pozoriste.Domain.Common
         #endregion
         #region Addresses
         public const string ADDRESS_NOT_FOUND = "Adresa nije pronadjena";
+        public const string ADDRESS_PROPERTIE_CITY_NAME_NOT_VALID = "Naziv grada ne može biti duži od 50 karaktera.";
+        public const string ADDRESS_PROPERTIE_STREET_NAME_NOT_VALID = "Naziv ulice ne može biti duži od 80 karaktera.";
+        public const string ADDRESS_CREATION_ERROR = "Greška prilikom kreiranja nove adrese, molim vas pokušajte ponovo.";
+
+
+
         #endregion
 
     }

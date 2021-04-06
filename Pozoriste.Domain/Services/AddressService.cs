@@ -19,11 +19,32 @@ namespace Pozoriste.Domain.Services
             _addressesRepository = addressesRepository;
         }
        
-       /* public async Task<AddressDomainModel> AddAddress(AddressDomainModel addressModel)
+        public async Task<AddressDomainModel> AddAddress(AddressDomainModel addressModel)
         {
-            
+            Address createAddress = new Address()
+            {
+                CityName = addressModel.CityName,
+                StreetName = addressModel.StreetName,
+                
+            };
+
+            Address data = _addressesRepository.Insert(createAddress);
+
+            if (data == null)
+            {
+                return null;
+            }
+
+            _addressesRepository.Save();
+
+            return new AddressDomainModel
+            {
+                CityName = data.CityName,
+                StreetName = data.StreetName
+            };
+
         }
-*/
+
         public async Task<IEnumerable<AddressDomainModel>> GetAllAsync()
         {
             var addresses = await _addressesRepository.GetAllAsync();

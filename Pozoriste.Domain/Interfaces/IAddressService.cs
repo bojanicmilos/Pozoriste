@@ -10,6 +10,6 @@ namespace Pozoriste.Domain.Interfaces
     {
         Task<IEnumerable<AddressDomainModel>> GetAllAsync();
         Task<AddressDomainModel> GetByIdAsync(int id);
-        /*Task<AddressDomainModel> AddAddress(AddressDomainModel addressModel);*/
+        Task<AddressDomainModel> AddAddress(AddressDomainModel addressModel);
     }
 }

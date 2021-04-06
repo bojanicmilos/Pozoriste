@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Pozoriste.API.Models;
 using Pozoriste.Domain.Common;
 using Pozoriste.Domain.Interfaces;
 using Pozoriste.Domain.Models;
@@ -49,6 +51,49 @@ namespace Pozoriste.API.Controllers
 
             return Ok(addressDomainModels);
         } 
+        [HttpPost]
+        [Route("create")]
 
+        public async Task<ActionResult> Post([FromBody] AddressModel addressModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            AddressDomainModel domainModel = new AddressDomainModel
+            {
+                CityName = addressModel.CityName,
+                StreetName = addressModel.StreetName
+
+            };
+
+            AddressDomainModel createAddress;
+            try
+            {
+                createAddress = await _addressService.AddAddress(domainModel);
+            }
+            catch(DbUpdateException e)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel
+                {
+                    ErrorMessage = e.InnerException.Message ?? e.Message,
+                    StatusCode = System.Net.HttpStatusCode.BadRequest
+
+                };
+                return BadRequest(errorResponse);
+            }
+            if (createAddress == null)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel
+                {
+                    ErrorMessage = Messages.ADDRESS_CREATION_ERROR,
+                    StatusCode = System.Net.HttpStatusCode.InternalServerError
+
+                };
+                return BadRequest(errorResponse);
+            }
+            return Created("Addresses //" + createAddress.Id, createAddress); 
+        }
     }
 }
