@@ -24,9 +24,9 @@ namespace Pozoriste.API.Controllers
 
         [HttpGet]
         [Route("get/{id}")]
-        public async Task<ActionResult<PieceDomainModel>> GetAsync(int id)
+        public async Task<ActionResult<CreatePieceDomainModel>> GetAsync(int id)
         {
-            PieceDomainModel piece;
+            CreatePieceDomainModel piece;
 
             piece = await _pieceService.GetPieceByIdAsync(id);
 
@@ -40,18 +40,18 @@ namespace Pozoriste.API.Controllers
 
         [HttpGet]
         [Route("active")]
-        public async Task<ActionResult<IEnumerable<PieceDomainModel>>> GetAsync()
+        public async Task<ActionResult<IEnumerable<CreatePieceDomainModel>>> GetAsync()
         {
-            IEnumerable<PieceDomainModel> pieceDomainModels;
+            IEnumerable<CreatePieceDomainModel> createPieceDomainModels;
 
-            pieceDomainModels = await _pieceService.GetAllPieces(true);
+            createPieceDomainModels = await _pieceService.GetAllPieces(true);
 
-            if(pieceDomainModels.Count() == 0)
+            if(createPieceDomainModels.Count() == 0)
             {
-                pieceDomainModels = new List<PieceDomainModel>();
+                createPieceDomainModels = new List<CreatePieceDomainModel>();
             }
 
-            return Ok(pieceDomainModels);
+            return Ok(createPieceDomainModels);
         }
 
         [HttpGet]
@@ -72,18 +72,18 @@ namespace Pozoriste.API.Controllers
 
         [HttpGet]
         [Route("all")]
-        public async Task<ActionResult<IEnumerable<PieceDomainModel>>> GetAllAsync()
+        public async Task<ActionResult<IEnumerable<CreatePieceDomainModel>>> GetAllAsync()
         {
-            IEnumerable<PieceDomainModel> pieceDomainModels;
+            IEnumerable<CreatePieceDomainModel> createPieceDomainModels;
 
-            pieceDomainModels = await _pieceService.GetAllPieces();
+            createPieceDomainModels = await _pieceService.GetAllPieces();
 
-            if(pieceDomainModels.Count() == 0)
+            if(createPieceDomainModels.Count() == 0)
             {
-                pieceDomainModels = new List<PieceDomainModel>();
+                createPieceDomainModels = new List<CreatePieceDomainModel>();
             }
 
-            return Ok(pieceDomainModels);
+            return Ok(createPieceDomainModels);
         }
 
         [HttpPost]

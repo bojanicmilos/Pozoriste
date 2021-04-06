@@ -79,7 +79,7 @@ namespace Pozoriste.Domain.Services
             };
         }
 
-        public async Task<IEnumerable<PieceDomainModel>> GetAllPieces()
+        public async Task<IEnumerable<CreatePieceDomainModel>> GetAllPieces()
         {
             var data = await _pieceRepository.GetAllAsync();
 
@@ -88,14 +88,14 @@ namespace Pozoriste.Domain.Services
                 return null;
             }
 
-            List<PieceDomainModel> result = new List<PieceDomainModel>();
+            List<CreatePieceDomainModel> result = new List<CreatePieceDomainModel>();
 
             foreach(var item in data)
             {
-                PieceDomainModel piece = new PieceDomainModel()
+                CreatePieceDomainModel piece = new CreatePieceDomainModel()
                 {
                     Description = item.Description,
-                    Genre = item.Genre,
+                    Genre = item.Genre.ToString() == "COMEDY" ? "Komedija" : item.Genre.ToString() == "DRAMA" ? "Drama" : item.Genre.ToString() == "TRAGEDY" ? "Tragedija" : "",
                     Id = item.Id,
                     isActive = item.IsActive,
                     Title = item.Title,
@@ -108,7 +108,7 @@ namespace Pozoriste.Domain.Services
             return result;
         }
 
-        public async Task<IEnumerable<PieceDomainModel>> GetAllPieces(bool? isActive)
+        public async Task<IEnumerable<CreatePieceDomainModel>> GetAllPieces(bool? isActive)
         {
             var data = await _pieceRepository.GetActivePiecesAsync();
 
@@ -117,15 +117,15 @@ namespace Pozoriste.Domain.Services
                 return null;
             }
 
-            List<PieceDomainModel> result = new List<PieceDomainModel>();
+            List<CreatePieceDomainModel> result = new List<CreatePieceDomainModel>();
 
             foreach(var item in data)
             {
-                PieceDomainModel piece = new PieceDomainModel
+                CreatePieceDomainModel piece = new CreatePieceDomainModel
                 {
                     Id = item.Id,
                     Description = item.Description,
-                    Genre = item.Genre,
+                    Genre = item.Genre.ToString() == "COMEDY" ? "Komedija" : item.Genre.ToString() == "DRAMA" ? "Drama" : item.Genre.ToString() == "TRAGEDY" ? "Tragedija" : "",
                     isActive = item.IsActive,
                     Title = item.Title,
                     Year = item.Year
@@ -137,20 +137,20 @@ namespace Pozoriste.Domain.Services
             return result;
         }
 
-        public async Task<PieceDomainModel> GetPieceByIdAsync(int Id)
+        public async Task<CreatePieceDomainModel> GetPieceByIdAsync(int Id)
         {
-            Piece data = await _pieceRepository.GetByIdAsync(Id);
+            var data = await _pieceRepository.GetByIdAsync(Id);
 
             if(data == null)
             {
                 return null;
             }
 
-            return new PieceDomainModel
+            return new CreatePieceDomainModel
             {
                 Id = data.Id,
                 Description = data.Description,
-                Genre = data.Genre,
+                Genre = data.Genre.ToString() == "COMEDY" ? "Komedija" : data.Genre.ToString() == "DRAMA" ? "Drama" : data.Genre.ToString() == "TRAGEDY" ? "Tragedija" : "",
                 isActive = data.IsActive,
                 Title = data.Title,
                 Year = data.Year
