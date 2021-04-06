@@ -87,7 +87,7 @@ namespace Pozoriste.API.Controllers
         }
 
         [HttpPost]
-        [Route("crate")]
+        [Route("create")]
         public async Task<ActionResult> Post([FromBody] PieceModel pieceModel)
         {
             if(!ModelState.IsValid)
