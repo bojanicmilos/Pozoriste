@@ -20,7 +20,7 @@ namespace Pozoriste.Domain.Services
 
         public async Task<IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel>> GetAllShowsAsync()
         {
-            var shows = await _showsRepository.GetAll();
+            var shows = await _showsRepository.GetAllAsync();
 
             if (shows.Count() == 0)
             {
