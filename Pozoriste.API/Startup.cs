@@ -55,7 +55,7 @@ namespace Pozoriste.API
             // Services
             services.AddTransient<IPieceService, PieceService>();
             services.AddTransient<IShowService, ShowService>();
-
+            services.AddTransient<IActorService, ActorService>();
 
             // Allow Cors for client app
             services.AddCors(options => {
