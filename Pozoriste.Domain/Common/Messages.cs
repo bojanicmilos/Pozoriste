@@ -7,14 +7,23 @@ namespace Pozoriste.Domain.Common
     public static class Messages
     {
         #region Pieces
-        public const string PIECE_DOES_NOT_EXIST = "Piece does not exist.";
-        public const string PIECE_PROPERTIE_TITLE_NOT_VALID = "The piece title cannot be longer than 70 characters.";
-        public const string PIECE_PROPERTIE_YEAR_NOT_VALID = "The piece year must be between 1000-2050.";
-        public const string PIECE_CREATION_ERROR = "Error occured while creating new piece, please try again.";
+        public const string PIECE_DOES_NOT_EXIST = "Komad ne postoji.";
+        public const string PIECE_PROPERTIE_TITLE_NOT_VALID = "Naslov komada ne može biti duži od 70 karaktera.";
+        public const string PIECE_PROPERTIE_YEAR_NOT_VALID = "Godina komada mora biti između 1000-2050.";
+        public const string PIECE_CREATION_ERROR = "Greška prilikom kreiranja novog komada, molim vas pokušajte ponovo.";
         #endregion
         #region Actors
-        public const string ACTOR_CREATION_ERROR = "Error while creating new actor, please try again.";
-        public const string ACTOR_DOES_NOT_EXIST = "Actor does not exist.";
+        public const string ACTOR_CREATION_ERROR = "Greška prilikom dodavanja novog glumca. Pokušajte ponovo!";
+        public const string ACTOR_DOES_NOT_EXIST = "Glumac ne postoji.";
+        #endregion
+        #region Addresses
+        public const string ADDRESS_NOT_FOUND = "Adresa nije pronadjena";
+        public const string ADDRESS_PROPERTIE_CITY_NAME_NOT_VALID = "Naziv grada ne može biti duži od 50 karaktera.";
+        public const string ADDRESS_PROPERTIE_STREET_NAME_NOT_VALID = "Naziv ulice ne može biti duži od 80 karaktera.";
+        public const string ADDRESS_CREATION_ERROR = "Greška prilikom kreiranja nove adrese, molim vas pokušajte ponovo.";
+
+
+
         #endregion
         #region Shows
         public const string SHOWS_AT_THE_SAME_TIME = "Doslo je do greske. Predstave u trazenom terminu vec postoje u auditoriujumu. ";
