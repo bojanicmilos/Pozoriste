@@ -35,6 +35,17 @@ namespace Pozoriste.Domain.Common
         public const string SHOW_IN_THE_PAST = "Nije moguce dodati show za datum u proslosti.";
 
         #endregion
+        #region Theatres
+        public const string THEATRE_GET_ALL_THEATRES_ERROR = "Greska prilikom dobijanja svih pozorista, molim vas pokusajte ponovo.";
+        public const string THEATRE_NAME_NOT_VALID = "Pozoriste ne moze imati vise od 50 znakova.";
+        public const string THEATRE_DOES_NOT_EXIST = "Pozoriste ne postoji.";
+        public const string THEATRE_CREATION_ERROR = "Greska prilikom kreiranja novog pozorista, molim vas pokusajte ponovo.";
+        #endregion
+        #region Auditoriums
+        public const string AUDITORIUM_PROPERTY_NAME_NOT_VALID = "Ime sale ne moze biti duze od 50 znakova.";
+        public const string AUDITORIUM_PROPERTY_SEATROWSNUMBER_NOT_VALID = "Broj sedista u sali mora biti između 1-20.";
+        public const string AUDITORIUM_PROPERTY_SEATNUMBER_NOT_VALID = "Broj mesta u sali mora biti između 1-20.";
+        #endregion
 
     }
 }

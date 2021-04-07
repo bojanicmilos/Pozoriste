@@ -88,5 +88,24 @@ namespace Pozoriste.Domain.Services
             };
             return addressDomainModel;
         }
+
+        public async Task<AddressDomainModel> GetByCityNameAsync(string cityName)
+        {
+            var city = await _addressesRepository.GetByCityNameAsync(cityName);
+
+            if (city == null)
+            {
+                return null;
+            }
+
+            AddressDomainModel addressDomainModel = new AddressDomainModel
+            {
+                Id = city.Id,
+                CityName = city.CityName,
+                StreetName = city.StreetName
+            };
+
+            return addressDomainModel;
+        }
     }
 }

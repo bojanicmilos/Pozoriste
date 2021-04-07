@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Pozoriste.API.Models;
+using Pozoriste.Domain.Common;
 using Pozoriste.Domain.Interfaces;
 using Pozoriste.Domain.Models;
 using System;
@@ -28,12 +31,64 @@ namespace Pozoriste.API.Controllers
 
             theatreDomainModels = await _theatreService.GetAllAsync();
 
-            if(theatreDomainModels == null)
+            if (theatreDomainModels == null)
             {
                 theatreDomainModels = new List<TheatreDomainModel>();
             }
 
             return Ok(theatreDomainModels);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<TheatreDomainModel>> PostAsync([FromBody] CreateTheatreModel createTheatreModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            AddressDomainModel addressModel = await _addressService.GetByCityNameAsync(createTheatreModel.CityName);
+
+            if (addressModel == null)
+            {
+                return BadRequest(Messages.ADDRESS_NOT_FOUND);
+            }
+
+            TheatreDomainModel theatreDomainModel = new TheatreDomainModel
+            {
+                Name = createTheatreModel.Name,
+                AddressId = addressModel.Id,
+            };
+
+            TheatreDomainModel insertedModel;
+
+            try
+            {
+                insertedModel = await _theatreService.Create(theatreDomainModel, createTheatreModel.NumberOfSeats, createTheatreModel.SeatRows, createTheatreModel.AuditName);
+            }
+            catch (DbUpdateException e)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel
+                {
+                    ErrorMessage = e.InnerException.Message ?? e.Message,
+                    StatusCode = System.Net.HttpStatusCode.BadRequest
+                };
+
+                return BadRequest(errorResponse);
+            }
+
+            if (insertedModel == null)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel
+                {
+                    ErrorMessage = Messages.THEATRE_CREATION_ERROR,
+                    StatusCode = System.Net.HttpStatusCode.BadRequest
+                };
+
+                return BadRequest(errorResponse);
+            }
+
+            return Created("//theatre" + insertedModel.Id, insertedModel);
         }
     }
 }
