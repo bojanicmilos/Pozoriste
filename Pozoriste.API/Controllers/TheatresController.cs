@@ -88,7 +88,7 @@ namespace Pozoriste.API.Controllers
                 return BadRequest(errorResponse);
             }
 
-            return Created("//theatre" + insertedModel.Id, insertedModel);
+            return Created("theatres//" + insertedModel.Id, insertedModel);
         }
 
 
@@ -124,7 +124,7 @@ namespace Pozoriste.API.Controllers
                 return BadRequest(errorResponse);
             }
 
-            return Accepted("cinemas//" + deletedTheatre.Id, deletedTheatre);
+            return Accepted("theatres//" + deletedTheatre.Id, deletedTheatre);
         }
     }
 }
