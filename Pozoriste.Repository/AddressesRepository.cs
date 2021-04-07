@@ -10,7 +10,7 @@ namespace Pozoriste.Repository
 {
     public interface IAddressesRepository : IRepository<Address>
     {
-
+        Task<Address> GetByCityNameAsync(string cityName);
     }
     public class AddressesRepository : IAddressesRepository
     {
@@ -58,6 +58,13 @@ namespace Pozoriste.Repository
             _theatreContext.Entry(obj).State = EntityState.Modified;
 
             return obj;
+        }
+
+        public async Task<Address> GetByCityNameAsync(string cityName)
+        {
+            var city = await _theatreContext.Addresses.SingleOrDefaultAsync(city => city.CityName == cityName);
+
+            return city;
         }
     }
 }

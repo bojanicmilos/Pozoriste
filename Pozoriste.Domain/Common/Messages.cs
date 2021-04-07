@@ -8,19 +8,19 @@ namespace Pozoriste.Domain.Common
     {
         #region Pieces
         public const string PIECE_DOES_NOT_EXIST = "Komad ne postoji.";
-        public const string PIECE_PROPERTIE_TITLE_NOT_VALID = "Naslov komada ne može biti duži od 70 karaktera.";
-        public const string PIECE_PROPERTIE_YEAR_NOT_VALID = "Godina komada mora biti između 1000-2050.";
-        public const string PIECE_CREATION_ERROR = "Greška prilikom kreiranja novog komada, molim vas pokušajte ponovo.";
+        public const string PIECE_PROPERTIE_TITLE_NOT_VALID = "Naslov komada ne moze biti duzi od 70 karaktera.";
+        public const string PIECE_PROPERTIE_YEAR_NOT_VALID = "Godina komada mora biti izmedju 1000-2050.";
+        public const string PIECE_CREATION_ERROR = "Greska prilikom kreiranja novog komada, molim vas pokusajte ponovo.";
         #endregion
         #region Actors
-        public const string ACTOR_CREATION_ERROR = "Greška prilikom dodavanja novog glumca. Pokušajte ponovo!";
+        public const string ACTOR_CREATION_ERROR = "Greska prilikom dodavanja novog glumca. Pokusajte ponovo!";
         public const string ACTOR_DOES_NOT_EXIST = "Glumac ne postoji.";
         #endregion
         #region Addresses
         public const string ADDRESS_NOT_FOUND = "Adresa nije pronadjena";
-        public const string ADDRESS_PROPERTIE_CITY_NAME_NOT_VALID = "Naziv grada ne može biti duži od 50 karaktera.";
-        public const string ADDRESS_PROPERTIE_STREET_NAME_NOT_VALID = "Naziv ulice ne može biti duži od 80 karaktera.";
-        public const string ADDRESS_CREATION_ERROR = "Greška prilikom kreiranja nove adrese, molim vas pokušajte ponovo.";
+        public const string ADDRESS_PROPERTIE_CITY_NAME_NOT_VALID = "Naziv grada ne moze biti duzi od 50 karaktera.";
+        public const string ADDRESS_PROPERTIE_STREET_NAME_NOT_VALID = "Naziv ulice ne može biti duzi od 80 karaktera.";
+        public const string ADDRESS_CREATION_ERROR = "Greska prilikom kreiranja nove adrese, molim vas pokusajte ponovo.";
 
 
 
@@ -36,6 +36,17 @@ namespace Pozoriste.Domain.Common
         public const string SHOW_DOES_NOT_EXIST_FOR_RESERVATION = "Neophodno je odabrati odgovarajucu predstavu za rezervaciju.";
         public const string USER_FOR_RESERVATION_DOES_NOT_EXIST = "Please login to make reservation.";
 
+        #endregion
+        #region Theatres
+        public const string THEATRE_GET_ALL_THEATRES_ERROR = "Greska prilikom dobijanja svih pozorista, molim vas pokusajte ponovo.";
+        public const string THEATRE_NAME_NOT_VALID = "Pozoriste ne moze imati vise od 50 znakova.";
+        public const string THEATRE_DOES_NOT_EXIST = "Pozoriste ne postoji.";
+        public const string THEATRE_CREATION_ERROR = "Greska prilikom kreiranja novog pozorista, molim vas pokusajte ponovo.";
+        #endregion
+        #region Auditoriums
+        public const string AUDITORIUM_PROPERTY_NAME_NOT_VALID = "Ime sale ne moze biti duze od 50 znakova.";
+        public const string AUDITORIUM_PROPERTY_SEATROWSNUMBER_NOT_VALID = "Broj sedista u sali mora biti između 1-20.";
+        public const string AUDITORIUM_PROPERTY_SEATNUMBER_NOT_VALID = "Broj mesta u sali mora biti između 1-20.";
         #endregion
         #region Seats
         public const string SEAT_DOES_NOT_EXIST_FOR_AUDITORIUM = "Zahtevana sedista za rezervaciju ne postoje u auditoriujumu";

@@ -28,7 +28,9 @@ namespace Pozoriste.Repository
 
         public async Task<IEnumerable<Seat>> GetAllAsync()
         {
-            var data = await _theatreContext.Seats.ToListAsync();
+            var data = await _theatreContext.Seats
+                .Include(x => x.ReservationSeats)
+                .ToListAsync();
 
             return data;
         }
