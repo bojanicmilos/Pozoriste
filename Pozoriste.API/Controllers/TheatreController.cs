@@ -90,5 +90,41 @@ namespace Pozoriste.API.Controllers
 
             return Created("//theatre" + insertedModel.Id, insertedModel);
         }
+
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<ActionResult<TheatreDomainModel>> DeleteAsync(int id)
+        {
+            TheatreDomainModel deletedTheatre;
+
+            try
+            {
+                deletedTheatre = await _theatreService.Delete(id);
+            }
+            catch (DbUpdateException e)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel
+                {
+                    ErrorMessage = e.InnerException.Message ?? e.Message,
+                    StatusCode = System.Net.HttpStatusCode.BadRequest
+                };
+
+                return BadRequest(errorResponse);
+            }
+
+            if(deletedTheatre == null)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel
+                {
+                    ErrorMessage = Messages.THEATRE_DOES_NOT_EXIST,
+                    StatusCode = System.Net.HttpStatusCode.BadRequest
+                };
+
+                return BadRequest(errorResponse);
+            }
+
+            return Accepted("cinemas//" + deletedTheatre.Id, deletedTheatre);
+        }
     }
 }
