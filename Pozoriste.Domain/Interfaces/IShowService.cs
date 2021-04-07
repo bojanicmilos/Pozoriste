@@ -9,5 +9,6 @@ namespace Pozoriste.Domain.Interfaces
     public interface IShowService
     {
         Task<IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel>> GetAllShowsAsync();
+        Task<ShowResultModel> AddShow(ShowDomainModel requestedShow);
     }
 }

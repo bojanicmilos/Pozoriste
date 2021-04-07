@@ -31,14 +31,20 @@ namespace Pozoriste.Repository
 
         public async Task<IEnumerable<Actor>> GetAllAsync()
         {
-            var data = await _theatreContext.Actors.ToListAsync();
+            var data = await _theatreContext.Actors
+                .Include(showActors => showActors.ShowActors)
+                .ThenInclude(show => show.Show)
+                .ToListAsync();
 
             return data;
         }
 
         public async Task<Actor> GetByIdAsync(int id)
         {
-            var data = await _theatreContext.Actors.FindAsync(id);
+            var data = await _theatreContext.Actors
+                .Include(showActor => showActor.ShowActors)
+                .ThenInclude(show => show.Show)
+                .FirstOrDefaultAsync(actor => actor.Id == id);
 
             return data;
         }

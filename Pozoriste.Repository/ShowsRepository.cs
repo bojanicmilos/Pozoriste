@@ -44,7 +44,10 @@ namespace Pozoriste.Repository
 
         public async Task<Show> GetByIdAsync(int id)
         {
-            var data = await _theatreContext.Shows.FindAsync(id);
+            var data = await _theatreContext.Shows
+                .Include(showActor => showActor.ShowActors)
+                .ThenInclude(actor => actor.Actor)
+                .FirstOrDefaultAsync(show => show.Id == id);
 
             return data;
         }
