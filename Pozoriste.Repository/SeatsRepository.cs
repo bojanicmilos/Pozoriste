@@ -3,12 +3,16 @@ using Pozoriste.Data.Context;
 using Pozoriste.Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Pozoriste.Repository
 {
-    public interface ISeatsRepository : IRepository<Seat> { }
+    public interface ISeatsRepository : IRepository<Seat> 
+    {
+        Task<IEnumerable<Seat>> GetSeatsByAuditoriumId(int auditoriumId);
+    }
     public class SeatsRepository : ISeatsRepository
     {
         private TheatreContext _theatreContext;
@@ -40,6 +44,15 @@ namespace Pozoriste.Repository
             var data = await _theatreContext.Seats.FindAsync(id);
 
             return data;
+        }
+
+        public async Task<IEnumerable<Seat>> GetSeatsByAuditoriumId(int auditoriumId)
+        {
+            var seats = await _theatreContext.Seats
+                .Where(seat => seat.AuditoriumId == auditoriumId)
+                .ToListAsync();
+
+            return seats;
         }
 
         public Seat Insert(Seat obj)

@@ -54,6 +54,7 @@ namespace Pozoriste.Domain.Common
         public const string SEATS_NOT_IN_THE_SAME_ROW = "Sedista moraju biti u istom redu.";
         public const string SEATS_MUST_BE_NEXT_TO_EACH_OTHER = "Rezervisana sedista moraju biti jedno pored drugog";
         public const string SEATS_ALREADY_TAKEN_ERROR = "Sedista su vec zauzeta";
+        public const string SEAT_AUDITORIUM_NOT_FOUND = "Nisu pronadjena sedista za auditorium.";
         #endregion
 
 
