@@ -33,8 +33,18 @@ namespace Pozoriste.Domain.Common
         public const string CANNOT_CREATE_SHOW_ACTORS_DOES_NOT_EXIST = "Nije moguce dodati glumce za predstavu.";
         public const string CANNOT_CREATE_SHOW_SOME_ACTORS_HAVE_MORE_THAN_TWO_SHOWS_PER_DAY = "Neki glumci imaju 3 ili vise predstava u danu, nije moguce dodati ih za ovu predstavu.";
         public const string SHOW_IN_THE_PAST = "Nije moguce dodati show za datum u proslosti.";
+        public const string SHOW_DOES_NOT_EXIST_FOR_RESERVATION = "Neophodno je odabrati odgovarajucu predstavu za rezervaciju.";
+        public const string USER_FOR_RESERVATION_DOES_NOT_EXIST = "Please login to make reservation.";
 
         #endregion
+        #region Seats
+        public const string SEAT_DOES_NOT_EXIST_FOR_AUDITORIUM = "Zahtevana sedista za rezervaciju ne postoje u auditoriujumu";
+        public const string SEATS_CANNOT_BE_DUPLICATES = "Zahtevana sedista su duplikati.";
+        public const string SEATS_NOT_IN_THE_SAME_ROW = "Sedista moraju biti u istom redu.";
+        public const string SEATS_MUST_BE_NEXT_TO_EACH_OTHER = "Rezervisana sedista moraju biti jedno pored drugog";
+        public const string SEATS_ALREADY_TAKEN_ERROR = "Sedista su vec zauzeta";
+        #endregion
+
 
     }
 }

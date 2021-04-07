@@ -3,6 +3,7 @@ using Pozoriste.Data.Context;
 using Pozoriste.Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,8 @@ namespace Pozoriste.Repository
 {
     public interface IReservationsRepository : IRepository<Reservation>
     {
-
+        Task<IEnumerable<Reservation>> GetReservationByShowId(int showId);
+        Task<IEnumerable<Reservation>> GetReservationsByUserId(int userId);
     }
     public class ReservationsRepository : IReservationsRepository
     {
@@ -58,6 +60,34 @@ namespace Pozoriste.Repository
             _theatreContext.Entry(obj).State = EntityState.Modified;
 
             return obj;
+        }
+
+        public async Task<IEnumerable<Reservation>> GetReservationByShowId(int showId)
+        {
+            var reservation = await _theatreContext.Reservations
+                .Include(rs => rs.ReservationSeats)
+                .ThenInclude(s => s.Seat)
+                .ThenInclude(a => a.Auditorium)
+                .Where(reservation => reservation.ShowId == showId)
+                .ToListAsync();
+
+            return reservation;
+        }
+
+        public async Task<IEnumerable<Reservation>> GetReservationsByUserId(int userId)
+        {
+            var data = await _theatreContext.Reservations
+                .Include(show => show.Show)
+                .ThenInclude(piece => piece.Piece)
+                .Include(show => show.Show)
+                .ThenInclude(auditorium => auditorium.Auditorium)
+                .ThenInclude(theatre => theatre.Theatre)
+                .Include(rs => rs.ReservationSeats)
+                .ThenInclude(seat => seat.Seat)
+                .Where(reservation => reservation.UserId == userId)
+                .ToListAsync();
+
+            return data;
         }
     }
 }
