@@ -13,12 +13,12 @@ namespace Pozoriste.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TheatreController : ControllerBase
+    public class TheatresController : ControllerBase
     {
         private readonly ITheatreService _theatreService;
         private readonly IAddressService _addressService;
 
-        public TheatreController(ITheatreService theatreService, IAddressService addressService)
+        public TheatresController(ITheatreService theatreService, IAddressService addressService)
         {
             _theatreService = theatreService;
             _addressService = addressService;
