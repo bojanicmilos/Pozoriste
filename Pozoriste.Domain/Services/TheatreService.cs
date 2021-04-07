@@ -191,9 +191,38 @@ namespace Pozoriste.Domain.Services
             return theatreModel;
         }
 
-        public Task<IEnumerable<TheatreDomainModel>> GetAllAsync()
+        public async Task<IEnumerable<TheatreDomainModel>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var data = await _theatreRepository.GetAllAsync();
+
+            List<TheatreDomainModel> result = new List<TheatreDomainModel>();
+            TheatreDomainModel model;
+            foreach(var theatre in data)
+            {
+                model = new TheatreDomainModel
+                {
+                    Id = theatre.Id,
+                    Name = theatre.Name,
+                    AddressId = theatre.AddressId,
+                    AuditoriumsList = new List<AuditoriumDomainModel>()
+                };
+
+                foreach (var auditorium in theatre.Auditoriums)
+                {
+                    AuditoriumDomainModel auditoriumModel = new AuditoriumDomainModel
+                    {
+                        Id = auditorium.Id,
+                        TheatreId = theatre.Id,
+                        Name = auditorium.Name
+                    };
+
+                    model.AuditoriumsList.Add(auditoriumModel);
+                }
+
+                result.Add(model);
+            }
+
+            return result;
         }
     }
 }
