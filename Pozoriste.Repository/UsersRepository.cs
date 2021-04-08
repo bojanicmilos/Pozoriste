@@ -10,7 +10,7 @@ namespace Pozoriste.Repository
 {
     public interface IUsersRepository : IRepository<User>
     {
-
+        Task<User> GetByUserName(string username);
     }
     public class UsersRepository : IUsersRepository
     {
@@ -41,6 +41,14 @@ namespace Pozoriste.Repository
             var data = await _theatreContext.Users.FindAsync(id);
 
             return data;
+        }
+
+        public async Task<User> GetByUserName(string username)
+        {
+            var user = await _theatreContext.Users
+                .FirstOrDefaultAsync(user => user.UserName == username);
+
+            return user;
         }
 
         public User Insert(User obj)

@@ -52,6 +52,7 @@ namespace Pozoriste.API
             services.AddTransient<IUsersRepository, UsersRepository>();
             services.AddTransient<IShowsRepository, ShowsRepository>();
             services.AddTransient<ITheatreRepository, TheatresRepository>();
+            services.AddTransient<IUsersRepository, UsersRepository>();
 
             services.AddTransient<IReservationsRepository, ReservationsRepository>();
             // Services
@@ -62,7 +63,7 @@ namespace Pozoriste.API
             services.AddTransient<ITheatreService, TheatreService>();
             services.AddTransient<ISeatService, SeatService>();
             services.AddTransient<IAuditoriumService, AuditoriumService>();
-
+            services.AddTransient<IUserService, UserService>();
 
             services.AddTransient<IReservationService, ReservationService>();
 
