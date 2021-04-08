@@ -16,10 +16,12 @@ namespace Pozoriste.API.Controllers
     public class PiecesController : ControllerBase
     {
         private readonly IPieceService _pieceService;
+        private readonly IShowService _showService;
 
-        public PiecesController(IPieceService pieceService)
+        public PiecesController(IPieceService pieceService, IShowService showService)
         {
             _pieceService = pieceService;
+            _showService = showService;
         }
 
         [HttpGet]
@@ -168,5 +170,12 @@ namespace Pozoriste.API.Controllers
 
             return Accepted("pieces//" + deletedPiece.Id, deletedPiece);
         }
+
+/*        [HttpGet]
+        [Route("withFutureShows")]
+        public async Task<ActionResult<IEnumerable<PieceDomainModel>>> GetPieceWithFutureShows()
+        {
+            var showDomainModel = await _showService
+        }*/
     }
 }
