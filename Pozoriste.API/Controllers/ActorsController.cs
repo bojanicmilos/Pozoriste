@@ -54,7 +54,7 @@ namespace Pozoriste.API.Controllers
                 return BadRequest(Messages.ACTOR_CREATION_ERROR);
             }
 
-            return Created("actors//" + createActor.Id, createActor);
+            return CreatedAtAction(nameof(GetActorById), new { Id = createActor.Id }, createActor);
         }
 
         [HttpGet]

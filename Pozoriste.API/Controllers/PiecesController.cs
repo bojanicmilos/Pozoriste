@@ -37,7 +37,7 @@ namespace Pozoriste.API.Controllers
 
         [HttpGet]
         [Route("get/{id}")]
-        public async Task<ActionResult<PieceDomainModel1>> GetAsync(int id)
+        public async Task<ActionResult<PieceDomainModel1>> Get(int id)
         {
             PieceDomainModel1 piece;
 
@@ -53,7 +53,7 @@ namespace Pozoriste.API.Controllers
 
         [HttpGet]
         [Route("active")]
-        public async Task<ActionResult<IEnumerable<PieceDomainModel1>>> GetAsync()
+        public async Task<ActionResult<IEnumerable<PieceDomainModel1>>> GetActiveAsync()
         {
             IEnumerable<PieceDomainModel1> createPieceDomainModels;
 
@@ -145,7 +145,7 @@ namespace Pozoriste.API.Controllers
                 return BadRequest(errorResponse);
             }
 
-            return Created("pieces//" + createPiece.Id, createPiece);
+            return CreatedAtAction(nameof(Get), new { Id = createPiece.Id } , createPiece);
         }
 
         [HttpDelete]

@@ -93,7 +93,7 @@ namespace Pozoriste.API.Controllers
                 };
                 return BadRequest(errorResponse);
             }
-            return Created("Addresses //" + createAddress.Id, createAddress); 
+            return CreatedAtAction(nameof(GetAddressById), new { Id = createAddress.Id }, createAddress); 
         }
     }
 }
