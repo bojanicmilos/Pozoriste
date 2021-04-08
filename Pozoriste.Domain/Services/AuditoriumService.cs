@@ -98,7 +98,7 @@ namespace Pozoriste.Domain.Services
             return resultModel;
         }
 
-        public async Task<AuditoriumDomainModel> DeleteAuditorium(int Id)
+       /* public async Task<AuditoriumDomainModel> DeleteAuditorium(int Id)
         {
             var auditorium = await _auditoriumsRepository.GetByIdAsync(Id);
             if (auditorium == null)
@@ -108,7 +108,7 @@ namespace Pozoriste.Domain.Services
 
             var shows = await _showsRepository.GetByAuditoriumId(auditorium.Id);
 
-            if(shows != null)
+            if (shows != null)
             {
                 return null;
             }
@@ -120,14 +120,14 @@ namespace Pozoriste.Domain.Services
                 await _seatsRepository.Delete(seat.Id);
             }
 
-/*            foreach (var show in auditorium.Shows)
+*//*            foreach (var show in auditorium.Shows)
             {
                 await _showsRepository.Delete(show.Id);
-            }*/
+            }*//*
 
             await _auditoriumsRepository.Delete(auditorium.Id);
 
-/*            _showsRepository.Save();*/
+*//*            _showsRepository.Save();*//*
             _seatsRepository.Save();
             _auditoriumsRepository.Save();
 
@@ -137,7 +137,7 @@ namespace Pozoriste.Domain.Services
                 TheatreId = auditorium.TheatreId,
                 Name = auditorium.Name
             };
-        }
+        }*/
 
         public async Task<IEnumerable<AuditoriumDomainModel>> GetAllAuditoriums()
         {
