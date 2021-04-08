@@ -11,5 +11,6 @@ namespace Pozoriste.Domain.Interfaces
         Task<IEnumerable<AuditoriumDomainModel>> GetAllAuditoriums();
         Task<CreateAuditoriumResultModel> AddAuditorium(AuditoriumDomainModel domainModel, int numberOfRows, int numberOfSeats);
         Task<AuditoriumDomainModel> DeleteAuditorium(int Id);
+        IEnumerable<AuditoriumDomainModel> GetAuditoriumsByCinemaId(int cinemaId);
     }
 }

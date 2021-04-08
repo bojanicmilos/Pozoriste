@@ -119,5 +119,10 @@ namespace Pozoriste.Domain.Services
 
             return result;
         }
+
+        public IEnumerable<AuditoriumDomainModel> GetAuditoriumsByCinemaId(int cinemaId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
