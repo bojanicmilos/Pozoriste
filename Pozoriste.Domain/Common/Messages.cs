@@ -47,6 +47,8 @@ namespace Pozoriste.Domain.Common
         public const string AUDITORIUM_PROPERTY_NAME_NOT_VALID = "Ime sale ne moze biti duze od 50 znakova.";
         public const string AUDITORIUM_PROPERTY_SEATROWSNUMBER_NOT_VALID = "Broj sedista u sali mora biti između 1-20.";
         public const string AUDITORIUM_PROPERTY_SEATNUMBER_NOT_VALID = "Broj mesta u sali mora biti između 1-20.";
+        public const string AUDITORIUM_INVALID_CINEMAID = "Ne moze se kreirati nova sala, sala sa prosledjenim cinemaId-jem ne postoji.";
+        public const string AUDITORIUM_CREATION_ERROR = "Doslo je do greske prilikom kreiranja nove sale, pokusajte ponovo.";
         #endregion
         #region Seats
         public const string SEAT_DOES_NOT_EXIST_FOR_AUDITORIUM = "Zahtevana sedista za rezervaciju ne postoje u auditoriujumu";
