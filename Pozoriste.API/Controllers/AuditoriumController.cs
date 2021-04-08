@@ -84,7 +84,7 @@ namespace Pozoriste.API.Controllers
             return Created("auditoriums//" + createAuditoriumResultModel.Auditorium.Id, createAuditoriumResultModel.Auditorium);
         }
 
-/*        [HttpDelete]
+        [HttpDelete]
         [Route("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
@@ -103,7 +103,7 @@ namespace Pozoriste.API.Controllers
                 return BadRequest(errorResponse);
             }
 
-            if(deleteAudit == null)
+            if (deleteAudit == null)
             {
                 ErrorResponseModel errorResponse = new ErrorResponseModel
                 {
@@ -114,6 +114,6 @@ namespace Pozoriste.API.Controllers
             }
 
             return Accepted("auditorium//" + deleteAudit.Id, deleteAudit);
-        }*/
+        }
     }
 }

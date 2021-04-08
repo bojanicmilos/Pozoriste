@@ -55,7 +55,9 @@ namespace Pozoriste.Repository
 
         public async Task<Auditorium> GetByIdAsync(int id)
         {
-            var data = await _theatreContext.Auditoriums.FindAsync(id);
+            var data = await _theatreContext.Auditoriums
+                .Include(x => x.Shows)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             return data;
         }

@@ -18,10 +18,12 @@ namespace Pozoriste.Domain.Services
         private readonly ISeatsRepository _seatsRepository;
         private IShowsRepository _showsRepository;
 
-        public AuditoriumService(IAuditoriumsRepository auditoriumsRepository, ITheatreRepository theatreRepository)
+        public AuditoriumService(IAuditoriumsRepository auditoriumsRepository, ITheatreRepository theatreRepository, ISeatsRepository seatsRepository, IShowsRepository showsRepository)
         {
             _auditoriumsRepository = auditoriumsRepository;
             _theatreRepository = theatreRepository;
+            _seatsRepository = seatsRepository;
+            _showsRepository = showsRepository;
         }
 
         public async Task<CreateAuditoriumResultModel> AddAuditorium(AuditoriumDomainModel domainModel, int numberOfRows, int numberOfSeats)
@@ -98,7 +100,7 @@ namespace Pozoriste.Domain.Services
             return resultModel;
         }
 
-       /* public async Task<AuditoriumDomainModel> DeleteAuditorium(int Id)
+        public async Task<AuditoriumDomainModel> DeleteAuditorium(int Id)
         {
             var auditorium = await _auditoriumsRepository.GetByIdAsync(Id);
             if (auditorium == null)
@@ -106,9 +108,9 @@ namespace Pozoriste.Domain.Services
                 return null;
             }
 
-            var shows = await _showsRepository.GetByAuditoriumId(auditorium.Id);
+            var futureShows = auditorium.Shows.Any(show => show.ShowTime > DateTime.Now);
 
-            if (shows != null)
+            if (futureShows)
             {
                 return null;
             }
@@ -120,14 +122,14 @@ namespace Pozoriste.Domain.Services
                 await _seatsRepository.Delete(seat.Id);
             }
 
-*//*            foreach (var show in auditorium.Shows)
+            foreach (var show in auditorium.Shows)
             {
                 await _showsRepository.Delete(show.Id);
-            }*//*
+            }
 
             await _auditoriumsRepository.Delete(auditorium.Id);
 
-*//*            _showsRepository.Save();*//*
+            _showsRepository.Save();
             _seatsRepository.Save();
             _auditoriumsRepository.Save();
 
@@ -137,7 +139,7 @@ namespace Pozoriste.Domain.Services
                 TheatreId = auditorium.TheatreId,
                 Name = auditorium.Name
             };
-        }*/
+        }
 
         public async Task<IEnumerable<AuditoriumDomainModel>> GetAllAuditoriums()
         {
