@@ -61,5 +61,8 @@ namespace Pozoriste.Domain.Common
         public const string SEATS_ALREADY_TAKEN_ERROR = "Sedista su vec zauzeta";
         public const string SEAT_AUDITORIUM_NOT_FOUND = "Nisu pronadjena sedista za auditorium.";
         #endregion
+        #region Users
+        public const string USER_NOT_FOUND = "Korisnik nije pronadjen.";
+        #endregion
     }
 }
