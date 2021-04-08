@@ -11,7 +11,7 @@ namespace Pozoriste.Repository
 {
     public interface IShowsRepository : IRepository<Show>
     {
-        IEnumerable<Show> GetByAuditoriumId(int auditoriumId);
+        Task<IEnumerable<Show>> GetByAuditoriumId(int auditoriumId);
         Task<IEnumerable<Show>> GetFutureProjections();
         Task<IEnumerable<Show>> GetFutureProjectionsByPieceIdAsync(int pieceId);
     }
@@ -45,9 +45,9 @@ namespace Pozoriste.Repository
             return data;
         }
 
-        public IEnumerable<Show> GetByAuditoriumId(int auditoriumId)
+        public async Task<IEnumerable<Show>> GetByAuditoriumId(int auditoriumId)
         {
-            var showsData = _theatreContext.Shows.Where(x => x.AuditoriumId == auditoriumId);
+            var showsData = await _theatreContext.Shows.Where(x => x.AuditoriumId == auditoriumId).ToListAsync();
 
             return showsData;
         }
