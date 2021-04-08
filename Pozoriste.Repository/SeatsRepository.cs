@@ -49,6 +49,7 @@ namespace Pozoriste.Repository
         public async Task<IEnumerable<Seat>> GetSeatsByAuditoriumId(int auditoriumId)
         {
             var seats = await _theatreContext.Seats
+                .Include(x => x.Auditorium)
                 .Where(seat => seat.AuditoriumId == auditoriumId)
                 .ToListAsync();
 

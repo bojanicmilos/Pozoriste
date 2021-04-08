@@ -47,7 +47,9 @@ namespace Pozoriste.Repository
 
         public async Task<IEnumerable<Show>> GetByAuditoriumId(int auditoriumId)
         {
-            var showsData = await _theatreContext.Shows.Where(x => x.AuditoriumId == auditoriumId).ToListAsync();
+            var showsData = await _theatreContext.Shows
+                .Include(x => x.Auditorium)
+                .Where(x => x.AuditoriumId == auditoriumId).ToListAsync();
 
             return showsData;
         }
