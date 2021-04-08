@@ -157,6 +157,26 @@ namespace Pozoriste.Domain.Services
             };
         }
 
+        public async Task<PieceDomainModel> GetPieceByIdAsyncc(int Id)
+        {
+            var data = await _pieceRepository.GetByIdAsync(Id);
+
+            if (data == null)
+            {
+                return null;
+            }
+
+            return new PieceDomainModel
+            {
+                Id = data.Id,
+                Description = data.Description,
+                Genre = data.Genre,
+                isActive = data.IsActive,
+                Title = data.Title,
+                Year = data.Year
+            };
+        }
+
         public async Task<IEnumerable<PieceDomainModel>> GetTop10ByYearAsync(int year)
         {
             var data = await _pieceRepository.GetTop10ByYearAsync(year);
@@ -184,6 +204,44 @@ namespace Pozoriste.Domain.Services
             }
 
             return result;
+        }
+
+        public async Task<PieceDomainModel> UpdatePiece(PieceDomainModel updatePiece)
+        {
+            Piece piece = await _pieceRepository.GetByIdAsync(updatePiece.Id);
+
+            if(piece == null)
+            {
+                return null;
+            }
+
+            Piece pieceToUpdate = new Piece()
+            {
+                Id = piece.Id,
+                Title = updatePiece.Title,
+                Description = updatePiece.Description,
+                Genre = updatePiece.Genre,
+                IsActive = updatePiece.isActive,
+                Year = updatePiece.Year
+            };
+
+            Piece data = _pieceRepository.Update(pieceToUpdate);
+
+            if(data == null)
+            {
+                return null;
+            }
+
+            _pieceRepository.Save();
+
+            return new PieceDomainModel()
+            {
+                Id = data.Id,
+                Title = data.Title,
+                Description = data.Description,
+                Genre = data.Genre,
+                Year = data.Year
+            };
         }
     }
 }

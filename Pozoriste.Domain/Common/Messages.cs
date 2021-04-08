@@ -35,6 +35,7 @@ namespace Pozoriste.Domain.Common
         public const string SHOW_IN_THE_PAST = "Nije moguce dodati show za datum u proslosti.";
         public const string SHOW_DOES_NOT_EXIST_FOR_RESERVATION = "Neophodno je odabrati odgovarajucu predstavu za rezervaciju.";
         public const string USER_FOR_RESERVATION_DOES_NOT_EXIST = "Please login to make reservation.";
+        public const string SHOW_FOR_THAT_PIECE_ARE_STILL_ONGOING = "Predstave za komad jos uvek traju.";
 
         #endregion
         #region Theatres
@@ -59,7 +60,5 @@ namespace Pozoriste.Domain.Common
         public const string SEATS_ALREADY_TAKEN_ERROR = "Sedista su vec zauzeta";
         public const string SEAT_AUDITORIUM_NOT_FOUND = "Nisu pronadjena sedista za auditorium.";
         #endregion
-
-
     }
 }
