@@ -79,7 +79,7 @@ namespace Pozoriste.Domain.Services
             };
         }
 
-        public async Task<IEnumerable<CreatePieceDomainModel>> GetAllPieces()
+        public async Task<IEnumerable<PieceDomainModel1>> GetAllPieces()
         {
             var data = await _pieceRepository.GetAllAsync();
 
@@ -88,11 +88,11 @@ namespace Pozoriste.Domain.Services
                 return null;
             }
 
-            List<CreatePieceDomainModel> result = new List<CreatePieceDomainModel>();
+            List<PieceDomainModel1> result = new List<PieceDomainModel1>();
 
             foreach(var item in data)
             {
-                CreatePieceDomainModel piece = new CreatePieceDomainModel()
+                PieceDomainModel1 piece = new PieceDomainModel1()
                 {
                     Description = item.Description,
                     Genre = item.Genre.ToString() == "COMEDY" ? "Komedija" : item.Genre.ToString() == "DRAMA" ? "Drama" : item.Genre.ToString() == "TRAGEDY" ? "Tragedija" : "",
@@ -108,7 +108,7 @@ namespace Pozoriste.Domain.Services
             return result;
         }
 
-        public async Task<IEnumerable<CreatePieceDomainModel>> GetAllPieces(bool? isActive)
+        public async Task<IEnumerable<PieceDomainModel1>> GetAllPieces(bool? isActive)
         {
             var data = await _pieceRepository.GetActivePiecesAsync();
 
@@ -117,11 +117,11 @@ namespace Pozoriste.Domain.Services
                 return null;
             }
 
-            List<CreatePieceDomainModel> result = new List<CreatePieceDomainModel>();
+            List<PieceDomainModel1> result = new List<PieceDomainModel1>();
 
             foreach(var item in data)
             {
-                CreatePieceDomainModel piece = new CreatePieceDomainModel
+                PieceDomainModel1 piece = new PieceDomainModel1
                 {
                     Id = item.Id,
                     Description = item.Description,
@@ -137,7 +137,7 @@ namespace Pozoriste.Domain.Services
             return result;
         }
 
-        public async Task<CreatePieceDomainModel> GetPieceByIdAsync(int Id)
+        public async Task<PieceDomainModel1> GetPieceByIdAsync(int Id)
         {
             var data = await _pieceRepository.GetByIdAsync(Id);
 
@@ -146,7 +146,7 @@ namespace Pozoriste.Domain.Services
                 return null;
             }
 
-            return new CreatePieceDomainModel
+            return new PieceDomainModel1
             {
                 Id = data.Id,
                 Description = data.Description,

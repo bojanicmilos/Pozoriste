@@ -24,9 +24,9 @@ namespace Pozoriste.API.Controllers
 
         [HttpGet]
         [Route("get/{id}")]
-        public async Task<ActionResult<CreatePieceDomainModel>> GetAsync(int id)
+        public async Task<ActionResult<PieceDomainModel1>> GetAsync(int id)
         {
-            CreatePieceDomainModel piece;
+            PieceDomainModel1 piece;
 
             piece = await _pieceService.GetPieceByIdAsync(id);
 
@@ -40,15 +40,15 @@ namespace Pozoriste.API.Controllers
 
         [HttpGet]
         [Route("active")]
-        public async Task<ActionResult<IEnumerable<CreatePieceDomainModel>>> GetAsync()
+        public async Task<ActionResult<IEnumerable<PieceDomainModel1>>> GetAsync()
         {
-            IEnumerable<CreatePieceDomainModel> createPieceDomainModels;
+            IEnumerable<PieceDomainModel1> createPieceDomainModels;
 
             createPieceDomainModels = await _pieceService.GetAllPieces(true);
 
             if(createPieceDomainModels.Count() == 0)
             {
-                createPieceDomainModels = new List<CreatePieceDomainModel>();
+                createPieceDomainModels = new List<PieceDomainModel1>();
             }
 
             return Ok(createPieceDomainModels);
@@ -72,15 +72,15 @@ namespace Pozoriste.API.Controllers
 
         [HttpGet]
         [Route("all")]
-        public async Task<ActionResult<IEnumerable<CreatePieceDomainModel>>> GetAllAsync()
+        public async Task<ActionResult<IEnumerable<PieceDomainModel1>>> GetAllAsync()
         {
-            IEnumerable<CreatePieceDomainModel> createPieceDomainModels;
+            IEnumerable<PieceDomainModel1> createPieceDomainModels;
 
             createPieceDomainModels = await _pieceService.GetAllPieces();
 
             if(createPieceDomainModels.Count() == 0)
             {
-                createPieceDomainModels = new List<CreatePieceDomainModel>();
+                createPieceDomainModels = new List<PieceDomainModel1>();
             }
 
             return Ok(createPieceDomainModels);
