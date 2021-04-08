@@ -16,17 +16,30 @@ namespace Pozoriste.API.Controllers
     public class PiecesController : ControllerBase
     {
         private readonly IPieceService _pieceService;
+        private readonly IShowService _showService;
 
-        public PiecesController(IPieceService pieceService)
+        public PiecesController(IPieceService pieceService, IShowService showService)
         {
             _pieceService = pieceService;
+            _showService = showService;
+        }
+
+        private bool isInList(List<PieceDomainModel> pieceDomainModels, int pieceId)
+        {
+            foreach (var item in pieceDomainModels)
+            {
+                if (item.Id == pieceId)
+                    return true;
+            }
+
+            return false;
         }
 
         [HttpGet]
         [Route("get/{id}")]
         public async Task<ActionResult<CreatePieceDomainModel>> Get(int id)
         {
-            CreatePieceDomainModel piece;
+            PieceDomainModel1 piece;
 
             piece = await _pieceService.GetPieceByIdAsync(id);
 
@@ -42,13 +55,13 @@ namespace Pozoriste.API.Controllers
         [Route("active")]
         public async Task<ActionResult<IEnumerable<CreatePieceDomainModel>>> GetActiveAsync()
         {
-            IEnumerable<CreatePieceDomainModel> createPieceDomainModels;
+            IEnumerable<PieceDomainModel1> createPieceDomainModels;
 
             createPieceDomainModels = await _pieceService.GetAllPieces(true);
 
             if(createPieceDomainModels.Count() == 0)
             {
-                createPieceDomainModels = new List<CreatePieceDomainModel>();
+                createPieceDomainModels = new List<PieceDomainModel1>();
             }
 
             return Ok(createPieceDomainModels);
@@ -72,15 +85,15 @@ namespace Pozoriste.API.Controllers
 
         [HttpGet]
         [Route("all")]
-        public async Task<ActionResult<IEnumerable<CreatePieceDomainModel>>> GetAllAsync()
+        public async Task<ActionResult<IEnumerable<PieceDomainModel1>>> GetAllAsync()
         {
-            IEnumerable<CreatePieceDomainModel> createPieceDomainModels;
+            IEnumerable<PieceDomainModel1> createPieceDomainModels;
 
             createPieceDomainModels = await _pieceService.GetAllPieces();
 
             if(createPieceDomainModels.Count() == 0)
             {
-                createPieceDomainModels = new List<CreatePieceDomainModel>();
+                createPieceDomainModels = new List<PieceDomainModel1>();
             }
 
             return Ok(createPieceDomainModels);
@@ -167,6 +180,68 @@ namespace Pozoriste.API.Controllers
             }
 
             return Accepted("pieces//" + deletedPiece.Id, deletedPiece);
+        }
+
+        [HttpGet]
+        [Route("withFutureShows")]
+        public async Task<ActionResult<IEnumerable<PieceDomainModel>>> GetPieceWithFutureShows()
+        {
+            var showDomainModel = await _showService.GetFutureShows();
+
+            List<PieceDomainModel> pieceDomainModels = new List<PieceDomainModel>();
+
+            foreach (var item in showDomainModel)
+            {
+                if (!isInList(pieceDomainModels, item.PieceId))
+                {
+                    pieceDomainModels.Add(new PieceDomainModel()
+                    {
+                        Id = item.PieceId,
+                        Title = item.PieceTitle
+                    });
+                }
+            }
+
+            return Ok(pieceDomainModels);
+        }
+
+        [HttpPut]
+        [Route("activateDeactivate/{id}")]
+        public async Task<ActionResult<PieceDomainModel>> ActivateDeactivePiece(int id)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var futureShows = await _showService.GetFutureShowsByPieceId(id);
+
+            if(futureShows.Count() > 0)
+            {
+                return BadRequest(Messages.SHOWS_AT_THE_SAME_TIME);
+            }
+
+            PieceDomainModel pieceToUpdate = await _pieceService.GetPieceByIdAsyncc(id);
+
+            pieceToUpdate.isActive = !pieceToUpdate.isActive;
+
+            PieceDomainModel pieceDomainModel;
+            try
+            {
+                pieceDomainModel = await _pieceService.UpdatePiece(pieceToUpdate);
+            }
+            catch (DbUpdateException e)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel
+                {
+                    ErrorMessage = e.InnerException.Message ?? e.Message,
+                    StatusCode = System.Net.HttpStatusCode.BadRequest
+                };
+
+                return BadRequest(errorResponse);
+            }
+
+            return Accepted("activate-deactivate//" + pieceDomainModel.Id, pieceDomainModel);
         }
     }
 }

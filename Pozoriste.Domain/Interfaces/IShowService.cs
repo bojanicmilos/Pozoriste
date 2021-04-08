@@ -10,5 +10,8 @@ namespace Pozoriste.Domain.Interfaces
     {
         Task<IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel>> GetAllShowsAsync();
         Task<ShowResultModel> AddShow(ShowDomainModel requestedShow);
+        Task<IEnumerable<ShowDomainModel>> GetFutureShows();
+        Task<IEnumerable<ShowDomainModel>> GetFutureShowsByPieceId(int id);
+        Task<IEnumerable<ShowDomainModel>> GetFutureShowsByPieceId(PieceDomainModel domainModel);
     }
 }

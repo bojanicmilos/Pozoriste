@@ -61,6 +61,7 @@ namespace Pozoriste.API
             services.AddTransient<IAddressService, AddressService>();
             services.AddTransient<ITheatreService, TheatreService>();
             services.AddTransient<ISeatService, SeatService>();
+            services.AddTransient<IAuditoriumService, AuditoriumService>();
 
 
             services.AddTransient<IReservationService, ReservationService>();

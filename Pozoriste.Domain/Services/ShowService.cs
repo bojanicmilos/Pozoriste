@@ -209,5 +209,61 @@ namespace Pozoriste.Domain.Services
 
             return domainModels;
         }
+
+        public async Task<IEnumerable<ShowDomainModel>> GetFutureShows()
+        {
+            var shows = await _showsRepository.GetFutureProjections();
+
+            return shows.Select(show => new ShowDomainModel()
+            {
+                Id = show.Id,
+                AuditoriumId = show.AuditoriumId,
+                PieceId = show.PieceId,
+                ShowTime = show.ShowTime,
+                TicketPrice = show.TicketPrice
+            });
+        }
+
+        public async Task<IEnumerable<ShowDomainModel>> GetFutureShowsByPieceId(int id)
+        {
+            var shows = await _showsRepository.GetFutureProjectionsByPieceIdAsync(id);
+
+            if(shows == null)
+            {
+                return null;
+            }
+
+            var showsList = shows.Select(show => new ShowDomainModel
+            {
+                Id = show.Id,
+                AuditoriumId = show.AuditoriumId,
+                PieceId = show.PieceId,
+                ShowTime = show.ShowTime,
+                TicketPrice = show.TicketPrice
+            });
+
+            return showsList;
+        }
+
+        public async Task<IEnumerable<ShowDomainModel>> GetFutureShowsByPieceId(PieceDomainModel domainModel)
+        {
+            var shows = await _showsRepository.GetFutureProjectionsByPieceIdAsync(domainModel.Id);
+
+            if(shows == null)
+            {
+                return null;
+            }
+
+            var showsList = shows.Select(show => new ShowDomainModel
+            {
+                Id = show.Id,
+                AuditoriumId = show.AuditoriumId,
+                PieceId = show.PieceId,
+                ShowTime = show.ShowTime,
+                TicketPrice = show.TicketPrice
+            });
+
+            return showsList;
+        }
     }
 }

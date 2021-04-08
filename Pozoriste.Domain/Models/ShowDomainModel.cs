@@ -11,6 +11,7 @@ namespace Pozoriste.Domain.Models
         public double TicketPrice { get; set; }
         public int AuditoriumId { get; set; }
         public int PieceId { get; set; }
+        public string PieceTitle { get; set; }
         public List<ActorDomainModel> ActorsList { get; set; }
 
     }

@@ -35,6 +35,7 @@ namespace Pozoriste.Domain.Common
         public const string SHOW_IN_THE_PAST = "Nije moguce dodati show za datum u proslosti.";
         public const string SHOW_DOES_NOT_EXIST_FOR_RESERVATION = "Neophodno je odabrati odgovarajucu predstavu za rezervaciju.";
         public const string USER_FOR_RESERVATION_DOES_NOT_EXIST = "Please login to make reservation.";
+        public const string SHOW_FOR_THAT_PIECE_ARE_STILL_ONGOING = "Predstave za komad jos uvek traju.";
 
         #endregion
         #region Theatres
@@ -47,6 +48,9 @@ namespace Pozoriste.Domain.Common
         public const string AUDITORIUM_PROPERTY_NAME_NOT_VALID = "Ime sale ne moze biti duze od 50 znakova.";
         public const string AUDITORIUM_PROPERTY_SEATROWSNUMBER_NOT_VALID = "Broj sedista u sali mora biti između 1-20.";
         public const string AUDITORIUM_PROPERTY_SEATNUMBER_NOT_VALID = "Broj mesta u sali mora biti između 1-20.";
+        public const string AUDITORIUM_INVALID_CINEMAID = "Ne moze se kreirati nova sala, sala sa prosledjenim cinemaId-jem ne postoji.";
+        public const string AUDITORIUM_CREATION_ERROR = "Doslo je do greske prilikom kreiranja nove sale, pokusajte ponovo.";
+        public const string AUDITORIUM_NOT_FOUND = "Sala ne postoji.";
         #endregion
         #region Seats
         public const string SEAT_DOES_NOT_EXIST_FOR_AUDITORIUM = "Zahtevana sedista za rezervaciju ne postoje u auditoriujumu";
@@ -56,7 +60,5 @@ namespace Pozoriste.Domain.Common
         public const string SEATS_ALREADY_TAKEN_ERROR = "Sedista su vec zauzeta";
         public const string SEAT_AUDITORIUM_NOT_FOUND = "Nisu pronadjena sedista za auditorium.";
         #endregion
-
-
     }
 }

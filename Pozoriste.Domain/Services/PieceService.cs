@@ -79,7 +79,7 @@ namespace Pozoriste.Domain.Services
             };
         }
 
-        public async Task<IEnumerable<CreatePieceDomainModel>> GetAllPieces()
+        public async Task<IEnumerable<PieceDomainModel1>> GetAllPieces()
         {
             var data = await _pieceRepository.GetAllAsync();
 
@@ -88,11 +88,11 @@ namespace Pozoriste.Domain.Services
                 return null;
             }
 
-            List<CreatePieceDomainModel> result = new List<CreatePieceDomainModel>();
+            List<PieceDomainModel1> result = new List<PieceDomainModel1>();
 
             foreach(var item in data)
             {
-                CreatePieceDomainModel piece = new CreatePieceDomainModel()
+                PieceDomainModel1 piece = new PieceDomainModel1()
                 {
                     Description = item.Description,
                     Genre = item.Genre.ToString() == "COMEDY" ? "Komedija" : item.Genre.ToString() == "DRAMA" ? "Drama" : item.Genre.ToString() == "TRAGEDY" ? "Tragedija" : "",
@@ -108,7 +108,7 @@ namespace Pozoriste.Domain.Services
             return result;
         }
 
-        public async Task<IEnumerable<CreatePieceDomainModel>> GetAllPieces(bool? isActive)
+        public async Task<IEnumerable<PieceDomainModel1>> GetAllPieces(bool? isActive)
         {
             var data = await _pieceRepository.GetActivePiecesAsync();
 
@@ -117,11 +117,11 @@ namespace Pozoriste.Domain.Services
                 return null;
             }
 
-            List<CreatePieceDomainModel> result = new List<CreatePieceDomainModel>();
+            List<PieceDomainModel1> result = new List<PieceDomainModel1>();
 
             foreach(var item in data)
             {
-                CreatePieceDomainModel piece = new CreatePieceDomainModel
+                PieceDomainModel1 piece = new PieceDomainModel1
                 {
                     Id = item.Id,
                     Description = item.Description,
@@ -137,7 +137,7 @@ namespace Pozoriste.Domain.Services
             return result;
         }
 
-        public async Task<CreatePieceDomainModel> GetPieceByIdAsync(int Id)
+        public async Task<PieceDomainModel1> GetPieceByIdAsync(int Id)
         {
             var data = await _pieceRepository.GetByIdAsync(Id);
 
@@ -146,11 +146,31 @@ namespace Pozoriste.Domain.Services
                 return null;
             }
 
-            return new CreatePieceDomainModel
+            return new PieceDomainModel1
             {
                 Id = data.Id,
                 Description = data.Description,
                 Genre = data.Genre.ToString() == "COMEDY" ? "Komedija" : data.Genre.ToString() == "DRAMA" ? "Drama" : data.Genre.ToString() == "TRAGEDY" ? "Tragedija" : "",
+                isActive = data.IsActive,
+                Title = data.Title,
+                Year = data.Year
+            };
+        }
+
+        public async Task<PieceDomainModel> GetPieceByIdAsyncc(int Id)
+        {
+            var data = await _pieceRepository.GetByIdAsync(Id);
+
+            if (data == null)
+            {
+                return null;
+            }
+
+            return new PieceDomainModel
+            {
+                Id = data.Id,
+                Description = data.Description,
+                Genre = data.Genre,
                 isActive = data.IsActive,
                 Title = data.Title,
                 Year = data.Year
@@ -184,6 +204,44 @@ namespace Pozoriste.Domain.Services
             }
 
             return result;
+        }
+
+        public async Task<PieceDomainModel> UpdatePiece(PieceDomainModel updatePiece)
+        {
+            Piece piece = await _pieceRepository.GetByIdAsync(updatePiece.Id);
+
+            if(piece == null)
+            {
+                return null;
+            }
+
+            Piece pieceToUpdate = new Piece()
+            {
+                Id = piece.Id,
+                Title = updatePiece.Title,
+                Description = updatePiece.Description,
+                Genre = updatePiece.Genre,
+                IsActive = updatePiece.isActive,
+                Year = updatePiece.Year
+            };
+
+            Piece data = _pieceRepository.Update(pieceToUpdate);
+
+            if(data == null)
+            {
+                return null;
+            }
+
+            _pieceRepository.Save();
+
+            return new PieceDomainModel()
+            {
+                Id = data.Id,
+                Title = data.Title,
+                Description = data.Description,
+                Genre = data.Genre,
+                Year = data.Year
+            };
         }
     }
 }

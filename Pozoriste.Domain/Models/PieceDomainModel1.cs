@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pozoriste.Domain.Models
 {
-    public class CreatePieceDomainModel
+    public class PieceDomainModel1
     {
         public int Id { get; set; }
         public string Title { get; set; }
