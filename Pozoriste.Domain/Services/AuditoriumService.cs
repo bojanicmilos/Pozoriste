@@ -5,6 +5,7 @@ using Pozoriste.Domain.Models;
 using Pozoriste.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -122,7 +123,18 @@ namespace Pozoriste.Domain.Services
 
         public IEnumerable<AuditoriumDomainModel> GetAuditoriumsByCinemaId(int cinemaId)
         {
-            throw new NotImplementedException();
+            var audits = _auditoriumsRepository.GetAuditoriumsByCinemaId(cinemaId);
+
+            List<AuditoriumDomainModel> auditList = new List<AuditoriumDomainModel>();
+
+            auditList = audits.Select(a => new AuditoriumDomainModel
+            {
+                TheatreId = a.TheatreId,
+                Id = a.Id,
+                Name = a.Name
+            }).ToList();
+
+            return auditList;
         }
     }
 }
