@@ -15,6 +15,8 @@ namespace Pozoriste.Domain.Services
     {
         private readonly IAuditoriumsRepository _auditoriumsRepository;
         private readonly ITheatreRepository _theatreRepository;
+        private readonly ISeatsRepository _seatsRepository;
+        private IShowsRepository _showsRepository;
 
         public AuditoriumService(IAuditoriumsRepository auditoriumsRepository, ITheatreRepository theatreRepository)
         {
@@ -96,10 +98,28 @@ namespace Pozoriste.Domain.Services
             return resultModel;
         }
 
-        public Task<AuditoriumDomainModel> DeleteAuditorium(int Id)
+/*        public async Task<AuditoriumDomainModel> DeleteAuditorium(int Id)
         {
-            throw new NotImplementedException();
-        }
+            var auditorium = await _auditoriumsRepository.GetByIdAsync(Id);
+            if(auditorium == null)
+            {
+                return null;
+            }
+
+            var shows = await _showsRepository
+
+            foreach (var show in auditorium.Shows)
+            {
+                await _showsRepository.Delete(show.Id);
+            }
+
+            var seats = await _seatsRepository.GetSeatsByAuditoriumId(auditorium.Id);
+
+            foreach (var seat in seats)
+            {
+                await _seatsRepository.Delete(seat.Id);
+            }
+        }*/
 
         public async Task<IEnumerable<AuditoriumDomainModel>> GetAllAuditoriums()
         {
