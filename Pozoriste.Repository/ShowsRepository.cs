@@ -3,6 +3,7 @@ using Pozoriste.Data.Context;
 using Pozoriste.Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,9 @@ namespace Pozoriste.Repository
 {
     public interface IShowsRepository : IRepository<Show>
     {
-
+        Task<IEnumerable<Show>> GetByAuditoriumId(int auditoriumId);
+        Task<IEnumerable<Show>> GetFutureProjections();
+        Task<IEnumerable<Show>> GetFutureProjectionsByPieceIdAsync(int pieceId);
     }
     public class ShowsRepository : IShowsRepository
     {
@@ -42,6 +45,13 @@ namespace Pozoriste.Repository
             return data;
         }
 
+        public async Task<IEnumerable<Show>> GetByAuditoriumId(int auditoriumId)
+        {
+            var showsData = await _theatreContext.Shows.Where(x => x.AuditoriumId == auditoriumId).ToListAsync();
+
+            return showsData;
+        }
+
         public async Task<Show> GetByIdAsync(int id)
         {
             var data = await _theatreContext.Shows
@@ -50,6 +60,28 @@ namespace Pozoriste.Repository
                 .FirstOrDefaultAsync(show => show.Id == id);
 
             return data;
+        }
+
+        public async Task<IEnumerable<Show>> GetFutureProjections()
+        {
+            var shows = await _theatreContext.Shows
+                .Include(x => x.Piece)
+                .Include(x => x.Auditorium)
+                .ThenInclude(x => x.Theatre)
+                .Where(x => x.ShowTime.CompareTo(DateTime.Now) > 0).ToListAsync();
+
+            return shows;
+        }
+
+        public async Task<IEnumerable<Show>> GetFutureProjectionsByPieceIdAsync(int pieceId)
+        {
+            var shows = await _theatreContext.Shows
+                .Include(x => x.Auditorium)
+                .ThenInclude(x => x.Theatre)
+                .Include(x => x.Piece)
+                .Where(x => x.ShowTime.CompareTo(DateTime.Now) > 0 && x.PieceId.Equals(pieceId)).ToListAsync();
+
+            return shows;
         }
 
         public Show Insert(Show obj)
