@@ -1,0 +1,37 @@
+#root {
+    font-family: sans-serif;
+}
+.flex-container {
+    height: 65px;
+    background-color: rgb(48, 47, 44);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.title {
+    position: absolute;
+    font-size: 1.5em;
+    left: 20px;
+    color: rgb(237, 237, 235);
+}
+
+.flex-item {
+    margin: 3px;
+}
+
+.label {
+    color: rgb(237, 237, 235);
+}
+
+.username-input {
+    border-radius: 4px;
+    
+}
+
+.username-input:focus {
+    outline: 0;
+    
+}
+
+
