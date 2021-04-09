@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Pozoriste.Tests.Controllers
 {
     [TestClass]
-    public class AddressControllerTests
+    public class AddressesControllerTests
     {
         private Mock<IAddressService> _addressService;
 
