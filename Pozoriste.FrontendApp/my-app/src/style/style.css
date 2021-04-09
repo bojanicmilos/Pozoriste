@@ -52,4 +52,14 @@
     color: rgb(237, 237, 235);
 }
 
+.user-page {
+    margin-top: 80px;
+    margin-left: 20px;
+}
+
+.user-page-no-login {
+    margin-top: 80px;
+    margin-left: 20px;
+}
+
 

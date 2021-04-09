@@ -3,12 +3,17 @@ import '../style/style.css'
 import { useState } from 'react'
 import { serviceConfig } from '../AppSettings/serviceConfig'
 import { Link } from 'react-router-dom'
+import { isUserLogged } from './globalStorage/IsUserLogged'
+import { useHistory } from "react-router-dom";
 
 const LoginHeader = () => {
     const [username, setUsername] = useState('')
     const [isLogoutHidden, setIsLogoutHidden] = useState(true)
     const [isInputHidden, setIsInputHidden] = useState(false)
     const [isLoginHidden, setIsLoginHidden] = useState(false)
+
+    let history = useHistory();
+
 
     const handleChange = (e) => {
         setUsername(e.target.value)
@@ -22,6 +27,7 @@ const LoginHeader = () => {
             login();
         }
 
+
     }
 
     const handleSubmitLogout = (e) => {
@@ -34,6 +40,7 @@ const LoginHeader = () => {
         setIsLoginHidden(false)
         setIsInputHidden(false)
         setUsername('')
+        history.push('/')
     };
 
     const login = () => {
@@ -77,12 +84,12 @@ const LoginHeader = () => {
         <>
             <div className='sticky-container'>
                 <div className='flex-container'>
-                    <Link to='/showlist' className='title'>Pozorište</Link>
-                    <Link to='/userprofile' className='user-profile'>Profil</Link>
+                    <Link to='/showlist' className='title'>Pozoriste</Link>
+                    {isUserLogged() && <Link to='/userprofile' className='user-profile'>Profil</Link>}
                     <form type='text'>
                         {!isInputHidden && <>
                             <label className='label' htmlFor='username'></label>
-                            <input placeholder='Korisničko ime' onChange={handleChange} value={username} className='username-input' type='text' id='username' /></>}
+                            <input placeholder='Korisnicko ime' onChange={handleChange} value={username} className='username-input' type='text' id='username' /></>}
                         {!isLoginHidden && <button id='login' type='submit' onClick={handleSubmit} className='flex-item btn btn-warning'>
                             Login
                     </button>}
