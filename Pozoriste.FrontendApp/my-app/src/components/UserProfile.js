@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import serviceConfig from '../../AppSettings/serviceConfig'
+import serviceConfig from '../AppSettings/serviceConfig.js'
 
 
 const UserProfile = () => {
@@ -13,25 +13,20 @@ const UserProfile = () => {
     }, [])
 
     const getUserByUsername = () => {
-        let userName = getUserName();
+        //let userName = getUserName();
 
         const requestOptions = {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json',
-                //Authorization: `Bearer ${localStorage.getItem("role")}`
+                'Content-Type': 'application/json'
             }
         }
-
-
     }
-
     return (
         <div>
-
+            User profile
         </div>
     )
 }
 
 export default UserProfile
-

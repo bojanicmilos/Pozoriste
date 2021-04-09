@@ -12,8 +12,8 @@ namespace Pozoriste.Repository
     public interface IShowsRepository : IRepository<Show>
     {
         Task<IEnumerable<Show>> GetByAuditoriumId(int auditoriumId);
-        Task<IEnumerable<Show>> GetFutureProjections();
-        Task<IEnumerable<Show>> GetFutureProjectionsByPieceIdAsync(int pieceId);
+        Task<IEnumerable<Show>> GetFutureShows();
+        Task<IEnumerable<Show>> GetFutureShowsByPieceIdAsync(int pieceId);
     }
     public class ShowsRepository : IShowsRepository
     {
@@ -64,7 +64,7 @@ namespace Pozoriste.Repository
             return data;
         }
 
-        public async Task<IEnumerable<Show>> GetFutureProjections()
+        public async Task<IEnumerable<Show>> GetFutureShows()
         {
             var shows = await _theatreContext.Shows
                 .Include(x => x.Piece)
@@ -75,7 +75,7 @@ namespace Pozoriste.Repository
             return shows;
         }
 
-        public async Task<IEnumerable<Show>> GetFutureProjectionsByPieceIdAsync(int pieceId)
+        public async Task<IEnumerable<Show>> GetFutureShowsByPieceIdAsync(int pieceId)
         {
             var shows = await _theatreContext.Shows
                 .Include(x => x.Auditorium)
