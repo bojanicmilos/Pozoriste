@@ -51,6 +51,7 @@ namespace Pozoriste.Domain.Common
         public const string AUDITORIUM_INVALID_CINEMAID = "Ne moze se kreirati nova sala, sala sa prosledjenim cinemaId-jem ne postoji.";
         public const string AUDITORIUM_CREATION_ERROR = "Doslo je do greske prilikom kreiranja nove sale, pokusajte ponovo.";
         public const string AUDITORIUM_NOT_FOUND = "Sala ne postoji.";
+        public const string AUDITORIUM_HAS_FUTURE_SHOWS = "Sala ima buduce predstave.";
         #endregion
         #region Seats
         public const string SEAT_DOES_NOT_EXIST_FOR_AUDITORIUM = "Zahtevana sedista za rezervaciju ne postoje u auditoriujumu";

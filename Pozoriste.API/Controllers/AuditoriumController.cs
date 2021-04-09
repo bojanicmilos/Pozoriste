@@ -88,7 +88,7 @@ namespace Pozoriste.API.Controllers
         [Route("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            AuditoriumDomainModel deleteAudit;
+            DeleteAuditoriumResultModel deleteAudit;
             try
             {
                 deleteAudit = await _auditoriumService.DeleteAuditorium(id);
@@ -103,17 +103,18 @@ namespace Pozoriste.API.Controllers
                 return BadRequest(errorResponse);
             }
 
-            if (deleteAudit == null)
+            if (deleteAudit.IsSuccessful.Equals(false))
             {
-                ErrorResponseModel errorResponse = new ErrorResponseModel
+                ErrorResponseModel errorResponse = new ErrorResponseModel()
                 {
-                    ErrorMessage = Messages.AUDITORIUM_NOT_FOUND,
-                    StatusCode = System.Net.HttpStatusCode.InternalServerError
+                    ErrorMessage = deleteAudit.ErrorMessage,
+                    StatusCode = System.Net.HttpStatusCode.BadRequest
                 };
+
                 return BadRequest(errorResponse);
             }
 
-            return Accepted("auditorium//" + deleteAudit.Id, deleteAudit);
+            return Accepted("auditorium//" + deleteAudit.Auditorium.Id, deleteAudit.Auditorium);
         }
     }
 }

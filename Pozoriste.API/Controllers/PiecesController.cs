@@ -24,17 +24,6 @@ namespace Pozoriste.API.Controllers
             _showService = showService;
         }
 
-        private bool isInList(List<PieceDomainModel> pieceDomainModels, int pieceId)
-        {
-            foreach (var item in pieceDomainModels)
-            {
-                if (item.Id == pieceId)
-                    return true;
-            }
-
-            return false;
-        }
-
         [HttpGet]
         [Route("get/{id}")]
         public async Task<ActionResult<PieceDomainModel1>> Get(int id)
@@ -97,6 +86,20 @@ namespace Pozoriste.API.Controllers
             }
 
             return Ok(createPieceDomainModels);
+        }
+
+        [HttpGet]
+        [Route("withFutureShows")]
+        public async Task<ActionResult<IEnumerable<PieceDomainModel>>> GetPieceWithFutureShows()
+        {
+            var showDomainModel = await _showService.GetFutureShows();
+
+            if (showDomainModel.Count() == 0)
+            {
+                return new List<PieceDomainModel>();
+            }
+
+            return Ok(showDomainModel);
         }
 
         [HttpPost]
@@ -180,29 +183,6 @@ namespace Pozoriste.API.Controllers
             }
 
             return Accepted("pieces//" + deletedPiece.Id, deletedPiece);
-        }
-
-        [HttpGet]
-        [Route("withFutureShows")]
-        public async Task<ActionResult<IEnumerable<PieceDomainModel>>> GetPieceWithFutureShows()
-        {
-            var showDomainModel = await _showService.GetFutureShows();
-
-            List<PieceDomainModel> pieceDomainModels = new List<PieceDomainModel>();
-
-            foreach (var item in showDomainModel)
-            {
-                if (!isInList(pieceDomainModels, item.PieceId))
-                {
-                    pieceDomainModels.Add(new PieceDomainModel()
-                    {
-                        Id = item.PieceId,
-                        Title = item.PieceTitle
-                    });
-                }
-            }
-
-            return Ok(pieceDomainModels);
         }
 
         [HttpPut]
