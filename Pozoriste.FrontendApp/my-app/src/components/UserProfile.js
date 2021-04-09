@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import serviceConfig from '../AppSettings/serviceConfig.js'
+import { getUserName } from './globalStorage/GetUserName'
 
 
 const UserProfile = () => {
@@ -13,7 +14,7 @@ const UserProfile = () => {
     }, [])
 
     const getUserByUsername = () => {
-        //let userName = getUserName();
+        let userName = getUserName();
 
         const requestOptions = {
             method: 'GET',

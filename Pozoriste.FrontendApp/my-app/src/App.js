@@ -7,8 +7,8 @@ import UserProfile from './components/UserProfile'
 function App() {
   return (
     <>
-      <LoginHeader />
       <Router>
+        <LoginHeader />
         <Switch>
           <Redirect exact from="/" to="/showlist" />
           <Route path="/userprofile" component={UserProfile} />

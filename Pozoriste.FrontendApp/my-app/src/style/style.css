@@ -1,7 +1,14 @@
 #root {
     font-family: sans-serif;
 }
+
+.sticky-container {
+    top: 0;
+    width: 100%;
+    position: fixed; 
+}
 .flex-container {
+     
     height: 65px;
     background-color: rgb(48, 47, 44);
     display: flex;
@@ -11,7 +18,7 @@
 
 .title {
     position: absolute;
-    font-size: 1.5em;
+    font-size: 1.3em;
     left: 20px;
     color: rgb(237, 237, 235);
 }
@@ -32,6 +39,17 @@
 .username-input:focus {
     outline: 0;
     
+}
+
+.show-container {
+    margin-top: 70px;
+}
+
+.user-profile {
+    position: absolute;
+    font-size: 1.3em;
+    left: 140px;
+    color: rgb(237, 237, 235);
 }
 
 

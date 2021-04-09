@@ -2,6 +2,7 @@ import React from 'react'
 import '../style/style.css'
 import { useState } from 'react'
 import { serviceConfig } from '../AppSettings/serviceConfig'
+import { Link } from 'react-router-dom'
 
 const LoginHeader = () => {
     const [username, setUsername] = useState('')
@@ -20,6 +21,7 @@ const LoginHeader = () => {
         if (username !== "") {
             login();
         }
+
     }
 
     const handleSubmitLogout = (e) => {
@@ -27,6 +29,7 @@ const LoginHeader = () => {
         localStorage.removeItem('userLoggedIn');
         localStorage.removeItem('userId')
         localStorage.removeItem('role')
+        localStorage.removeItem('username')
         setIsLogoutHidden(true)
         setIsLoginHidden(false)
         setIsInputHidden(false)
@@ -56,7 +59,8 @@ const LoginHeader = () => {
                 if (data) {
                     localStorage.setItem('userId', data.id)
                     localStorage.setItem('role', data.userRole)
-                    localStorage.setItem("userLoggedIn", "true")
+                    localStorage.setItem('username', data.userName)
+                    localStorage.setItem('userLoggedIn', "true")
                     setIsLogoutHidden(false)
                     setIsInputHidden(true)
                     setIsLoginHidden(true)
@@ -71,20 +75,24 @@ const LoginHeader = () => {
 
     return (
         <>
-            <div className='flex-container'>
-                <strong className='title'>Pozorište</strong>
-                <form type='text'>
-                    {!isInputHidden && <>
-                        <label className='label' htmlFor='username'>Korisničko ime &nbsp;</label>
-                        <input onChange={handleChange} value={username} className='username-input' type='text' id='username' /></>}
-                    {!isLoginHidden && <button id='login' type='submit' onClick={handleSubmit} className='flex-item btn btn-warning'>
-                        Login
+            <div className='sticky-container'>
+                <div className='flex-container'>
+                    <Link to='/showlist' className='title'>Pozorište</Link>
+                    <Link to='/userprofile' className='user-profile'>Profil</Link>
+                    <form type='text'>
+                        {!isInputHidden && <>
+                            <label className='label' htmlFor='username'></label>
+                            <input placeholder='Korisničko ime' onChange={handleChange} value={username} className='username-input' type='text' id='username' /></>}
+                        {!isLoginHidden && <button id='login' type='submit' onClick={handleSubmit} className='flex-item btn btn-warning'>
+                            Login
                     </button>}
-                    {!isLogoutHidden && <button type='submit' onClick={handleSubmitLogout} className='btn btn-warning'>
-                        Logout
+                        {!isLogoutHidden && <button type='submit' onClick={handleSubmitLogout} className='btn btn-warning'>
+                            Logout
                     </button>}
-                </form>
+                    </form>
+                </div>
             </div>
+
         </>
 
     )

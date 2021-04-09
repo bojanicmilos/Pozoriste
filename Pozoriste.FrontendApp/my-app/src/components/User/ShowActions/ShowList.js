@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { serviceConfig } from '../../../AppSettings/serviceConfig'
 import ShowItem from '../Items/ShowItem'
+import '../../../style/style.css'
 import Spinner from '../../Spinner'
 import '../../../style/spinner.css'
 
@@ -51,7 +52,7 @@ const ShowList = () => {
     }
 
     return (
-        <ul className='showContainer'>
+        <ul className='show-container'>
             { isLoading ? <Spinner></Spinner> : fillPageWithShows()}
         </ul>
     )

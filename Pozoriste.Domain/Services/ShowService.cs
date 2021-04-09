@@ -182,9 +182,9 @@ namespace Pozoriste.Domain.Services
                 return null;
             }
 
-            //shows for current pieces and with at least 1 actor
+            //shows for current pieces with at least 1 actor and in future
             shows = shows
-                .Where(show => show.Piece.IsActive && show.ShowActors.Any());
+                .Where(show => show.Piece.IsActive && show.ShowActors.Any() && show.ShowTime > DateTime.Now);
 
             IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel> domainModels =
                 shows.Select(show => new ShowPieceActorAuditoriumTheatreDomainModel
