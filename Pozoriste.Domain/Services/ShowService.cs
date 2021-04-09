@@ -212,7 +212,7 @@ namespace Pozoriste.Domain.Services
 
         public async Task<IEnumerable<ShowDomainModel>> GetFutureShows()
         {
-            var shows = await _showsRepository.GetFutureProjections();
+            var shows = await _showsRepository.GetFutureShows();
 
             return shows.Select(show => new ShowDomainModel()
             {
@@ -226,7 +226,7 @@ namespace Pozoriste.Domain.Services
 
         public async Task<IEnumerable<ShowDomainModel>> GetFutureShowsByPieceId(int id)
         {
-            var shows = await _showsRepository.GetFutureProjectionsByPieceIdAsync(id);
+            var shows = await _showsRepository.GetFutureShowsByPieceIdAsync(id);
 
             if(shows == null)
             {
@@ -247,7 +247,7 @@ namespace Pozoriste.Domain.Services
 
         public async Task<IEnumerable<ShowDomainModel>> GetFutureShowsByPieceId(PieceDomainModel domainModel)
         {
-            var shows = await _showsRepository.GetFutureProjectionsByPieceIdAsync(domainModel.Id);
+            var shows = await _showsRepository.GetFutureShowsByPieceIdAsync(domainModel.Id);
 
             if(shows == null)
             {
