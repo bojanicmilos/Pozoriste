@@ -88,22 +88,6 @@ namespace Pozoriste.API.Controllers
             return Ok(createPieceDomainModels);
         }
 
-        //method return type - piece
-        [HttpGet]
-        [Route("withFutureShows")]
-        public async Task<ActionResult<IEnumerable<PieceDomainModel>>> GetPieceWithFutureShows()
-        {
-            var showDomainModel = await _showService.GetFutureShows(); // ? ShowDomainModel
-            
-            if (showDomainModel.Count() == 0)
-            {
-                return new List<PieceDomainModel>(); // ? PieceDomainModel, no status code
-            }
-            
-            return Ok(showDomainModel); // ? ShowDomainModel 
-            
-        }
-
         [HttpPost]
         [Route("create")]
         public async Task<ActionResult> Post([FromBody] PieceModel pieceModel)
