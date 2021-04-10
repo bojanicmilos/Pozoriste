@@ -49,14 +49,20 @@ namespace Pozoriste.Tests.Services
         public void Get_User_By_UserName_Async_Return_User()
         {
             // Arrange 
-            _mockUserRepository.Setup(x => x.GetByUserName(It.IsAny<string>())).ReturnsAsync(_user);
+            _mockUserRepository
+                .Setup(x => x.GetByUserName(It.IsAny<string>()))
+                .ReturnsAsync(_user);
 
             // Act
-            var resultObject = _userService.GetUserByUserName(_user.UserName).ConfigureAwait(false).GetAwaiter().GetResult();
+            var resultObject = _userService
+                .GetUserByUserName(_user.UserName)
+                .ConfigureAwait(false)
+                .GetAwaiter()
+                .GetResult();
 
             // Assert
             Assert.IsNotNull(resultObject);
-            Assert.AreEqual(resultObject.Id, _user.Id);
+            Assert.AreEqual(_user.Id, resultObject.Id);
             Assert.IsTrue((int)resultObject.UserRole == 1);
         }
 

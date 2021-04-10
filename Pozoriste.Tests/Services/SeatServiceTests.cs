@@ -49,7 +49,7 @@ namespace Pozoriste.Tests.Services
 
             // Assert
             Assert.IsInstanceOfType(resultObject, typeof(SeatAuditoriumDomainModel));
-            Assert.AreEqual(resultObject.Seats[0].Id, _seat.Id);
+            Assert.AreEqual(_seat.Id, resultObject.Seats[0].Id);
             Assert.IsNotNull(resultObject);
         }
 

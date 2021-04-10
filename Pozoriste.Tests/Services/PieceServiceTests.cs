@@ -107,7 +107,7 @@ namespace Pozoriste.Tests.Services
             // Assert
             Assert.IsInstanceOfType(resultObject, typeof(PieceDomainModel));
             Assert.IsNotNull(resultObject);
-            Assert.AreEqual(resultObject.Id, _piece.Id);
+            Assert.AreEqual(_piece.Id, resultObject.Id);
         }
 
 
@@ -174,7 +174,7 @@ namespace Pozoriste.Tests.Services
                 .GetResult();
 
             // Assert
-            Assert.AreEqual(objectList.Count(), expectedCount);
+            Assert.AreEqual(expectedCount, objectList.Count());
             Assert.IsNotNull(objectList);
         }
 
@@ -215,7 +215,7 @@ namespace Pozoriste.Tests.Services
                 .GetResult();
 
             // Assert
-            Assert.AreEqual(objectList.Count(), expectedCount);
+            Assert.AreEqual(expectedCount, objectList.Count());
             Assert.IsNotNull(objectList);
             Assert.IsInstanceOfType(objectList, typeof(List<PieceDomainModel1>));
         }
@@ -257,7 +257,7 @@ namespace Pozoriste.Tests.Services
             // Arrange
             Assert.IsNotNull(resultObject);
             Assert.IsInstanceOfType(resultObject, typeof(PieceDomainModel));
-            Assert.AreEqual(resultObject.Id, _piece.Id);
+            Assert.AreEqual(_piece.Id, resultObject.Id);
                 
         }
 
@@ -300,7 +300,7 @@ namespace Pozoriste.Tests.Services
             // Arrange
             Assert.IsNotNull(resultObject);
             Assert.IsInstanceOfType(resultObject, typeof(PieceDomainModel1));
-            Assert.AreEqual(resultObject.Id, _piece.Id);
+            Assert.AreEqual(_piece.Id, resultObject.Id);
         }
 
         [TestMethod]
