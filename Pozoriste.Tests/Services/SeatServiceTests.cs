@@ -17,7 +17,6 @@ namespace Pozoriste.Tests.Services
         private Mock<ISeatsRepository> _mockSeatRepository;
         private SeatService _seatService;
         private Seat _seat;
-        private SeatDomainModel _seatDomainModel;
 
         [TestInitialize]
         public void TestInitialize()
@@ -42,16 +41,16 @@ namespace Pozoriste.Tests.Services
                 .ReturnsAsync(new List<Seat>() { _seat });
 
             // Act
-            var resultAction = _seatService
+            var resultObject = _seatService
                 .GetSeatsByAuditoriumId(_seat.Id)
                 .ConfigureAwait(false)
                 .GetAwaiter()
                 .GetResult();
 
             // Assert
-            Assert.IsInstanceOfType(resultAction, typeof(SeatAuditoriumDomainModel));
-            Assert.AreEqual(resultAction.Seats[0].Id, _seat.Id);
-            Assert.IsNotNull(resultAction);
+            Assert.IsInstanceOfType(resultObject, typeof(SeatAuditoriumDomainModel));
+            Assert.AreEqual(resultObject.Seats[0].Id, _seat.Id);
+            Assert.IsNotNull(resultObject);
         }
 
         [TestMethod]
@@ -63,14 +62,14 @@ namespace Pozoriste.Tests.Services
                 .ReturnsAsync(new List<Seat>());
 
             // Act
-            var resultAction = _seatService
+            var resultObject = _seatService
                 .GetSeatsByAuditoriumId(_seat.Id)
                 .ConfigureAwait(false)
                 .GetAwaiter()
                 .GetResult();
 
             // Assert
-            Assert.IsNull(resultAction);
+            Assert.IsNull(resultObject);
  
         }
 

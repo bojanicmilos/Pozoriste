@@ -52,12 +52,12 @@ namespace Pozoriste.Tests.Services
             _mockUserRepository.Setup(x => x.GetByUserName(It.IsAny<string>())).ReturnsAsync(_user);
 
             // Act
-            var resultAction = _userService.GetUserByUserName(_user.UserName).ConfigureAwait(false).GetAwaiter().GetResult();
+            var resultObject = _userService.GetUserByUserName(_user.UserName).ConfigureAwait(false).GetAwaiter().GetResult();
 
             // Assert
-            Assert.IsNotNull(resultAction);
-            Assert.AreEqual(resultAction.Id, _user.Id);
-            Assert.IsTrue((int)resultAction.UserRole == 1);
+            Assert.IsNotNull(resultObject);
+            Assert.AreEqual(resultObject.Id, _user.Id);
+            Assert.IsTrue((int)resultObject.UserRole == 1);
         }
 
         [TestMethod]
@@ -67,15 +67,14 @@ namespace Pozoriste.Tests.Services
             _mockUserRepository.Setup(x => x.GetByUserName(It.IsAny<string>())).ReturnsAsync(null as User);
 
             // Act
-            var resultAction = _userService
+            var resultObject = _userService
                 .GetUserByUserName(_user.UserName)
                 .ConfigureAwait(false)
                 .GetAwaiter()
                 .GetResult();
 
             // Assert
-            Assert.IsNull(resultAction);
-
+            Assert.IsNull(resultObject);
         }
     }
 }
