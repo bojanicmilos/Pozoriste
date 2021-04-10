@@ -1,6 +1,8 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 
 const ShowItem = (props) => {
+    const [toggleInfo, setToggleInfo] = useState(false)
     const {
         id,
         showTime,
@@ -29,7 +31,8 @@ const ShowItem = (props) => {
             <p> {showTime} </p>
             <p> cena karte: {ticketPrice} </p>
             <p> Komad: {pieceTitle} </p>
-            <p> O delu: {pieceDescription} </p>
+            <button onClick={() => setToggleInfo(!toggleInfo)}>Vise informacija</button>
+            <p>  {toggleInfo && pieceDescription} </p>
             <p> Godina: {pieceYear} </p>
             <p> Zanr: {genre} </p>
             <p> Sala: {auditoriumName} </p>

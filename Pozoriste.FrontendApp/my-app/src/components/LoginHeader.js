@@ -26,8 +26,6 @@ const LoginHeader = () => {
         if (username !== "") {
             login();
         }
-
-
     }
 
     const handleSubmitLogout = (e) => {
@@ -82,10 +80,10 @@ const LoginHeader = () => {
 
     return (
         <>
-            <div className='sticky-container'>
+            <div className='fixed-container'>
                 <div className='flex-container'>
-                    <Link to='/showlist' className='title'>Pozoriste</Link>
-                    {isUserLogged() && <Link to='/userprofile' className='user-profile'>Profil</Link>}
+                    <Link to='/showlist' className='title-header'>Pozoriste</Link>
+                    {isUserLogged() && <Link to='/userprofile' className='user-profile-header'>Profil</Link>}
                     <form type='text'>
                         {!isInputHidden && <>
                             <label className='label' htmlFor='username'></label>

@@ -40,7 +40,6 @@ const UserProfile = () => {
             })
             .then((json) => {
                 if (json) {
-                    console.log('JSON 1 ', json)
                     setUserReservations(prevState => ({ ...prevState, user: json }));
                     getUserReservations(userId)
                 }
@@ -57,7 +56,6 @@ const UserProfile = () => {
                 'Contetnt-Type': 'application/json',
             }
         };
-
 
         fetch(`${serviceConfig.baseURL}/api/Reservations/byuserid/${userId}`, requestOptions)
             .then((response) => {
@@ -84,20 +82,22 @@ const UserProfile = () => {
                 <div>
                     <ul>
                         <li key={reservation.id}>
-                            {reservation.showTime}
-                            {reservation.theatreName}
-                            {reservation.auditoriumName}
-                            {reservation.pieceTitle}
-                            {reservation.showTime}
-                            <ul>
+                            {reservation.showTime} &nbsp;
+                            {reservation.theatreName} &nbsp;
+                            {reservation.auditoriumName} &nbsp;
+                            {reservation.pieceTitle} &nbsp;
+                            <ul>Sedista: &nbsp;
                                 {reservation.reservedSeats.map((seat) => {
-                                    return (
-                                        <li key={seat.id}>
-                                            {seat.row}
-                                            {seat.number}
-                                        </li>
-                                    )
-                                })}
+                                return (
+
+                                    <li key={seat.id}>
+                                        Red: &nbsp;
+                                        {seat.row} &nbsp;
+                                            Broj: &nbsp;
+                                        {seat.number}
+                                    </li>
+                                )
+                            })}
                             </ul>
 
                         </li>
@@ -112,20 +112,20 @@ const UserProfile = () => {
 
     return (
         <>
-            {
-                isLoading ? <Spinner></Spinner> :
-                    <div className='user-page'>
-                        <p>Ime: {userReservations.user.firstName} </p>
-                        <p>Prezime: {userReservations.user.lastName}</p>
-                        <p>Korisnicko ime: {userReservations.user.username} </p>
-                        <p>Uloga: {userReservations.user.userRole ? "Admin" : "Korisnik"}</p>
+            <div className='user-page'>
+                {isLoading ? <Spinner></Spinner> : <>
+                    <p>Ime: {userReservations.user.firstName} </p>
+                    <p>Prezime: {userReservations.user.lastName}</p>
+                    <p>Korisnicko ime: {userReservations.user.username} </p>
+                    <p>Uloga: {userReservations.user.userRole ? "Admin" : "Korisnik"}</p>
 
-                        <div>
-                            <li className="list-group-item list-group-item-primary"><strong>Vase rezervacije: </strong></li>
-                            {showUserReservations()}
-                        </div>
+                    <div>
+                        <li className="list-group-item list-group-item-primary"><strong>Vase rezervacije: </strong></li>
+                        {showUserReservations()}
                     </div>
-            }
+                </>
+                }
+            </div>
         </>
     )
 }
