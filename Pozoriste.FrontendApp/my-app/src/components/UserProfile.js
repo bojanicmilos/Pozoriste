@@ -116,7 +116,7 @@ const UserProfile = () => {
                 {isLoading ? <Spinner></Spinner> : <>
                     <p>Ime: {userReservations.user.firstName} </p>
                     <p>Prezime: {userReservations.user.lastName}</p>
-                    <p>Korisnicko ime: {userReservations.user.username} </p>
+                    <p>Korisnicko ime: {userReservations.user.userName} </p>
                     <p>Uloga: {userReservations.user.userRole ? "Admin" : "Korisnik"}</p>
 
                     <div>
