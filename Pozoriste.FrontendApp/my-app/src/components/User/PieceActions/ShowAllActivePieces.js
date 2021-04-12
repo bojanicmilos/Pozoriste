@@ -48,7 +48,7 @@ const ShowAllActivePieces = () => {
     }
 
     return (
-        <ul className='showContainer'>
+        <ul className='piece-container'>
             { isLoading ? <Spinner></Spinner> : fillPageWithPieces()}
         </ul>
     )

@@ -48,7 +48,7 @@ const ShowAllPieces = () => {
     }
 
     return (
-        <ul className='showContainer'>
+        <ul className='piece-container'>
             { isLoading ? <Spinner></Spinner> : fillPageWithPieces()}
         </ul>
     )

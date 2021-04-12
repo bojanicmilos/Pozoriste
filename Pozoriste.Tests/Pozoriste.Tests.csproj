@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Pozoriste.API\Pozoriste.API.csproj" />
     <ProjectReference Include="..\Pozoriste.Domain\Pozoriste.Domain.csproj" />
   </ItemGroup>

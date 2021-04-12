@@ -37,7 +37,7 @@ namespace Pozoriste.Domain.Services
                 return new ShowResultModel
                 {
                     isSuccessful = false,
-                    ErrorMessage = Messages.SHOWS_AT_THE_SAME_TIME
+                    ErrorMessage = Messages.SHOW_IN_THE_PAST
                 };
             }
 
