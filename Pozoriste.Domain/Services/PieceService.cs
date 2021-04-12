@@ -59,6 +59,11 @@ namespace Pozoriste.Domain.Services
                 return null;
             }
 
+            if(piece.Shows.Any(x => x.ShowTime > DateTime.Now))
+            {
+                return null;
+            }
+
             Piece data = await _pieceRepository.Delete(Id);
 
             if(data == null)

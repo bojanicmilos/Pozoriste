@@ -6,6 +6,7 @@ import UserProfile from './components/UserProfile'
 import SideMenu from './components/SideMenu'
 import PieceActiveList from './components/User/PieceActions/ShowAllActivePieces'
 import PieceAllList from './components/User/PieceActions/ShowAllPieces'
+import { NotificationContainer } from 'react-notifications';
 function App() {
   return (
     <>
@@ -25,7 +26,7 @@ function App() {
 
 
         </Switch>
-
+        <NotificationContainer />
       </Router>
     </>
   );

@@ -29,7 +29,6 @@ const LoginHeader = () => {
     }
 
     const handleSubmitLogout = (e) => {
-        e.preventDefault();
         localStorage.removeItem('userLoggedIn');
         localStorage.removeItem('userId')
         localStorage.removeItem('role')
@@ -85,13 +84,13 @@ const LoginHeader = () => {
                     <Link to='/showlist' className='title-header'>Pozoriste</Link>
                     {isUserLogged() && <Link to='/userprofile' className='user-profile-header'>Profil</Link>}
                     <form type='text'>
-                        {!isInputHidden && <>
+                        {!isUserLogged() && <>
                             <label className='label' htmlFor='username'></label>
                             <input placeholder='Korisnicko ime' onChange={handleChange} value={username} className='username-input' type='text' id='username' /></>}
-                        {!isLoginHidden && <button id='login' type='submit' onClick={handleSubmit} className='flex-item btn btn-warning'>
+                        {!isUserLogged() && <button id='login' type='submit' onClick={handleSubmit} className='flex-item btn btn-warning'>
                             Login
                     </button>}
-                        {!isLogoutHidden && <button type='submit' onClick={handleSubmitLogout} className='btn btn-warning'>
+                        {isUserLogged() && <button type='submit' onClick={handleSubmitLogout} className='btn btn-warning'>
                             Logout
                     </button>}
                     </form>
