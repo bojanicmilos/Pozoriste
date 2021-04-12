@@ -30,10 +30,16 @@ const PieceItem = (props) => {
                 if (!response.ok) {
                     return Promise.reject(response);
                 }
-                return response.json;
+                return response.json();
             })
             .then((response) => {
-                NotificationManager.success("Succssefuly activated/deactivated piece");
+                if (isActive) {
+                    NotificationManager.success("Successfully deactivated piece");
+                }
+                else {
+                    NotificationManager.success("Successfully activated piece");
+                }
+
                 setIsActive(!isActive);
             })
             .catch((response) => {
@@ -43,17 +49,17 @@ const PieceItem = (props) => {
 
 
 
-    const getBtn = (value, id) => {
-        if (value) {
-            if (getRole() == "admin")
+    const getBtn = (isActive, id) => {
+        if (isActive) {
+            if (getRole() === "admin")
                 return <button style={{ backgroundColor: 'red' }} onClick={() => activateDeactivatePiece(id)}>DEAKTIVIRAJ</button>
         }
-        else if (getRole() == "admin")
+        else if (getRole() === "admin")
             return <button style={{ backgroundColor: 'green' }} onClick={() => activateDeactivatePiece(id)}>AKTIVIRAJ</button>
     }
 
     const getDeleteBtn = (id) => {
-        if (getRole() == "admin")
+        if (getRole() === "admin")
             return <button style={{ backgroundColor: 'red' }} onClick={() => removePiece(id)}>OBRISI</button>
     }
 

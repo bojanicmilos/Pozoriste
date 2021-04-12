@@ -76,6 +76,39 @@ namespace Pozoriste.API.Controllers
 
             return Created("shows//" + createShow.ShowDomainModel.Id, createShow.ShowDomainModel);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<ShowDomainModel>> DeleteShow(int id)
+        {
+            ShowDomainModel deletedPiece;
+            try
+            {
+                deletedPiece = await _showService.DeleteShow(id);
+            }
+            catch (DbUpdateException e)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel
+                {
+                    ErrorMessage = e.InnerException.Message ?? e.Message,
+                    StatusCode = System.Net.HttpStatusCode.BadRequest
+                };
+
+                return BadRequest(errorResponse);
+            }
+
+            if (deletedPiece == null)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel
+                {
+                    ErrorMessage = Messages.CANNOT_DELETE_SHOW,
+                    StatusCode = System.Net.HttpStatusCode.InternalServerError
+                };
+
+                return BadRequest(errorResponse);
+            }
+
+            return Accepted("pieces//" + deletedPiece.Id, deletedPiece);
+        }
              
     }
 }

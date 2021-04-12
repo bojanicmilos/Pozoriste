@@ -36,6 +36,7 @@ namespace Pozoriste.Domain.Common
         public const string SHOW_DOES_NOT_EXIST_FOR_RESERVATION = "Neophodno je odabrati odgovarajucu predstavu za rezervaciju.";
         public const string USER_FOR_RESERVATION_DOES_NOT_EXIST = "Please login to make reservation.";
         public const string SHOW_FOR_THAT_PIECE_ARE_STILL_ONGOING = "Predstave za komad jos uvek traju.";
+        public const string CANNOT_DELETE_SHOW = "Nije moguce obrisati predstavu";
 
         #endregion
         #region Theatres

@@ -59,6 +59,7 @@ namespace Pozoriste.Repository
             var data = await _theatreContext.Shows
                 .Include(showActor => showActor.ShowActors)
                 .ThenInclude(actor => actor.Actor)
+                .Include(reservation => reservation.Reservations)
                 .FirstOrDefaultAsync(show => show.Id == id);
 
             return data;

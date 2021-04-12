@@ -173,6 +173,32 @@ namespace Pozoriste.Domain.Services
             return resultModel;
         }
 
+        public async Task<ShowDomainModel> DeleteShow(int id)
+        {
+            var existingShow = await _showsRepository.GetByIdAsync(id);
+
+            if (existingShow == null)
+            {
+                return null;
+            }
+
+            if (existingShow.Reservations.Any())
+            {
+                return null;
+            }
+
+            var deletedShow = await _showsRepository.Delete(id);
+
+            _showsRepository.Save();
+
+            return new ShowDomainModel
+            {
+                Id = deletedShow.Id,
+                ShowTime = deletedShow.ShowTime,
+                TicketPrice = deletedShow.TicketPrice
+            };
+        }
+
         public async Task<IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel>> GetAllShowsAsync()
         {
             var shows = await _showsRepository.GetAllAsync();
