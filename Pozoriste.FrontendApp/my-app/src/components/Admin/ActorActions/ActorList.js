@@ -66,11 +66,10 @@ const ActorList = () => {
             return (
                 <>
                     <li key={actor.id}>
-                        Glumac &nbsp;
-                    <strong>Ime: {actor.firstName} </strong>
-                        <strong> Prezime: {actor.lastName}</strong>
+                        <strong>{actor.firstName} </strong>
+                        <strong>{actor.lastName}</strong>
                     </li>
-                    <button onClick={() => removeActor(actor.id)} >Obrisi</button>
+                    <button className='btn btn-danger' onClick={() => removeActor(actor.id)} >Obrisi</button>
                 </>
             )
         })

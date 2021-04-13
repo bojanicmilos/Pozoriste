@@ -65,5 +65,8 @@ namespace Pozoriste.Domain.Common
         #region Users
         public const string USER_NOT_FOUND = "Korisnik nije pronadjen.";
         #endregion
+        #region Tickets
+        public const string TICKETS_INVALID_PRICE = "Netacna cena karte ! ";
+        #endregion
     }
 }

@@ -11,6 +11,7 @@ import AddActor from './components/Admin/ActorActions/AddActor'
 import { getRole } from './components/globalStorage/RoleCheck'
 import { useContext } from 'react'
 import { useState } from 'react'
+import AddShow from './components/Admin/ShowActions/AddShow'
 import ActorList from './components/Admin/ActorActions/ActorList'
 
 export const AddActorContext = React.createContext();
@@ -31,6 +32,7 @@ function App() {
           <Route path="/piecealllist" component={PieceAllList} />
           {getRole() === 'admin' && <Route path={"/addactor"} component={AddActor} />}
           {getRole() === 'admin' && <Route path={"/actorlist"} component={ActorList} />}
+          {getRole() === 'admin' && <Route path={"/addshow"} component={AddShow} />}
 
           <Redirect exact from="*" to="/showlist" />
         </Switch>

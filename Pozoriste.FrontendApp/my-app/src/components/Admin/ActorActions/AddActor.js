@@ -57,15 +57,22 @@ const AddActor = () => {
 
     return (
         <div className='add-actor-page'>
-            <p>Dodaj glumca: </p>
+            <p style={{ textAlign: 'center' }}>Dodaj glumca: </p>
             <form onSubmit={handleSubmit} >
                 <input
+
+                    maxLength='50'
+                    className='form-control'
                     value={actor.firstName}
                     onChange={(e) => setActor({ ...actor, firstName: e.target.value })} placeholder='Ime' type='text' />
                 <input
+
+                    className='form-control'
+                    maxLength='50'
                     value={actor.lastName}
                     onChange={(e) => setActor({ ...actor, lastName: e.target.value })} placeholder='Prezime' type='text' />
-                <button type='submit'>Dodaj glumca</button>
+
+                <button className='btn btn-primary' type='submit'>Dodaj glumca</button>
             </form>
 
         </div>
