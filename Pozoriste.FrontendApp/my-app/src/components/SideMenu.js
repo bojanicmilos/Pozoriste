@@ -16,6 +16,9 @@ const SideMenu = () => {
             {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/addactor">Dodaj glumca</Link>
             }
+            {
+                (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/actorlist">Svi glumci</Link>
+            }
         </div>
     )
 }

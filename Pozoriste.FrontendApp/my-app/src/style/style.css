@@ -68,13 +68,17 @@
     margin-left: 200px;
 }
 
-
 .user-page {
     margin-top: 100px;
     margin-left: 230px;
 }
 
 .add-actor-page {
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+.actor-container {
     margin-top: 100px;
     margin-left: 200px;
 }

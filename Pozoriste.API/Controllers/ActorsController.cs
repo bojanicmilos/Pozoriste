@@ -83,6 +83,39 @@ namespace Pozoriste.API.Controllers
             return Ok(actor);
         }
 
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<ActorDomainModel>> DeleteActor(int id)
+        {
+            ActorDomainModel deletedActor;
+            try
+            {
+                deletedActor = await _actorService.DeleteActor(id);
+            }
+            catch (DbUpdateException e)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel
+                {
+                    ErrorMessage = e.InnerException.Message ?? e.Message,
+                    StatusCode = System.Net.HttpStatusCode.BadRequest
+                };
+
+                return BadRequest(errorResponse);
+            }
+
+            if (deletedActor == null)
+            {
+                ErrorResponseModel errorResponse = new ErrorResponseModel
+                {
+                    ErrorMessage = Messages.ACTOR_DOES_NOT_EXIST,
+                    StatusCode = System.Net.HttpStatusCode.InternalServerError
+                };
+
+                return BadRequest(errorResponse);
+            }
+
+            return Accepted("actors//" + deletedActor.Id, deletedActor);
+        }
+
 
 
 

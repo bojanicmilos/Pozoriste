@@ -90,5 +90,33 @@ namespace Pozoriste.Domain.Services
 
             return actorDomainModel;
         }
+
+        public async Task<ActorDomainModel> DeleteActor(int id)
+        {
+            var existingActor = await _actorsRepository.GetByIdAsync(id);
+
+            if (existingActor == null)
+            {
+                return null;
+            }
+
+            if (existingActor.ShowActors.Any())
+            {
+                return null;
+            }
+
+            var deletedActor = await _actorsRepository.Delete(id);
+
+            _actorsRepository.Save();
+
+            return new ActorDomainModel
+            {
+                Id = deletedActor.Id,
+                FirstName = deletedActor.FirstName,
+                LastName = deletedActor.LastName
+            };
+
+
+        }
     }
 }

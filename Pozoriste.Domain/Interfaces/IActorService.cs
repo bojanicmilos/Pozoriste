@@ -11,6 +11,7 @@ namespace Pozoriste.Domain.Interfaces
         Task<IEnumerable<ActorDomainModel>> GetAllAsync();
         Task<ActorDomainModel> GetByIdAsync(int id);
         Task<ActorDomainModel> AddActor(ActorDomainModel actorModel);
+        Task<ActorDomainModel> DeleteActor(int id);
 
     }
 }
