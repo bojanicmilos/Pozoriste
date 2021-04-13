@@ -37,7 +37,6 @@ const ShowAllPieces = () => {
                 }
             })
             .catch((response) => {
-                console.log(response)
                 setIsLoading(false);
             })
     }
@@ -59,10 +58,10 @@ const ShowAllPieces = () => {
                 let piecesFiltered = pieces;
                 piecesFiltered = piecesFiltered.filter((piece) => piece.id !== id);
                 setShowAllPieces(piecesFiltered);
-                NotificationManager.success("Successfully deleted piece.");
+                NotificationManager.success("Uspesno obrisan komad!");
             })
             .catch((response) => {
-                NotificationManager.error("Can't delete piece that have future shows");
+                NotificationManager.error("Ne moze se obrisati komad koji ima buduce predstave!");
             })
     }
 

@@ -34,16 +34,16 @@ const PieceItem = (props) => {
             })
             .then((response) => {
                 if (isActive) {
-                    NotificationManager.success("Successfully deactivated piece");
+                    NotificationManager.success("Uspesno deaktivirana predstava!");
                 }
                 else {
-                    NotificationManager.success("Successfully activated piece");
+                    NotificationManager.success("Uspesno aktivirana predstava!");
                 }
 
                 setIsActive(!isActive);
             })
             .catch((response) => {
-                NotificationManager.error("Can't deactivate piece that have future shows");
+                NotificationManager.error("Ne moze se deaktivirati komad koji ima buduce predstava!");
             });
     };
 
@@ -52,15 +52,15 @@ const PieceItem = (props) => {
     const getBtn = (isActive, id) => {
         if (isActive) {
             if (getRole() === "admin")
-                return <button style={{ backgroundColor: 'red' }} onClick={() => activateDeactivatePiece(id)}>DEAKTIVIRAJ</button>
+                return <button className="btn btn-danger" onClick={() => activateDeactivatePiece(id)}>DEAKTIVIRAJ</button>
         }
         else if (getRole() === "admin")
-            return <button style={{ backgroundColor: 'green' }} onClick={() => activateDeactivatePiece(id)}>AKTIVIRAJ</button>
+            return <button className="btn btn-success" onClick={() => activateDeactivatePiece(id)}>AKTIVIRAJ</button>
     }
 
     const getDeleteBtn = (id) => {
         if (getRole() === "admin")
-            return <button style={{ backgroundColor: 'red' }} onClick={() => removePiece(id)}>OBRISI</button>
+            return <button className="btn btn-danger" style={{ marginLeft: 10 }} onClick={() => removePiece(id)}>OBRISI</button>
     }
 
     return (

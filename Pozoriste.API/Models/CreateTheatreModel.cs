@@ -14,6 +14,10 @@ namespace Pozoriste.API.Models
         public string CityName { get; set; }
 
         [Required]
+        [StringLength(50, ErrorMessage = Messages.ADDRESS_PROPERTIE_STREET_NAME_NOT_VALID)]
+        public string StreetName { get; set; }
+
+        [Required]
         [StringLength(50, ErrorMessage = Messages.THEATRE_NAME_NOT_VALID)]
         public string Name { get; set; }
 

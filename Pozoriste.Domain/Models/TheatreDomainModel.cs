@@ -8,6 +8,8 @@ namespace Pozoriste.Domain.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string CityName { get; set; }
+        public string StreetName { get; set; }
         public int AddressId { get; set; }
         public List<AuditoriumDomainModel> AuditoriumsList { get; set; }
     }
