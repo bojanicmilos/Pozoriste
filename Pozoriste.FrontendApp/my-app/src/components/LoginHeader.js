@@ -93,10 +93,10 @@ const LoginHeader = () => {
                         {!isUserLogged() && <>
                             <label className='label' htmlFor='username'></label>
                             <input placeholder='Korisnicko ime' onChange={handleChange} value={username} className='username-input' type='text' id='username' /></>}
-                        {!isUserLogged() && <button id='login' type='submit' onClick={handleSubmit} className='flex-item btn btn-warning'>
+                        {!isUserLogged() && <button id='login' type='submit' onClick={handleSubmit} className='flex-item btn btn-outline-light'>
                             Login
                     </button>}
-                        {isUserLogged() && <button type='submit' onClick={handleSubmitLogout} className='btn btn-warning'>
+                        {isUserLogged() && <button type='submit' onClick={handleSubmitLogout} className='btn btn-outline-light'>
                             Logout
                     </button>}
                     </form>

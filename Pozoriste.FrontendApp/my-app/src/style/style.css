@@ -24,7 +24,7 @@
 }
 
 .title-header:hover {
-    color: orange;
+    color: #6a72be;
 }
 
 .user-profile-header {
@@ -35,7 +35,7 @@
 }
 
 .user-profile-header:hover {
-    color: orange;
+    color: #6a72be;
 }
 
 .flex-item {
@@ -89,18 +89,6 @@
     margin-left: 200px;
 }
 
-.form-control {
-    display: block !important;
-    text-align: center;
-    width: 350px !important;
-    margin: auto !important;
-}
-
-.btn-primary {
-    display: block !important;
-    margin: auto !important;
-}
-
 .add-show-page {
     margin-top: 100px;
     margin-left: 200px;
@@ -136,7 +124,7 @@
 }
 
 .side-menu-element:hover {
-    color: orange;
+    color: #6a72be;
 }
 
 /* 
@@ -156,8 +144,8 @@ input[type=checkbox] {
     display: block !important;
     width: 350px !important;
     margin: auto !important;
-    margin-top: 7px !important;
-    margin-bottom: 7px !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
 }
 
 
@@ -165,8 +153,8 @@ input[type=checkbox] {
     display: block !important;
     width: 350px;
     margin: auto;
-    margin-top: 7px;
-    margin-bottom: 7px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 

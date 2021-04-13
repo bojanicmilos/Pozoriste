@@ -57,7 +57,8 @@ const AddActor = () => {
 
     return (
         <div className='add-actor-page'>
-            <p style={{ textAlign: 'center' }}>Dodaj glumca: </p>
+            <h2 style={{ textAlign: 'center' }}><strong>Dodaj glumca:</strong> </h2>
+            <br />
             <form onSubmit={handleSubmit} >
                 <input
 

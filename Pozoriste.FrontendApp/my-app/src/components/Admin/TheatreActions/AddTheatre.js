@@ -54,38 +54,39 @@ const AddTheatre = () => {
 
     return (
         <div className='add-theatre-page'>
-            <h2 style={{ textAlign: 'center' }}>Dodaj novo pozoriste: </h2>
+            <h2 style={{ textAlign: 'center' }}><strong>Dodaj novo pozoriste: </strong></h2>
+            <br />
             <form onSubmit={handleSubmit}>
                 <input
                     value={theatre.name}
                     onChange={(e) => setTheatre({ ...theatre, name: e.target.value })} placeholder='Naziv pozorista' type='text' maxLength='50' required
                     className="form-control"
-                /> <br />
+                />
                 <input
                     value={theatre.auditName}
                     onChange={(e) => setTheatre({ ...theatre, auditName: e.target.value })} placeholder='Naziv auditoriuma' type='text' maxLength='50' required
                     className="form-control"
-                /> <br />
+                />
                 <input
                     value={theatre.seatRows}
                     onChange={(e) => setTheatre({ ...theatre, seatRows: e.target.value })} placeholder='Broj redova' type='number' min={1} max={20} required
                     className="form-control"
-                /> <br />
+                />
                 <input
                     value={theatre.numberOfSeats}
                     onChange={(e) => setTheatre({ ...theatre, numberOfSeats: e.target.value })} placeholder='Broj sedista' type='number' min={1} max={20} required
                     className="form-control"
-                /> <br />
+                />
                 <input
                     value={theatre.cityName}
                     onChange={(e) => setTheatre({ ...theatre, cityName: e.target.value })} placeholder='Naziv grada' type='text' maxLength='50' required
                     className="form-control"
-                /> <br />
+                />
                 <input
                     value={theatre.streetName}
                     onChange={(e) => setTheatre({ ...theatre, streetName: e.target.value })} placeholder='Ulica i broj' type='text' maxLength='50' required
                     className="form-control"
-                /> <br />
+                />
                 <button type='submit' className="btn btn-primary">Dodaj pozoriste</button>
             </form>
         </div >
