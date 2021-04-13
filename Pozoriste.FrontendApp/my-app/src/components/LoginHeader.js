@@ -5,6 +5,8 @@ import { serviceConfig } from '../AppSettings/serviceConfig'
 import { Link } from 'react-router-dom'
 import { isUserLogged } from './globalStorage/IsUserLogged'
 import { useHistory } from "react-router-dom";
+import { useContext } from 'react'
+import { AddActorContext } from '../App'
 
 const LoginHeader = () => {
     const [username, setUsername] = useState('')
@@ -13,6 +15,8 @@ const LoginHeader = () => {
     const [isLoginHidden, setIsLoginHidden] = useState(false)
 
     let history = useHistory();
+
+    const [context, setContext] = useContext(AddActorContext)
 
 
     const handleChange = (e) => {
@@ -37,6 +41,7 @@ const LoginHeader = () => {
         setIsLoginHidden(false)
         setIsInputHidden(false)
         setUsername('')
+        setContext(false)
         history.push('/')
     };
 
@@ -68,6 +73,7 @@ const LoginHeader = () => {
                     setIsLogoutHidden(false)
                     setIsInputHidden(true)
                     setIsLoginHidden(true)
+                    setContext(true)
                     console.log('Uspesno logovanje...NOTIFICATION MANAGER...')
                 }
 
