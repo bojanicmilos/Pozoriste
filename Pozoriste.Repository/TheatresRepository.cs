@@ -29,7 +29,10 @@ namespace Pozoriste.Repository
 
         public async Task<IEnumerable<Theatre>> GetAllAsync()
         {
-            var data = await _theatreContext.Theatres.Include(x => x.Auditoriums).ToListAsync();
+            var data = await _theatreContext.Theatres
+                .Include(x => x.Auditoriums)
+                .Include(x => x.Address)
+                .ToListAsync();
 
             return data;
         }

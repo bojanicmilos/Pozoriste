@@ -68,6 +68,12 @@
     margin-left: 200px;
 }
 
+.theatre-container {
+    list-style-type: none;
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
 .user-page {
     margin-top: 100px;
     margin-left: 230px;
@@ -76,6 +82,23 @@
 .add-actor-page {
     margin-top: 100px;
     margin-left: 200px;
+}
+
+.add-theatre-page {
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+.form-control {
+    display: block !important;
+    text-align: center;
+    width: 350px !important;
+    margin: auto !important;
+}
+
+.btn-primary {
+    display: block !important;
+    margin: auto !important;
 }
 
 .add-show-page {

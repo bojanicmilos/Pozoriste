@@ -47,17 +47,11 @@ namespace Pozoriste.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            AddressDomainModel addressModel = await _addressService.GetByCityNameAsync(createTheatreModel.CityName);
-
-            if (addressModel == null)
-            {
-                return BadRequest(Messages.ADDRESS_NOT_FOUND);
-            }
-
             TheatreDomainModel theatreDomainModel = new TheatreDomainModel
             {
                 Name = createTheatreModel.Name,
-                AddressId = addressModel.Id,
+                CityName = createTheatreModel.CityName,
+                StreetName = createTheatreModel.StreetName
             };
 
             TheatreDomainModel insertedModel;

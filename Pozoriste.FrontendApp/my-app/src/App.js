@@ -13,8 +13,11 @@ import { useContext } from 'react'
 import { useState } from 'react'
 import AddShow from './components/Admin/ShowActions/AddShow'
 import ActorList from './components/Admin/ActorActions/ActorList'
+import AddTheatre from './components/Admin/TheatreActions/AddTheatre'
+import ShowAllTheatres from './components/Admin/TheatreActions/ShowAllTheatres'
 
 export const AddActorContext = React.createContext();
+export const AddTheatreContext = React.createContext();
 
 function App() {
   const [context, setContext] = useState(false)
@@ -32,6 +35,8 @@ function App() {
           <Route path="/piecealllist" component={PieceAllList} />
           {getRole() === 'admin' && <Route path={"/addactor"} component={AddActor} />}
           {getRole() === 'admin' && <Route path={"/actorlist"} component={ActorList} />}
+          {getRole() === 'admin' && <Route path={"/addtheatre"} component={AddTheatre} />}
+          {getRole() === 'admin' && <Route path={"/showalltheatres"} component={ShowAllTheatres} />}
           {getRole() === 'admin' && <Route path={"/addshow"} component={AddShow} />}
 
           <Redirect exact from="*" to="/showlist" />

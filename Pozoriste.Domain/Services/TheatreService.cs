@@ -27,28 +27,27 @@ namespace Pozoriste.Domain.Services
 
         public async Task<TheatreDomainModel> Create(TheatreDomainModel theatreDomainModel, int numOfSeats, int numOfRows, string auditoriumName)
         {
-            var address = await _addressesRepository.GetByIdAsync(theatreDomainModel.AddressId);
+            var theatres = await _theatreRepository.GetAllAsync();
 
-            if(address == null)
+            foreach (var theatre in theatres)
             {
-                return null;
-            }
-
-            var theatre = await _theatreRepository.GetAllAsync();
-            var theatreOnSameAddress = theatre.Where(x => x.AddressId == theatreDomainModel.AddressId);
-
-            foreach(var thea in theatreOnSameAddress)
-            {
-                if(thea.Name == theatreDomainModel.Name)
+                if(theatre.Address.CityName == theatreDomainModel.CityName)
                 {
-                    return null;
+                    if (theatre.Name == theatreDomainModel.Name || theatre.Address.StreetName == theatreDomainModel.StreetName)
+                    {
+                        return null;
+                    }
                 }
             }
 
             Theatre newTheatre = new Theatre
             {
                 Name = theatreDomainModel.Name,
-                AddressId = theatreDomainModel.AddressId
+                Address = new Address
+                {
+                    CityName = theatreDomainModel.CityName,
+                    StreetName = theatreDomainModel.StreetName
+                }
             };
 
             newTheatre.Auditoriums = new List<Auditorium>();
