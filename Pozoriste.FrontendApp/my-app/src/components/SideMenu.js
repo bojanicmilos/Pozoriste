@@ -3,13 +3,9 @@ import '../style/style.css'
 import { Link } from 'react-router-dom'
 import { getRole } from './globalStorage/RoleCheck'
 import { isUserLogged } from './globalStorage/IsUserLogged'
-import { AddActorContext } from '../App'
-import { AddTheatreContext } from '../App'
-import { useContext } from 'react'
 import AddTheatre from './Admin/TheatreActions/AddTheatre'
 
 const SideMenu = () => {
-    const [context, setContext] = useContext(AddActorContext, AddTheatreContext);
 
     return (
         <div className='side-menu'>

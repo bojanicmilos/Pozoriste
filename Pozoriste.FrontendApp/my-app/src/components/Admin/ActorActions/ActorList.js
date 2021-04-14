@@ -64,13 +64,11 @@ const ActorList = () => {
         return actors.map((actor) => {
 
             return (
-                <>
-                    <li key={actor.id}>
-                        <strong>{actor.firstName} </strong>
-                        <strong>{actor.lastName}</strong>
-                    </li>
+                <li key={actor.id}>
+                    <strong>{actor.firstName} </strong>
+                    <strong>{actor.lastName}</strong>
                     <button className='btn btn-danger' onClick={() => removeActor(actor.id)} >Obrisi</button>
-                </>
+                </li>
             )
         })
     }

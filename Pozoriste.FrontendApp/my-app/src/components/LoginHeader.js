@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 import { isUserLogged } from './globalStorage/IsUserLogged'
 import { useHistory } from "react-router-dom";
 import { useContext } from 'react'
-import { AddActorContext } from '../App'
+import { Context } from '../App'
+import { NotificationManager } from 'react-notifications'
 
 const LoginHeader = () => {
     const [username, setUsername] = useState('')
@@ -16,7 +17,7 @@ const LoginHeader = () => {
 
     let history = useHistory();
 
-    const [context, setContext] = useContext(AddActorContext)
+    const [context, setContext] = useContext(Context)
 
 
     const handleChange = (e) => {
@@ -74,12 +75,10 @@ const LoginHeader = () => {
                     setIsInputHidden(true)
                     setIsLoginHidden(true)
                     setContext(true)
-                    console.log('Uspesno logovanje...NOTIFICATION MANAGER...')
                 }
-
             })
             .catch((response) => {
-                console.log('Pogresno korisnicko ime... Notification manager dodaj.')
+                NotificationManager.error('Pogresno korisnicko ime, molimo pokusajte ponovo');
             });
     };
 

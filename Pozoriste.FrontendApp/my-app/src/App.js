@@ -15,24 +15,24 @@ import AddShow from './components/Admin/ShowActions/AddShow'
 import ActorList from './components/Admin/ActorActions/ActorList'
 import AddTheatre from './components/Admin/TheatreActions/AddTheatre'
 import ShowAllTheatres from './components/Admin/TheatreActions/ShowAllTheatres'
+import { isUserLogged } from './components/globalStorage/IsUserLogged'
 
-export const AddActorContext = React.createContext();
-export const AddTheatreContext = React.createContext();
+export const Context = React.createContext();
 
 function App() {
   const [context, setContext] = useState(false)
   return (
-    <AddActorContext.Provider value={[context, setContext]}>
+    <Context.Provider value={[context, setContext]}>
       <Router>
         <LoginHeader />
         <SideMenu />
         <Switch>
 
           <Redirect exact from="/" to="/showlist" />
-          <Route path="/userprofile" component={UserProfile} />
           <Route path="/showlist" component={ShowList} />
           <Route path="/pieceactivelist" component={PieceActiveList} />
           <Route path="/piecealllist" component={PieceAllList} />
+          {isUserLogged() && <Route path="/userprofile" component={UserProfile} />}
           {getRole() === 'admin' && <Route path={"/addactor"} component={AddActor} />}
           {getRole() === 'admin' && <Route path={"/actorlist"} component={ActorList} />}
           {getRole() === 'admin' && <Route path={"/addtheatre"} component={AddTheatre} />}
@@ -43,7 +43,7 @@ function App() {
         </Switch>
         <NotificationContainer />
       </Router>
-    </AddActorContext.Provider>
+    </Context.Provider>
   );
 }
 

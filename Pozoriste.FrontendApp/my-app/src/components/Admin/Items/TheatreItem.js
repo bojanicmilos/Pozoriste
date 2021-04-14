@@ -7,7 +7,7 @@ const TheatreItem = (props) => {
     } = props;
 
     return (
-        <li key={id} className='theatre-container'>
+        <li className='theatre-container'>
             <p>Naziv pozorista:  {name} </p>
         </li>
     )

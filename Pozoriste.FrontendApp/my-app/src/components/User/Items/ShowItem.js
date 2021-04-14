@@ -27,7 +27,7 @@ const ShowItem = (props) => {
     }
 
     return (
-        <li key={id} className='showItem'>
+        <li className='showItem'>
             <p> {showTime} </p>
             <p> cena karte: {ticketPrice} </p>
             <p> Komad: {pieceTitle} </p>

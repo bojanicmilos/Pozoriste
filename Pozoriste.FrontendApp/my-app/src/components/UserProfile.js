@@ -79,31 +79,24 @@ const UserProfile = () => {
         return userReservations.reservations.map((reservation) => {
 
             return (
-                <div>
-                    <ul>
-                        <li key={reservation.id}>
-                            {reservation.showTime} &nbsp;
-                            {reservation.theatreName} &nbsp;
-                            {reservation.auditoriumName} &nbsp;
-                            {reservation.pieceTitle} &nbsp;
-                            <ul>Sedista: &nbsp;
+                <li key={reservation.id}>
+                    {reservation.showTime} &nbsp;
+                    {reservation.theatreName} &nbsp;
+                    {reservation.auditoriumName} &nbsp;
+                    {reservation.pieceTitle} &nbsp;
+                    <ul>Sedista: &nbsp;
                                 {reservation.reservedSeats.map((seat) => {
-                                return (
-
-                                    <li key={seat.id}>
-                                        Red: &nbsp;
-                                        {seat.row} &nbsp;
+                        return (
+                            <li key={seat.id}>
+                                Red: &nbsp;
+                                {seat.row} &nbsp;
                                             Broj: &nbsp;
-                                        {seat.number}
-                                    </li>
-                                )
-                            })}
-                            </ul>
-
-                        </li>
+                                {seat.number}
+                            </li>
+                        )
+                    })}
                     </ul>
-                </div>
-
+                </li>
             )
 
 
@@ -120,8 +113,10 @@ const UserProfile = () => {
                     <p>Uloga: {userReservations.user.userRole ? "Admin" : "Korisnik"}</p>
 
                     <div>
-                        <li className="list-group-item list-group-item-primary"><strong>Vase rezervacije: </strong></li>
-                        {showUserReservations()}
+                        <strong>Vase rezervacije: </strong>
+                        <ul>
+                            {showUserReservations()}
+                        </ul>
                     </div>
                 </>
                 }

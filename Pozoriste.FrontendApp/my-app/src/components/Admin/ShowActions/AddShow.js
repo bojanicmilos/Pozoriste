@@ -188,7 +188,7 @@ const AddShow = () => {
                         return (
                             <React.Fragment key={actor.id}>
                                 {(index !== 0) && <br />}
-                                <input className='form-check-input' key={actor.id}
+                                <input className='form-check-input'
                                     name={'actor' + actor.id}
                                     type='checkbox'
                                     onChange={(e) => updateActorsList(e, actor.id)} />

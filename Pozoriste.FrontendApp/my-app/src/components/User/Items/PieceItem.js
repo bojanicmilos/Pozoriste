@@ -64,7 +64,7 @@ const PieceItem = (props) => {
     }
 
     return (
-        <li key={id} className='pieceItem'>
+        <li className='pieceItem'>
             <p> Naziv komada: {title} </p>
             <p> Zanr: {genre} </p>
             <p> O delu: {description} </p>
