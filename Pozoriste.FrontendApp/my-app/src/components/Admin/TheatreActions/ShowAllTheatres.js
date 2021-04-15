@@ -38,10 +38,33 @@ const ShowAllTheatres = () => {
             })
     }
 
+    const removeTheatre = (id) => {
+        const requestOptions = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        };
+        fetch(`${serviceConfig.baseURL}/api/Theatres/${id}`, requestOptions)
+            .then((response) => {
+                if (!response.ok) {
+                    return Promise.reject(response);
+                }
+
+                let theatresFiltered = theatres;
+                theatresFiltered = theatresFiltered.filter((theatre) => theatre.id !== id);
+                setShowAllTheatres(theatresFiltered);
+                NotificationManager.success('Uspesno obrisano pozoriste!');
+            })
+            .catch((response) => {
+                NotificationManager.error('Nije moguce obrisati teatar!')
+            })
+    }
+
     const fillPageWithPieces = () => {
         return theatres.map((theatre) => {
             return (
-                <TheatreItem key={theatre.id} {...theatre} />
+                <TheatreItem key={theatre.id} {...theatre} removeTheatre={removeTheatre} />
             )
         })
     }
