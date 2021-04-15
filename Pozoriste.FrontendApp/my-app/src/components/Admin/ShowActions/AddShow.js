@@ -174,7 +174,7 @@ const AddShow = () => {
 
     const updateActorsList = (e, actorId) => {
         if (e.target.checked) {
-            setSendState({ ...sendState, actorsList: sendState.actorsList.concat({ id: actorId }) })
+            setSendState({ ...sendState, actorsList: [...sendState.actorsList, { id: actorId }] })
         }
         else {
             setSendState({ ...sendState, actorsList: sendState.actorsList.filter((actor) => actor.id !== actorId) })
