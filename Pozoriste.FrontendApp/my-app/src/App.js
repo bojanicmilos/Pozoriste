@@ -15,6 +15,7 @@ import AddShow from './components/Admin/ShowActions/AddShow'
 import ActorList from './components/Admin/ActorActions/ActorList'
 import AddTheatre from './components/Admin/TheatreActions/AddTheatre'
 import ShowAllTheatres from './components/Admin/TheatreActions/ShowAllTheatres'
+import AddPiece from './components/Admin/PieceActions/AddPiece'
 import { isUserLogged } from './components/globalStorage/IsUserLogged'
 
 export const Context = React.createContext();
@@ -33,6 +34,7 @@ function App() {
           <Route path="/pieceactivelist" component={PieceActiveList} />
           <Route path="/piecealllist" component={PieceAllList} />
           {isUserLogged() && <Route path="/userprofile" component={UserProfile} />}
+          {getRole() === 'admin' && <Route path={"/addpiece"} component={AddPiece} />}
           {getRole() === 'admin' && <Route path={"/addactor"} component={AddActor} />}
           {getRole() === 'admin' && <Route path={"/actorlist"} component={ActorList} />}
           {getRole() === 'admin' && <Route path={"/addtheatre"} component={AddTheatre} />}

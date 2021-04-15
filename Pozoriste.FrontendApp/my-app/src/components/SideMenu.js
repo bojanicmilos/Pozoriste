@@ -12,6 +12,9 @@ const SideMenu = () => {
             <Link className='side-menu-element' to="/showlist">Predstave</Link>
             <Link className='side-menu-element' to="/piecealllist">Pozorisni komadi</Link>
             {
+                (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/addPiece">Dodaj komad</Link>
+            }
+            {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/addactor">Dodaj glumca</Link>
             }
             {
