@@ -20,7 +20,7 @@ const ShowList = () => {
         const requestOptions = {
             method: 'GET',
             headers: {
-                'Contetnt-Type': 'application/json',
+                'Content-Type': 'application/json',
             }
         };
 

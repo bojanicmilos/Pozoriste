@@ -17,6 +17,7 @@ import AddTheatre from './components/Admin/TheatreActions/AddTheatre'
 import ShowAllTheatres from './components/Admin/TheatreActions/ShowAllTheatres'
 import AddPiece from './components/Admin/PieceActions/AddPiece'
 import { isUserLogged } from './components/globalStorage/IsUserLogged'
+import ShowReservation from './components/User/ShowActions/ShowReservation'
 
 export const Context = React.createContext();
 
@@ -31,6 +32,7 @@ function App() {
 
           <Redirect exact from="/" to="/showlist" />
           <Route path="/showlist" component={ShowList} />
+          <Route path="/showreservation/:id" children={ShowReservation} />
           <Route path="/pieceactivelist" component={PieceActiveList} />
           {getRole() === 'admin' && <Route path={"/piecealllist"} component={PieceAllList} />}
           {isUserLogged() && <Route path="/userprofile" component={UserProfile} />}

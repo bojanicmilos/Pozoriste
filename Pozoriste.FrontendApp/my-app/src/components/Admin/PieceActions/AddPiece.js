@@ -87,7 +87,7 @@ const AddPiece = () => {
                     <option value='1'>Aktivan</option>
                     <option value='0'>Neaktivan</option>
                 </select>
-                <textarea class="form-control" id="exampleFormControlTextarea1" onChange={(e) => setPiece({ ...piece, description: e.target.value })} rows="3" maxLength='450' placeholder='Deskripcija' required></textarea>
+                <textarea className="form-control" id="exampleFormControlTextarea1" onChange={(e) => setPiece({ ...piece, description: e.target.value })} rows="3" maxLength='450' placeholder='Deskripcija' required></textarea>
                 <button className='btn btn-primary' type='submit'>Dodaj komad</button>
             </form>
         </div>

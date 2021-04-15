@@ -1,8 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+
 
 const ShowItem = (props) => {
     const [toggleInfo, setToggleInfo] = useState(false)
+    const history = useHistory()
+
     const {
         id,
         showTime,
@@ -26,12 +30,17 @@ const ShowItem = (props) => {
         })
     }
 
+    const goToShowReservation = (id) => {
+        history.push(`/showreservation/${id}`)
+    }
+
     return (
         <li className='showItem'>
             <p> {showTime} </p>
             <p> cena karte: {ticketPrice} </p>
             <p> Komad: {pieceTitle} </p>
             <button onClick={() => setToggleInfo(!toggleInfo)}>Vise informacija</button>
+            <button onClick={() => goToShowReservation(id)}>Rezervisite predstavu</button>
             <p>  {toggleInfo && pieceDescription} </p>
             <p> Godina: {pieceYear} </p>
             <p> Zanr: {genre} </p>
