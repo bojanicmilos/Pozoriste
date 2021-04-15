@@ -83,6 +83,16 @@ namespace Pozoriste.Domain.Services
                 };
             }
 
+            // check if actors are provided 
+            if (requestedShow.ActorsList.Count() == 0)
+            {
+                return new ShowResultModel
+                {
+                    ErrorMessage = Messages.ACTORS_NOT_PROVIDED,
+                    isSuccessful = false
+                };
+            }
+
             // check if actors exist in database
             var allActors = await _actorsRepository.GetAllAsync();
 
