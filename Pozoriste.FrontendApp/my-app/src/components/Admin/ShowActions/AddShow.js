@@ -8,22 +8,48 @@ const AddShow = () => {
         actors: [],
         auditoriums: [],
         pieces: [],
+        theatres: [],
         isLoading: true
     })
 
     const [sendState, setSendState] = useState({
         showTime: '',
         actorsList: [],
+        theatreId: '',
         auditoriumId: '',
         pieceId: '',
         ticketPrice: '100'
     })
 
     useEffect(() => {
+        getTheatres();
         getActors();
         getAuditoriums();
         getPieces();
     }, [])
+
+    const getTheatres = () => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        fetch(`${serviceConfig.baseURL}/api/theatres`, requestOptions)
+            .then((response) => {
+                if (!response.ok) {
+                    return Promise.reject(response)
+                }
+                return response.json();
+            })
+            .then((json) => {
+                setState((prevState) => ({ ...prevState, theatres: json }))
+            })
+            .catch((response) => {
+                NotificationManager.error('Nije moguce preuzeti podatke ! ')
+            })
+    }
 
     const getActors = () => {
         const requestOptions = {
@@ -97,10 +123,6 @@ const AddShow = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (sendState.pieceId.match(/\d+/g) === null || sendState.auditoriumId.match(/\d+/g) === null) {
-            NotificationManager.error('Odaberite neke od ponudjenih opcija.')
-            return;
-        }
 
         if (sendState.showTime !== '' && sendState.ticketPrice !== '' && sendState.pieceId !== '' && sendState.auditoriumId !== '') {
             addShow();
@@ -135,7 +157,10 @@ const AddShow = () => {
                 return response.json();
             })
             .then((json) => {
-                if (json.errorMessage) {
+                if (json.status === 400) {
+                    NotificationManager.error('Pogresno upisan datum !')
+                }
+                else if (json.errorMessage) {
                     NotificationManager.error(json.errorMessage)
                 }
                 else {
@@ -199,22 +224,37 @@ const AddShow = () => {
                 </div>
 
                 <br />
-
-                <label htmlFor="auditoriums"><strong>Izaberi auditorium: &nbsp; </strong></label>
-                <select onChange={(e) => setSendState({ ...sendState, auditoriumId: e.target.value })} id="auditoriums">
-                    <option>Izaberite salu</option>
+                <label htmlFor="theatres">Pozoriste: </label>
+                <select id="theatres" onChange={(e) => setSendState({ ...sendState, theatreId: e.target.value })}>
+                    <option value=''>Izaberite pozoriste</option>
+                    {state.theatres.map((theatre) => {
+                        return (
+                            <option key={theatre.id} value={theatre.id}>{theatre.name}</option>
+                        )
+                    })}
+                </select>
+                <br />
+                <label htmlFor="auditoriums"><strong>Sala: &nbsp; </strong></label>
+                <select disabled={(sendState.theatreId === '') ? true : false} onChange={(e) => setSendState({ ...sendState, auditoriumId: e.target.value })} id="auditoriums">
+                    <option value=''>Izaberite salu</option>
                     {state.auditoriums.map((auditorium) => {
                         return (
-                            <option key={auditorium.id} value={auditorium.id}>{auditorium.name}</option>
+                            <React.Fragment key={auditorium.id}>
+                                {
+                                    (auditorium.theatreId.toString() === sendState.theatreId) &&
+                                    <option value={auditorium.id}>{auditorium.name}</option>
+
+                                }
+                            </React.Fragment>
                         )
                     })}
                 </select>
 
                 <br />
 
-                <label htmlFor="pieces"><strong>Izaberi pozorisni komad: &nbsp; </strong></label>
-                <select onChange={(e) => setSendState({ ...sendState, pieceId: e.target.value })} id="pieces">
-                    <option>Izaberite pozorisni komad</option>
+                <label htmlFor="pieces"><strong>Pozorisni komad: &nbsp; </strong></label>
+                <select disabled={(sendState.auditoriumId === '') ? true : false} onChange={(e) => setSendState({ ...sendState, pieceId: e.target.value })} id="pieces">
+                    <option value=''>Izaberite pozorisni komad</option>
                     {state.pieces.map((piece) => {
                         return (
                             <option key={piece.id} value={piece.id}>{piece.title}</option>
@@ -223,7 +263,7 @@ const AddShow = () => {
                 </select>
                 <br />
                 <label htmlFor="ticket"><strong>Cena karte: &nbsp; </strong></label>
-                <input id='ticket' min='100' onChange={(e) => setSendState({ ...sendState, ticketPrice: e.target.value })} value={sendState.ticketPrice} type='number' />
+                <input disabled={(sendState.pieceId === '') ? true : false} id='ticket' min='100' onChange={(e) => setSendState({ ...sendState, ticketPrice: e.target.value })} value={sendState.ticketPrice} type='number' />
                 <br />
                 <button className='btn btn-primary' type='submit'>Dodaj predstavu</button>
             </form>

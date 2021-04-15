@@ -14,7 +14,8 @@ namespace Pozoriste.Domain.Common
         #endregion
         #region Actors
         public const string ACTOR_CREATION_ERROR = "Greska prilikom dodavanja novog glumca. Pokusajte ponovo!";
-        public const string ACTOR_DOES_NOT_EXIST = "Glumac ne postoji.";
+        public const string ACTOR_DOES_NOT_EXIST = "Glumac ne postoji !";
+        public const string ACTORS_NOT_PROVIDED = "Glumci nisu uneti !";
         #endregion
         #region Addresses
         public const string ADDRESS_NOT_FOUND = "Adresa nije pronadjena";
