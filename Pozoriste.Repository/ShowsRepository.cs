@@ -57,6 +57,9 @@ namespace Pozoriste.Repository
         public async Task<Show> GetByIdAsync(int id)
         {
             var data = await _theatreContext.Shows
+                .Include(piece => piece.Piece)
+                .Include(auditorium => auditorium.Auditorium)
+                .ThenInclude(theatre => theatre.Theatre)
                 .Include(showActor => showActor.ShowActors)
                 .ThenInclude(actor => actor.Actor)
                 .Include(reservation => reservation.Reservations)

@@ -74,7 +74,7 @@ namespace Pozoriste.API.Controllers
                 return BadRequest(errorResponseModel);
             }
 
-            return Created("shows//" + createShow.ShowDomainModel.Id, createShow.ShowDomainModel);
+            return CreatedAtAction("shows//" + createShow.ShowDomainModel.Id, createShow.ShowDomainModel);
         }
 
         [HttpDelete("{id}")]
@@ -108,6 +108,19 @@ namespace Pozoriste.API.Controllers
             }
 
             return Accepted("pieces//" + deletedPiece.Id, deletedPiece);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ShowPieceActorAuditoriumTheatreDomainModel>> GetShowById(int id)
+        {
+            var show = await _showService.GetShowByIdAsync(id);
+
+            if (show == null)
+            {
+                return NotFound(Messages.SHOW_NOT_FOUND);
+            }
+
+            return show;
         }
              
     }

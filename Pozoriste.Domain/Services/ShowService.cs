@@ -113,14 +113,14 @@ namespace Pozoriste.Domain.Services
             //check if any actor has more than 2 shows on the same day
             var requestedActorsInDatabase = new List<Actor>();
 
-            foreach(var requested in requestedShow.ActorsList)
+            foreach (var requested in requestedShow.ActorsList)
             {
                 var actor = await _actorsRepository.GetByIdAsync(requested.Id);
 
                 requestedActorsInDatabase.Add(actor);
             }
 
-            foreach(var actor in requestedActorsInDatabase)
+            foreach (var actor in requestedActorsInDatabase)
             {
                 if (actor.ShowActors.Any(showactor => showactor.Show.ShowTime.Date == requestedShow.ShowTime.Date))
                 {
@@ -133,7 +133,7 @@ namespace Pozoriste.Domain.Services
                             isSuccessful = false,
                         };
                     }
-                   
+
                 }
             }
 
@@ -171,7 +171,7 @@ namespace Pozoriste.Domain.Services
                     PieceId = createdShow.PieceId,
                     TicketPrice = createdShow.TicketPrice,
                     ShowTime = createdShow.ShowTime,
-                    ActorsList = createdShow.ShowActors.Select(showActor => new ActorDomainModel 
+                    ActorsList = createdShow.ShowActors.Select(showActor => new ActorDomainModel
                     {
                         Id = showActor.Actor.Id,
                         FirstName = showActor.Actor.FirstName,
@@ -230,6 +230,8 @@ namespace Pozoriste.Domain.Services
                     PieceDescription = show.Piece.Description,
                     PieceTitle = show.Piece.Title,
                     PieceYear = show.Piece.Year,
+                    PieceId = show.Piece.Id,
+                    AuditoriumId = show.Auditorium.Id,
                     Genre = show.Piece.Genre.ToString() == "COMEDY" ? "Komedija"
                     : show.Piece.Genre.ToString() == "DRAMA" ? "Drama" : show.Piece.Genre.ToString() == "TRAGEDY" ? "Tragedija" : "",
                     ShowTime = show.ShowTime.ToString("MM/dd/yyyy HH:mm"),
@@ -264,7 +266,7 @@ namespace Pozoriste.Domain.Services
         {
             var shows = await _showsRepository.GetFutureShowsByPieceIdAsync(id);
 
-            if(shows == null)
+            if (shows == null)
             {
                 return null;
             }
@@ -285,7 +287,7 @@ namespace Pozoriste.Domain.Services
         {
             var shows = await _showsRepository.GetFutureShowsByPieceIdAsync(domainModel.Id);
 
-            if(shows == null)
+            if (shows == null)
             {
                 return null;
             }
@@ -300,6 +302,38 @@ namespace Pozoriste.Domain.Services
             });
 
             return showsList;
+        }
+
+        public async Task<ShowPieceActorAuditoriumTheatreDomainModel> GetShowByIdAsync(int id)
+        {
+            var show = await _showsRepository.GetByIdAsync(id);
+
+            if (show == null)
+            {
+                return null;
+            }
+
+            return new ShowPieceActorAuditoriumTheatreDomainModel
+            {
+                Id = show.Id,
+                AuditoriumName = show.Auditorium.Name,
+                PieceDescription = show.Piece.Description,
+                PieceTitle = show.Piece.Title,
+                PieceYear = show.Piece.Year,
+                PieceId = show.Piece.Id,
+                AuditoriumId = show.Auditorium.Id,
+                Genre = show.Piece.Genre.ToString() == "COMEDY" ? "Komedija"
+                    : show.Piece.Genre.ToString() == "DRAMA" ? "Drama" : show.Piece.Genre.ToString() == "TRAGEDY" ? "Tragedija" : "",
+                ShowTime = show.ShowTime.ToString("MM/dd/yyyy HH:mm"),
+                TheatreName = show.Auditorium.Theatre.Name,
+                TicketPrice = show.TicketPrice,
+                Actors = show.ShowActors.Select(showActor => new ActorDomainModel
+                {
+                    Id = showActor.Actor.Id,
+                    FirstName = showActor.Actor.FirstName,
+                    LastName = showActor.Actor.LastName
+                }).ToList()
+            };
         }
     }
 }
