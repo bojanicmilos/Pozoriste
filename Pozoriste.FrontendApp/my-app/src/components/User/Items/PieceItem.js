@@ -52,15 +52,15 @@ const PieceItem = (props) => {
     const getBtn = (isActive, id) => {
         if (isActive) {
             if (getRole() === "admin")
-                return <button className="btn btn-danger" onClick={() => activateDeactivatePiece(id)}>DEAKTIVIRAJ</button>
+                return <button className="btn btn-danger" style={{ marginBottom: 15 }} onClick={() => activateDeactivatePiece(id)}>DEAKTIVIRAJ</button>
         }
         else if (getRole() === "admin")
-            return <button className="btn btn-success" onClick={() => activateDeactivatePiece(id)}>AKTIVIRAJ</button>
+            return <button className="btn btn-success" style={{ marginBottom: 15 }} onClick={() => activateDeactivatePiece(id)}>AKTIVIRAJ</button>
     }
 
     const getDeleteBtn = (id) => {
         if (getRole() === "admin")
-            return <button className="btn btn-danger" style={{ marginLeft: 10 }} onClick={() => removePiece(id)}>OBRISI</button>
+            return <button className="btn btn-danger" style={{ marginLeft: 10, marginBottom: 15 }} onClick={() => removePiece(id)}>OBRISI</button>
     }
 
     return (
