@@ -32,7 +32,7 @@ function App() {
           <Redirect exact from="/" to="/showlist" />
           <Route path="/showlist" component={ShowList} />
           <Route path="/pieceactivelist" component={PieceActiveList} />
-          <Route path="/piecealllist" component={PieceAllList} />
+          {getRole() === 'admin' && <Route path={"/piecealllist"} component={PieceAllList} />}
           {isUserLogged() && <Route path="/userprofile" component={UserProfile} />}
           {getRole() === 'admin' && <Route path={"/addpiece"} component={AddPiece} />}
           {getRole() === 'admin' && <Route path={"/addactor"} component={AddActor} />}

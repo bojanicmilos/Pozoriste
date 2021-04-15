@@ -10,7 +10,10 @@ const SideMenu = () => {
     return (
         <div className='side-menu'>
             <Link className='side-menu-element' to="/showlist">Predstave</Link>
-            <Link className='side-menu-element' to="/piecealllist">Pozorisni komadi</Link>
+            {
+                (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/piecealllist">Pozorisni komadi</Link>
+            }
+            <Link className='side-menu-element' to="/pieceactivelist">Aktivni pozorisni komadi</Link>
             {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/addPiece">Dodaj komad</Link>
             }
