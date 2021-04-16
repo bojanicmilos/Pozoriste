@@ -38,9 +38,6 @@ const ShowReservation = () => {
                 return response.json();
             })
             .then((json) => {
-                json.forEach((seat) => {
-                    seat.id = seat.id.toString()
-                })
                 setState(prevState => ({ ...prevState, reservedSeats: json }))
             })
             .catch((response) => {
@@ -95,11 +92,7 @@ const ShowReservation = () => {
                 return response.json();
             })
             .then((json) => {
-                let seats = json.seats
-                seats.forEach((seat) => {
-                    seat.id = seat.id.toString()
-                })
-                setState(prevState => ({ ...prevState, seats: seats, maxRow: json.maxRow, maxNumberOfRow: json.maxNumber }))
+                setState(prevState => ({ ...prevState, seats: json.seats, maxRow: json.maxRow, maxNumberOfRow: json.maxNumber }))
             })
             .catch((response) => {
                 NotificationManager.error('Bezuspesno ucitani podaci !')
@@ -155,9 +148,6 @@ const ShowReservation = () => {
 
             const { currentReservationSeats } = state;
 
-            currentReservationSeats.forEach(seat => {
-                seat.id = parseInt(seat.id)
-            })
             const data = {
                 showId: +showId,
                 seatIds: currentReservationSeats,
@@ -253,7 +243,7 @@ const ShowReservation = () => {
     const markSeatAsGreenish = (seatId) => {
         getAllButtons();
         for (let i = 0; i < allButtons.length; i++) {
-            if (seatId === allButtons[i].value) {
+            if (seatId.toString() === allButtons[i].value) {
                 allButtons[i].className = "seat nice-green-color";
             }
         }
@@ -271,7 +261,7 @@ const ShowReservation = () => {
     const markSeatAsBlue = (seatId) => {
         getAllButtons();
         for (let i = 0; i < allButtons.length; i++) {
-            if (seatId === allButtons[i].value) {
+            if (seatId.toString() === allButtons[i].value) {
                 allButtons[i].className = "seat";
             }
         }
