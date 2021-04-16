@@ -34,7 +34,7 @@ namespace Pozoriste.Domain.Services
                 return new CreateAuditoriumResultModel
                 {
                     IsSuccessful = false,
-                    ErrorMessage = Messages.AUDITORIUM_INVALID_CINEMAID
+                    ErrorMessage = Messages.AUDITORIUM_INVALID_THEATREID
                 };
             }
 

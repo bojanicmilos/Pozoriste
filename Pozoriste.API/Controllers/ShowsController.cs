@@ -74,7 +74,7 @@ namespace Pozoriste.API.Controllers
                 return BadRequest(errorResponseModel);
             }
 
-            return CreatedAtAction("shows//" + createShow.ShowDomainModel.Id, createShow.ShowDomainModel);
+            return CreatedAtAction(nameof(GetShowById) , new { id = createShow.ShowDomainModel.Id }, createShow.ShowDomainModel);
         }
 
         [HttpDelete("{id}")]

@@ -108,6 +108,13 @@
     margin-top: 100px;
     margin-left: 200px;
 }
+
+.reservation-big-card {
+    margin-top: 100px;
+    margin-left: 185px!important;
+}
+
+
 /* sadrzaj stranice kraj */
 
 
@@ -179,6 +186,54 @@ input[type=checkbox] {
 .btn-outline-light {
     margin-right: 15px;
 }
+
+.couch-icon {
+    color: rgb(87, 85, 85);
+    pointer-events: none;
+    border-radius: 10px;
+    z-index: 100;
+  }
+
+  .couch-icon.active {
+    color: red;
+  }
+  
+  .year-filter {
+    padding-left: 60px;
+    margin: 0px 0 10px 0;
+  }
+  
+  .rendering-seats{
+    background-color: transparent !important;
+    border: 0 ;
+    margin: 0 ;
+    padding: 0 ;
+  }
+
+.seat {
+    margin: 0 2px;
+    border: 0;
+    background: transparent;
+  }
+
+  .seat-taken svg {
+    color: red;
+  }
+  
+  .seat-taken {
+    pointer-events: none;
+  }
+  
+  .seat-current-reservation svg {
+    color: rgb(82, 154, 172);
+  }
+
+  .nice-green-color svg{
+    color: rgb(51, 129, 99);
+  }
+
+  
+  
 
 
 
