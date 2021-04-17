@@ -6,7 +6,9 @@ const TheatreItem = (props) => {
         id,
         name,
     } = props;
+
     const removeTheatre = props.removeTheatre;
+    const getAuditoriumsForOneTheatre = props.getAuditoriumsForOneTheatre;
 
     const getDeleteBtn = (id) => {
         if (getRole() === 'admin')

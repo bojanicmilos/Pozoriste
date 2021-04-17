@@ -12,7 +12,7 @@ namespace Pozoriste.Repository
     public interface IAuditoriumsRepository : IRepository<Auditorium>
     {
         Task<IEnumerable<Auditorium>> GetByAuditName(string name, int id);
-        IEnumerable<Auditorium> GetAuditoriumsByCinemaId(int id);
+        Task<IEnumerable<Auditorium>> GetAuditoriumsByTheatreId(int id);
     }
     public class AuditoriumsRepository : IAuditoriumsRepository
     {
@@ -33,14 +33,16 @@ namespace Pozoriste.Repository
 
         public async Task<IEnumerable<Auditorium>> GetAllAsync()
         {
-            var data = await _theatreContext.Auditoriums.ToListAsync();
+            var data = await _theatreContext.Auditoriums
+                .Include(x => x.Theatre)
+                .ToListAsync();
 
             return data;
         }
 
-        public IEnumerable<Auditorium> GetAuditoriumsByCinemaId(int id)
+        public async Task<IEnumerable<Auditorium>> GetAuditoriumsByTheatreId(int id)
         {
-            var audits = _theatreContext.Auditoriums.Where(theatre => theatre.TheatreId == id);
+            var audits = await _theatreContext.Auditoriums.Where(theatre => theatre.TheatreId == id).ToListAsync();
 
 
             return audits;

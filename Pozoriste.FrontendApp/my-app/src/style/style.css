@@ -103,9 +103,19 @@
     margin-left: 200px;
 }
 
+.add-auditorium-page {
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
 .actor-container {
     margin-top: 100px;
     margin-left: 200px;
+}
+
+.auditorium-container {
+    margin-top: 100px;
+    margin-left: 105px;
 }
 
 .show-reservation {

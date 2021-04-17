@@ -32,6 +32,12 @@ const SideMenu = () => {
             {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/showalltheatres">Pozorista</Link>
             }
+            {
+                (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/showallAuditoriums">Sale</Link>
+            }
+            {
+                (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/addAuditorium">Dodaj salu</Link>
+            }
         </div>
     )
 }

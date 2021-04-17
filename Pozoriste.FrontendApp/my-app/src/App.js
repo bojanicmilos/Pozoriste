@@ -18,6 +18,8 @@ import ShowAllTheatres from './components/Admin/TheatreActions/ShowAllTheatres'
 import AddPiece from './components/Admin/PieceActions/AddPiece'
 import { isUserLogged } from './components/globalStorage/IsUserLogged'
 import ShowReservation from './components/User/ShowActions/ShowReservation'
+import ShowAllAuditoriums from './components/Admin/AuditoriumActions/ShowAllAuditoriums'
+import AddAuditorium from './components/Admin/AuditoriumActions/AddAuditorium'
 
 export const Context = React.createContext();
 
@@ -42,6 +44,8 @@ function App() {
           {getRole() === 'admin' && <Route path={"/addtheatre"} component={AddTheatre} />}
           {getRole() === 'admin' && <Route path={"/showalltheatres"} component={ShowAllTheatres} />}
           {getRole() === 'admin' && <Route path={"/addshow"} component={AddShow} />}
+          {getRole() === 'admin' && <Route path={"/showallauditoriums"} component={ShowAllAuditoriums} />}
+          {getRole() === 'admin' && <Route path={"/addauditorium"} component={AddAuditorium} />}
 
           <Redirect exact from="*" to="/showlist" />
         </Switch>
