@@ -142,7 +142,7 @@
     justify-content: center;
     background-color: rgb(48, 47, 44);
     height: 100%;
-    width: 200px;
+    width: 220px;
 }
 
 .side-menu-element {
@@ -152,13 +152,29 @@
     color: rgb(237, 237, 235);
     justify-content: center;
     align-items: center;
+    background: rgb(48, 47, 44);
+    box-shadow: 0 5px 25px rgb(237, 237, 235, .1);
+    transition: transform 0.5s;
+    border-radius: 15%;
+    border-bottom: 3px solid rgb(237, 237, 235);
 }
 
 .side-menu-element:hover {
-    color: #6a72be;
+    color: rgb(237, 237, 235);
     text-decoration: none;
+    transform: scale(1.2);
+    z-index: 100; 
+    background: rgb(48, 47, 44);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .2);
+    
 }
 
+.divider{
+    width: 220px;
+    height: 2px;
+    background-color:black;
+    opacity: 0.2;
+}
 /* 
 menu kraj */
 
