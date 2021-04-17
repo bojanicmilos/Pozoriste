@@ -31,6 +31,9 @@ namespace Pozoriste.Domain.Services
             int maxRow = seatsInAuditorium.Max(seat => seat.Row);
             int maxNumber = seatsInAuditorium.Max(seat => seat.Number);
 
+            seatsInAuditorium = seatsInAuditorium.OrderBy(x => x.Row).ThenBy(x => x.Number);
+
+
             SeatAuditoriumDomainModel seatAuditoriumDomainModel = new SeatAuditoriumDomainModel
             {
                 Seats = seatsInAuditorium.Select(seat => new SeatDomainModel

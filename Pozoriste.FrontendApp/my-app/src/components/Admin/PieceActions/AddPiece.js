@@ -13,7 +13,7 @@ const AddPiece = () => {
     })
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         if (piece.genre === '' || piece.isActive === '') {
             NotificationManager.error('Popunite sva prazna polja!')
         }

@@ -34,7 +34,7 @@ namespace Pozoriste.Domain.Services
                 return new CreateAuditoriumResultModel
                 {
                     IsSuccessful = false,
-                    ErrorMessage = Messages.AUDITORIUM_INVALID_CINEMAID
+                    ErrorMessage = Messages.AUDITORIUM_INVALID_THEATREID
                 };
             }
 
@@ -165,7 +165,8 @@ namespace Pozoriste.Domain.Services
                 {
                     Id = item.Id,
                     TheatreId = item.TheatreId,
-                    Name = item.Name
+                    Name = item.Name,
+                    TheatreName = item.Theatre.Name
                 };
                 result.Add(model);
             }
@@ -173,9 +174,9 @@ namespace Pozoriste.Domain.Services
             return result;
         }
 
-        public IEnumerable<AuditoriumDomainModel> GetAuditoriumsByCinemaId(int cinemaId)
+        public async Task<IEnumerable<AuditoriumDomainModel>> GetAuditoriumsByTheatreId(int theatreId)
         {
-            var audits = _auditoriumsRepository.GetAuditoriumsByCinemaId(cinemaId);
+            var audits = await _auditoriumsRepository.GetAuditoriumsByTheatreId(theatreId);
 
             List<AuditoriumDomainModel> auditList = new List<AuditoriumDomainModel>();
 
