@@ -156,6 +156,7 @@
 
 .side-menu-element:hover {
     color: #6a72be;
+    text-decoration: none;
 }
 
 /* 
