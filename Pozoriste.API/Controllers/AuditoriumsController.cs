@@ -38,6 +38,22 @@ namespace Pozoriste.API.Controllers
             return Ok(auditoriumDomainModels);
         }
 
+        [HttpGet]
+        [Route("getAllByTheatreId/{id}")]
+        public async Task<ActionResult<IEnumerable<AuditoriumDomainModel>>> GetAllAuditoriumsByTheatreId(int id)
+        {
+            IEnumerable<AuditoriumDomainModel> auditoriumDomainModels;
+
+            auditoriumDomainModels = await _auditoriumService.GetAuditoriumsByTheatreId(id);
+
+            if(auditoriumDomainModels == null)
+            {
+                auditoriumDomainModels = new List<AuditoriumDomainModel>();
+            }
+
+            return Ok(auditoriumDomainModels);
+        }
+
         [HttpPost]
         [Route("create")]
         public async Task<ActionResult<AuditoriumDomainModel>> PostAsync(CreateAuditoriumModel createAuditoriumModel)

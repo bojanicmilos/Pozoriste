@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { NotificationManager } from 'react-notifications'
 import { serviceConfig } from '../../../AppSettings/serviceConfig'
 import Spinner from '../../Spinner'
+import AuditoriumItem from '../Items/AuditoriumItem'
 import TheatreItem from '../Items/TheatreItem'
+
 
 const ShowAllTheatres = () => {
     const [theatres, setShowAllTheatres] = useState([])
@@ -61,17 +63,17 @@ const ShowAllTheatres = () => {
             })
     }
 
-    const fillPageWithPieces = () => {
+    const fillPageWithTheatres = () => {
         return theatres.map((theatre) => {
             return (
                 <TheatreItem key={theatre.id} {...theatre} removeTheatre={removeTheatre} />
             )
         })
-    }
+    };
 
     return (
         <ul>
-            { isLoading ? <Spinner></Spinner> : fillPageWithPieces()}
+            { isLoading ? <Spinner></Spinner> : fillPageWithTheatres()}
         </ul>
     )
 }
