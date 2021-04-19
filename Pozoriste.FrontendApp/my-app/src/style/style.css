@@ -264,9 +264,97 @@ input[type=checkbox] {
     color: rgb(51, 129, 99);
   }
 
-  
-  
+  /* user page */
 
+  .user-page{
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+    width: 450px;
+    display: flex;
+    box-shadow: 0 1px 20px 0 rgba(48, 47, 44,.08);
+  }
+
+  .user-page .left{
+    width: 35%;
+    background: rgb(48, 47, 44);
+    padding: 90px 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .user-page .left img{
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .user-page .left h4{
+    margin-bottom: 10px;
+  }
+
+  .user-page .right{
+    width: 65%;
+    background: #fff;
+    padding: 30px 25px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .user-page .right .info,
+  .user-page .right .reservations{
+    margin-bottom: 50px;
+}
+
+.user-page .right .info h3,
+.user-page .right .reservations h3{
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #353c4e;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.user-page .right .info_data,
+.user-page .right .reservations_data{
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-page .right .info_data .data,
+.user-page .right .reservations_data .data{
+  width: 45%;
+}
+
+.user-page .right .info_data .data h4,
+.user-page .right .reservations_data .data h4{
+  color: #353c4e;
+  margin-bottom: 5px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.user-page .right .info_data .data p,
+.user-page .right .reservations_data .data p{
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #919aa3;
+  text-align: center;
+  
+}
+
+.user-page .right .info_data .data .uloga-profil{
+    margin-top: 25.8%;
+}
+
+.user-page .right .reservations_data .data {
+  margin-left: 30%;
+}
+
+  /* user page end */
 
 
 

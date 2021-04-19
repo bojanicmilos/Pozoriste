@@ -107,20 +107,44 @@ const UserProfile = () => {
         <>
             <div className='user-page'>
                 {isLoading ? <Spinner></Spinner> : <>
-                    <p>Ime: {userReservations.user.firstName} </p>
-                    <p>Prezime: {userReservations.user.lastName}</p>
-                    <p>Korisnicko ime: {userReservations.user.userName} </p>
-                    <p>Uloga: {userReservations.user.userRole ? "Admin" : "Korisnik"}</p>
+                    <div class="left">
+                        <img src="src/images/user.png" alt="user" width="100"/>
+                        <h4>{userReservations.user.firstName}</h4>
+                        <h4>{userReservations.user.lastName}</h4>
+                    </div>
 
-                    <div>
-                        <strong>Vase rezervacije: </strong>
-                        <ul>
-                            {showUserReservations()}
-                        </ul>
+                    <div class="right">
+                        <div class="info">
+                            <h3>Informacije</h3>
+                                <div class="info_data">
+                                    <div class="data">
+                                        <h4>Korisnicko ime:</h4>
+                                        <p>{userReservations.user.userName}</p>
+                                    </div>
+                                    <div class="data">
+                                        <h4>Uloga:</h4>
+                                        <p class="uloga-profil">{userReservations.user.userRole ? "Admin" : "Korisnik"}</p>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="reservations">
+                        <h3>Rezervacije</h3>
+                            <div class="reservations_data">
+                                <div class="data">
+                                    <h4>Vase rezervacije:</h4>
+                                    <ul>
+                                        {showUserReservations()}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </>
                 }
             </div>
+
+            
         </>
     )
 }
