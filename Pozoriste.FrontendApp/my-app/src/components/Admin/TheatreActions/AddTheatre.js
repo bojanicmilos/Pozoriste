@@ -14,8 +14,9 @@ const AddTheatre = () => {
     })
 
     const handleSubmit = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         addTheatre();
+        setTheatre({name:'', auditName:'', seatRows: '', numberOfSeats: '', cityName: '', streetName:''})
     }
 
 

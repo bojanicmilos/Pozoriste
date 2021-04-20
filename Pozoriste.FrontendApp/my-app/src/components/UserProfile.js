@@ -5,6 +5,8 @@ import { getUserName } from './globalStorage/GetUserName'
 import { getRole } from './globalStorage/RoleCheck'
 import { isUserLogged } from './globalStorage/IsUserLogged'
 import Spinner from './Spinner'
+import img from '../images/user.jpg'
+
 
 const UserProfile = () => {
     const [userReservations, setUserReservations] = useState({
@@ -108,7 +110,7 @@ const UserProfile = () => {
             <div className='user-page'>
                 {isLoading ? <Spinner></Spinner> : <>
                     <div class="left">
-                        <img src="src/images/user.png" alt="user" width="100"/>
+                        <img src={img} alt="user" style={{height:'50px', width:'50px'}}/>
                         <h4>{userReservations.user.firstName}</h4>
                         <h4>{userReservations.user.lastName}</h4>
                     </div>
@@ -140,9 +142,13 @@ const UserProfile = () => {
                             </div>
                         </div>
                     </div>
+                    
                 </>
+                
                 }
+                
             </div>
+            
 
             
         </>

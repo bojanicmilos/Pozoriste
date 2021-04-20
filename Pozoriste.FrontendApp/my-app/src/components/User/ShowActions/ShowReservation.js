@@ -495,9 +495,6 @@ const ShowReservation = () => {
                                     <table className="table-cinema-auditorium">
                                         <tbody>{auditorium}</tbody>
                                     </table>
-                                    <div className="text-center text-white font-weight-bold cinema-screen">
-                                        POZORISTE
-                      </div>
                                 </Row>
                             </div>
                         </Col>
