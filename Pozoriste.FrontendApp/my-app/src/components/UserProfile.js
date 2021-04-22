@@ -5,7 +5,7 @@ import { getUserName } from './globalStorage/GetUserName'
 import { getRole } from './globalStorage/RoleCheck'
 import { isUserLogged } from './globalStorage/IsUserLogged'
 import Spinner from './Spinner'
-import img from '../images/user.jpg'
+import img from '../images/user.png'
 
 
 const UserProfile = () => {
@@ -81,23 +81,24 @@ const UserProfile = () => {
         return userReservations.reservations.map((reservation) => {
 
             return (
-                <li key={reservation.id}>
-                    {reservation.showTime} &nbsp;
-                    {reservation.theatreName} &nbsp;
-                    {reservation.auditoriumName} &nbsp;
-                    {reservation.pieceTitle} &nbsp;
-                    <ul>Sedista: &nbsp;
-                                {reservation.reservedSeats.map((seat) => {
-                        return (
-                            <li key={seat.id}>
-                                Red: &nbsp;
-                                {seat.row} &nbsp;
-                                            Broj: &nbsp;
-                                {seat.number}
-                            </li>
-                        )
-                    })}
+                <li class="reservation-components" key={reservation.id}>
+                    <p> <strong>Vreme i datum:</strong><span>{reservation.showTime} </span>
+                        <strong>Pozoriste:</strong> <span>{reservation.theatreName} </span>
+                        <strong>Sala:</strong> <span>{reservation.auditoriumName} </span>
+                        <strong>Komad:</strong> <span>{reservation.pieceTitle}</span>  </p>
+                    <ul class="sits"><strong>Sedista:</strong>
+                        {reservation.reservedSeats.map((seat) => {
+                            return (
+                                <li key={seat.id}>
+                                    Red:
+                                    {seat.row} &nbsp;
+                                    Broj:
+                                    {seat.number}
+                                </li>
+                            )
+                        })}
                     </ul>
+
                 </li>
             )
 
@@ -110,7 +111,7 @@ const UserProfile = () => {
             <div className='user-page'>
                 {isLoading ? <Spinner></Spinner> : <>
                     <div class="left">
-                        <img src={img} alt="user" style={{height:'50px', width:'50px'}}/>
+                        <img className="img-user" src={img} alt="user" style={{ height: '150px', width: '150px' }} />
                         <h4>{userReservations.user.firstName}</h4>
                         <h4>{userReservations.user.lastName}</h4>
                     </div>
@@ -118,39 +119,39 @@ const UserProfile = () => {
                     <div class="right">
                         <div class="info">
                             <h3>Informacije</h3>
-                                <div class="info_data">
-                                    <div class="data">
-                                        <h4>Korisnicko ime:</h4>
-                                        <p>{userReservations.user.userName}</p>
-                                    </div>
-                                    <div class="data">
-                                        <h4>Uloga:</h4>
-                                        <p class="uloga-profil">{userReservations.user.userRole ? "Admin" : "Korisnik"}</p>
-                                    </div>
+                            <div class="info_data">
+                                <div class="data">
+                                    <h4>Korisnicko ime:</h4>
+                                    <p>{userReservations.user.userName}</p>
                                 </div>
+                                <div class="data">
+                                    <h4>Uloga:</h4>
+                                    <p class="profile-role">{userReservations.user.userRole ? "Admin" : "Korisnik"}</p>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="reservations">
-                        <h3>Rezervacije</h3>
+                            <h3>Rezervacije</h3>
                             <div class="reservations_data">
                                 <div class="data">
                                     <h4>Vase rezervacije:</h4>
-                                    <ul>
+                                    <p>
                                         {showUserReservations()}
-                                    </ul>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                </>
-                
-                }
-                
-            </div>
-            
 
-            
+                </>
+
+                }
+
+            </div>
+
+
+
         </>
     )
 }
