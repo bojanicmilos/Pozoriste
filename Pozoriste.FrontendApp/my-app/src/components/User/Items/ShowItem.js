@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom'
 
 
 const ShowItem = (props) => {
-    const [toggleInfo, setToggleInfo] = useState(false)
     const history = useHistory()
 
     const {
@@ -12,7 +11,6 @@ const ShowItem = (props) => {
         showTime,
         ticketPrice,
         pieceTitle,
-        pieceDescription,
         pieceYear,
         genre,
         auditoriumName,
@@ -50,8 +48,6 @@ const ShowItem = (props) => {
                 <p> Pozoriste: {theatreName}</p>
                 <p> Glumci:</p>
                 {showActors()}
-                <button onClick={() => setToggleInfo(!toggleInfo)}>Vise informacija</button>
-                <p>  {toggleInfo && pieceDescription} </p>
             </div>
         </li>
     )

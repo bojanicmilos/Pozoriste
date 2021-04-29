@@ -500,6 +500,8 @@ const ShowReservation = () => {
                         </Col>
                     </Row>
                     <hr />
+                    <h4 className='show-reservation-desc-title'>O delu:&nbsp;</h4>
+                    <p className='show-reservation-desc'>{state.show.pieceDescription}</p>
                 </Card.Text>
             </Card.Body>
         );

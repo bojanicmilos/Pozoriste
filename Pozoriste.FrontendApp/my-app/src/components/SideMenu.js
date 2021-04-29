@@ -14,6 +14,7 @@ const SideMenu = () => {
 
     return (
         <div className='side-menu'>
+            <span class="divider"></span>
             <Link className='side-menu-element' to="/showlist"><img className="img-show" src={show} alt="hall" style={{ height: '40px', width: '40px' }} />Predstave</Link>
             {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/addshow" >Dodaj predstavu </Link>
@@ -29,27 +30,28 @@ const SideMenu = () => {
             {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/addPiece">Dodaj komad</Link>
             }
-            <span class="divider"></span>
+            {(isUserLogged() && getRole() === 'admin') && <span class="divider"></span>}
             {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/actorlist"><img className="img-actor" src={actor} alt="hall" style={{ height: '40px', width: '40px' }} />Svi glumci</Link>
             }
             {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/addactor">Dodaj glumca</Link>
             }
-            <span class="divider"></span>
+            {(isUserLogged() && getRole() === 'admin') && <span class="divider"></span>}
             {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/showalltheatres"><img className="img-theatre" src={theatre} alt="hall" style={{ height: '40px', width: '40px' }} />Pozorista</Link>
             }
             {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/addtheatre">Dodaj pozoriste</Link>
             }
-            <span class="divider"></span>
+            {(isUserLogged() && getRole() === 'admin') && <span class="divider"></span>}
             {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/showallAuditoriums"><img className="img-hall" src={hall} alt="hall" style={{ height: '40px', width: '40px' }} /> Sale</Link>
             }
             {
                 (isUserLogged() && getRole() === 'admin') && <Link className='side-menu-element' to="/addAuditorium">Dodaj salu</Link>
             }
+            <span class="divider"></span>
         </div>
     )
 }

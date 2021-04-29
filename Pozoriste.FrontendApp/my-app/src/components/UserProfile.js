@@ -81,12 +81,12 @@ const UserProfile = () => {
         return userReservations.reservations.map((reservation) => {
 
             return (
-                <li class="reservation-components" key={reservation.id}>
-                    <p> <strong>Vreme i datum:</strong><span>{reservation.showTime} </span>
+                <li className="reservation-components" key={reservation.id}>
+                    <p id='resid' className='reservation-item'> <strong>Vreme i datum:</strong><span>{reservation.showTime} </span>
                         <strong>Pozoriste:</strong> <span>{reservation.theatreName} </span>
                         <strong>Sala:</strong> <span>{reservation.auditoriumName} </span>
                         <strong>Komad:</strong> <span>{reservation.pieceTitle}</span>  </p>
-                    <ul class="sits"><strong>Sedista:</strong>
+                    <ul id='seats' className='reservation-item'><strong>Sedista:</strong>
                         {reservation.reservedSeats.map((seat) => {
                             return (
                                 <li key={seat.id}>
@@ -120,11 +120,11 @@ const UserProfile = () => {
                         <div class="info">
                             <h3>Informacije</h3>
                             <div class="info_data">
-                                <div class="data">
+                                <div class="info_data_item">
                                     <h4>Korisnicko ime:</h4>
                                     <p>{userReservations.user.userName}</p>
                                 </div>
-                                <div class="data">
+                                <div class="info_data_item">
                                     <h4>Uloga:</h4>
                                     <p class="profile-role">{userReservations.user.userRole ? "Admin" : "Korisnik"}</p>
                                 </div>
@@ -134,7 +134,7 @@ const UserProfile = () => {
                         <div class="reservations">
                             <h3>Rezervacije</h3>
                             <div class="reservations_data">
-                                <div class="data">
+                                <div class="reservations_data_item">
                                     <h4>Vase rezervacije:</h4>
                                     <p>
                                         {showUserReservations()}

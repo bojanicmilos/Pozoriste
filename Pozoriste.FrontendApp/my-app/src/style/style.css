@@ -104,9 +104,14 @@
     margin-left: 200px;
 }
 
-.actor-container {
-    margin-top: 100px;
-    margin-left: 200px;
+.actor-table {
+    margin-top: 64px;
+    margin-left: 239px;
+    width: 81.5%!important;
+}
+
+tr {
+  text-align: center;
 }
 
 .auditorium-container {
@@ -132,25 +137,23 @@
 
 /* menu pocetak */
 .side-menu {
-    margin-top:4%;
+    margin-top:65px;
     position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: rgb(48, 47, 44);
-    height: 100%;
-    width: 15.3%;
+    height: 100vh;
+    width: 18.5%;
 }
 
 .side-menu-element {
     font-size: 1.1em;
-    margin-top: 10%;
-    margin-bottom: 8%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding-right: 3%;
     color: rgb(237, 237, 235);
-    justify-content: center;
-    align-items: center;
     background: rgb(48, 47, 44);
     box-shadow: 0 5px 25px rgb(237, 237, 235, .1);
     transition: transform 0.5s;
@@ -178,7 +181,7 @@ menu kraj */
 
 
 .actors-checkbox {
-    column-count: 4;
+    column-count: 3;
     margin-left: 65px;
 }
 
@@ -249,6 +252,14 @@ input[type=checkbox] {
   .seat-taken svg {
     color: red;
   }
+
+  .show-reservation-desc-title {
+    text-align: center;
+  }
+
+  .show-reservation-desc {
+    text-align: justify;
+  }
   
   .seat-taken {
     pointer-events: none;
@@ -265,11 +276,15 @@ input[type=checkbox] {
   /* user page */
 
   .user-page{
-    margin-top: 6%;
-    margin-left: 40%;
-    width: 35%;
+    margin-top: 75px;
+    margin-left: 28%;
+    margin-bottom: 20px;
+    /* padding: 4px; */
+    width: 65%;
     display: flex;
-    box-shadow: 0 1px 20px 0 rgba(48, 47, 44,.08);
+    /* border: 2px solid rgb(48, 47, 44);  */
+    border-radius: 5px; 
+    box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.8);
     z-index: 1;
   }
 
@@ -277,10 +292,12 @@ input[type=checkbox] {
     width: 50%;
     background: rgb(48, 47, 44);
     padding: 90px 25px;
+    border: 2px solid rgb(48, 47, 44);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     text-align: center;
     color: #fff;
+    box-shadow: 0 1px 20px 0 rgba(48, 47, 44,.08);
   }
 
   .user-page .left .img-user{
@@ -312,27 +329,27 @@ input[type=checkbox] {
   color: #353c4e;
   text-transform: uppercase;
   letter-spacing: 5px;
+  text-align: center;
 }
 
-.user-page .right .info_data,
-.user-page .right .reservations_data{
+.user-page .right .info_data{
   display: flex;
   justify-content: space-between;
 }
 
-.user-page .right .info_data .data{
+.user-page .right .info_data .info_data_item{
   width: 45%;
 }
 
-.user-page .right .info_data .data h4,
-.user-page .right .reservations_data .data h4{
+.user-page .right .info_data .info_data_item h4,
+.user-page .right .reservations_data .reservations_data_item h4{
   color: #353c4e;
   margin-bottom: 5px;
   font-size: 20px;
   text-align: center;
 }
 
-.user-page .right .info_data .data p{
+.user-page .right .info_data .info_data_item p{
   font-size: 15px;
   margin-bottom: 10px;
   color: #919aa3;
@@ -340,35 +357,47 @@ input[type=checkbox] {
   
 }
 
-.user-page .right .info_data .data .profile-role{
-    margin-top: 22.4%;
-}
-
-.user-page .right .reservations_data .data h4{
+.user-page .right .reservations_data .reservations_data_item h4{
   width: 100%;
 }
 
-.user-page .right .reservations_data .data p{
+.user-page .right .reservations_data .reservations_data_item p{
  text-align: left;
 }
 .reservation-components{
   border-bottom: 1px solid black;
   margin-top: 10%;
   display: flex;  
+  justify-content: space-between;
+  
 }
+
+
 .reservation-components p span{
   display: block;
 }
-.sits{
+.reservation-item{
  text-align: center;
  list-style-type: none;
+ /* position: relative;
+ left: 50px; */
+ /* margin-right: 50px; */
+
+}
+
+#seats {
+  margin-right: 20px;
+}
+
+#resid {
+  margin-left: 20px;
 }
 
   
   /* user page end */
 
 /* showItem */
-  .showItem{
+  .showItem {
     margin-top: 6%;
     margin-left: 25%;
     list-style-type: none;

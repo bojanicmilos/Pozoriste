@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { serviceConfig } from '../../../AppSettings/serviceConfig'
 import { NotificationManager } from 'react-notifications'
 import { Spinner } from '../../Spinner'
+import Table from 'react-bootstrap/Table'
 
 const ActorList = () => {
     const [actors, setActors] = useState([])
@@ -61,22 +62,33 @@ const ActorList = () => {
     }
 
     const showActors = () => {
-        return actors.map((actor) => {
+        return actors.map((actor, index) => {
 
             return (
-                <li key={actor.id}>
-                    <strong>{actor.firstName} </strong>
-                    <strong>{actor.lastName}</strong>
-                    <button className='btn btn-danger' onClick={() => removeActor(actor.id)} >Obrisi</button>
-                </li>
+                <tr key={actor.id}>
+                    <td>{index + 1}</td>
+                    <td>{actor.firstName} </td>
+                    <td>{actor.lastName}</td>
+                    <td><button className='btn btn-danger' onClick={() => removeActor(actor.id)} >Obrisi</button></td>
+                </tr>
             )
         })
     }
     return (
 
-        <ul className='actor-container'>
-            {showActors()}
-        </ul >
+        <Table className='actor-table' striped bordered hover variant='white' >
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>↓</th>
+                </tr>
+            </thead>
+            <tbody>
+                {showActors()}
+            </tbody>
+        </Table>
 
     )
 }

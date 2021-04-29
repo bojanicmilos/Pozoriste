@@ -9,7 +9,6 @@ import PieceAllList from './components/User/PieceActions/ShowAllPieces'
 import { NotificationContainer } from 'react-notifications';
 import AddActor from './components/Admin/ActorActions/AddActor'
 import { getRole } from './components/globalStorage/RoleCheck'
-import { useContext } from 'react'
 import { useState } from 'react'
 import AddShow from './components/Admin/ShowActions/AddShow'
 import ActorList from './components/Admin/ActorActions/ActorList'
@@ -20,6 +19,7 @@ import { isUserLogged } from './components/globalStorage/IsUserLogged'
 import ShowReservation from './components/User/ShowActions/ShowReservation'
 import ShowAllAuditoriums from './components/Admin/AuditoriumActions/ShowAllAuditoriums'
 import AddAuditorium from './components/Admin/AuditoriumActions/AddAuditorium'
+import 'react-notifications/lib/notifications.css';
 
 export const Context = React.createContext();
 
@@ -31,7 +31,6 @@ function App() {
         <LoginHeader />
         <SideMenu />
         <Switch>
-
           <Redirect exact from="/" to="/showlist" />
           <Route path="/showlist" component={ShowList} />
           <Route path="/showreservation/:id" children={<ShowReservation />} />
