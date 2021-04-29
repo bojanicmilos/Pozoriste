@@ -35,19 +35,24 @@ const ShowItem = (props) => {
     }
 
     return (
+
         <li className='showItem'>
-            <p> {showTime} </p>
-            <p> cena karte: {ticketPrice} </p>
-            <p> Komad: {pieceTitle} </p>
-            <button onClick={() => setToggleInfo(!toggleInfo)}>Vise informacija</button>
-            <button onClick={() => goToShowReservation(id)}>Rezervisite predstavu</button>
-            <p>  {toggleInfo && pieceDescription} </p>
-            <p> Godina: {pieceYear} </p>
-            <p> Zanr: {genre} </p>
-            <p> Sala: {auditoriumName} </p>
-            <p> Pozoriste: {theatreName}</p>
-            <p> Glumci:</p>
-            {showActors()}
+            <div className="showItem-left">
+                <p> {showTime} </p>
+                <p> cena karte: {ticketPrice} </p>
+                <p> Komad: {pieceTitle} </p>
+                <button onClick={() => goToShowReservation(id)}>Rezervisite predstavu</button>
+            </div>
+            <div className="showItem-right">
+                <p> Godina: {pieceYear} </p>
+                <p> Zanr: {genre} </p>
+                <p> Sala: {auditoriumName} </p>
+                <p> Pozoriste: {theatreName}</p>
+                <p> Glumci:</p>
+                {showActors()}
+                <button onClick={() => setToggleInfo(!toggleInfo)}>Vise informacija</button>
+                <p>  {toggleInfo && pieceDescription} </p>
+            </div>
         </li>
     )
 }
