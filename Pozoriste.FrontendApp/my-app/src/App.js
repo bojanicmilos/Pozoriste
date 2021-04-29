@@ -33,7 +33,7 @@ function App() {
         <Switch>
           <Redirect exact from="/" to="/showlist" />
           <Route path="/showlist" component={ShowList} />
-          <Route path="/showreservation/:id" children={<ShowReservation />} />
+          {isUserLogged() && <Route path="/showreservation/:id" children={<ShowReservation />} />}
           <Route path="/pieceactivelist" component={PieceActiveList} />
           {getRole() === 'admin' && <Route path={"/piecealllist"} component={PieceAllList} />}
           {isUserLogged() && <Route path="/userprofile" component={UserProfile} />}

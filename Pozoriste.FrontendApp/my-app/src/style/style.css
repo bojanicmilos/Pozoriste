@@ -1,113 +1,111 @@
 #root {
-    font-family: sans-serif;
-    overflow: hidden;
+  font-family: sans-serif;
+  overflow: hidden;
 }
 
 /* Header pocetak */
 .fixed-container {
-    position: fixed; 
-    width: 100%;
-    top: 0; 
-    z-index: 2;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2;
 }
 .flex-container {
-    background-color: rgb(48, 47, 44);
-    display: flex; 
-    height: 65px;
-    justify-content: flex-end;
-    align-items: center;
+  background-color: rgb(48, 47, 44);
+  display: flex;
+  height: 65px;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .title-header {
-    position: absolute;
-    font-size: 1.3em;
-    left: 50px;
-    color: rgb(237, 237, 235);
+  position: absolute;
+  font-size: 1.3em;
+  left: 50px;
+  color: rgb(237, 237, 235);
 }
 
 .title-header:hover {
-    color: #6a72be;
-    text-decoration: none;
+  color: #6a72be;
+  text-decoration: none;
 }
 
 .user-profile-header {
-    position: absolute;
-    font-size: 1.3em;
-    right: 150px;
-    color: rgb(237, 237, 235);
+  position: absolute;
+  font-size: 1.3em;
+  right: 150px;
+  color: rgb(237, 237, 235);
 }
 
 .user-profile-header:hover {
-    color: #6a72be;
-    text-decoration: none;
+  color: #6a72be;
+  text-decoration: none;
 }
 
 .flex-item {
-    margin: 25px;
-    
+  margin: 25px;
 }
 
 .label {
-    color: rgb(237, 237, 235);
+  color: rgb(237, 237, 235);
 }
 
 .username-input {
-    border-radius: 8px;
-    text-align: center;
-    
+  border-radius: 8px;
+  text-align: center;
 }
 
 .username-input:focus {
-    outline: 0;
+  outline: 0;
 }
 /* Header kraj */
 
 /* sadrzaj stranice pocetak */
 
 .show-container {
-    margin-top: 100px;
-    margin-left: 200px;
+  margin-top: 100px;
+  margin-left: 200px;
 }
 
 .piece-container {
-    margin-top: 100px;
-    margin-left: 200px;
+  margin-top: 100px;
+  margin-left: 200px;
 }
 
 .theatre-container {
-    list-style-type: none;
-    margin-top: 100px;
-    margin-left: 200px;
+  list-style-type: none;
+  margin-top: 100px;
+  margin-left: 200px;
 }
 .add-actor-page {
-    margin-top: 100px;
-    margin-left: 200px;
+  margin-top: 100px;
+  margin-left: 200px;
 }
 
 .add-theatre-page {
-    margin-top: 100px;
-    margin-left: 200px;
+  margin-top: 100px;
+  margin-left: 200px;
 }
 
 .add-piece-page {
-    margin-top: 100px;
-    margin-left: 200px;
+  margin-top: 100px;
+  margin-left: 200px;
 }
 
 .add-show-page {
-    margin-top: 6%;
-    margin-left: 18%;
+  margin-top: 6%;
+  margin-left: 18%;
 }
 
 .add-auditorium-page {
-    margin-top: 100px;
-    margin-left: 200px;
+  margin-top: 100px;
+  margin-left: 200px;
 }
 
 .actor-table {
-    margin-top: 64px;
-    margin-left: 239px;
-    width: 81.5%!important;
+  margin-top: 64px;
+  margin-left: 18.5%;
+  width: 81.5% !important;
 }
 
 tr {
@@ -115,214 +113,208 @@ tr {
 }
 
 .auditorium-container {
-    margin-top: 100px;
-    margin-left: 105px;
+  margin-top: 100px;
+  margin-left: 105px;
 }
 
 .show-reservation {
-    margin-top: 100px;
-    margin-left: 200px;
+  margin-top: 100px;
+  margin-left: 200px;
 }
 
 .reservation-big-card {
-    margin-top: 100px;
-    margin-left: 185px!important;
+  margin-top: 100px;
+  margin-left: 185px !important;
 }
-
-
-
 
 /* sadrzaj stranice kraj */
 
-
 /* menu pocetak */
 .side-menu {
-    margin-top:65px;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: rgb(48, 47, 44);
-    height: 100vh;
-    width: 18.5%;
+  margin-top: 65px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(48, 47, 44);
+  height: 100vh;
+  width: 18.5%;
 }
 
 .side-menu-element {
-    font-size: 1.1em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-right: 3%;
-    color: rgb(237, 237, 235);
-    background: rgb(48, 47, 44);
-    box-shadow: 0 5px 25px rgb(237, 237, 235, .1);
-    transition: transform 0.5s;
-    border-radius: 15%;
-    border-bottom: 3px solid rgb(237, 237, 235);
+  font-size: 1.1em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 3%;
+  color: rgb(237, 237, 235);
+  background: rgb(48, 47, 44);
+  box-shadow: 0 5px 25px rgb(237, 237, 235, 0.1);
+  transition: transform 0.5s;
+  border-radius: 15%;
+  border-bottom: 3px solid rgb(237, 237, 235);
 }
 
 .side-menu-element:hover {
-    color: rgb(237, 237, 235);
-    text-decoration: none;
-    transform: scale(1.2);
-    z-index: 100; 
-    background: rgb(48, 47, 44);
-    box-shadow: 0 5px 25px rgba(0, 0, 0, .2);
+  color: rgb(237, 237, 235);
+  text-decoration: none;
+  transform: scale(1.2);
+  z-index: 100;
+  background: rgb(48, 47, 44);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
 
-.divider{
-    width: 100%;
-    height: 4px;
-    background-color:black;
-    opacity: 0.5;
+.divider {
+  width: 100%;
+  height: 4px;
+  background-color: black;
+  opacity: 0.5;
 }
 /* 
 menu kraj */
 
-
 .actors-checkbox {
-    column-count: 3;
-    margin-left: 65px;
+  column-count: 3;
+  margin-left: 65px;
 }
 
-input[type=checkbox] {
-    zoom: 1.3;
+input[type="checkbox"] {
+  zoom: 1.3;
 }
 
 .form-control {
-    display: block !important;
-    width: 350px !important;
-    margin: auto !important;
-    margin-top: 15px !important;
-    margin-bottom: 15px !important;
+  display: block !important;
+  width: 350px !important;
+  margin: auto !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
 }
 
 .form-select {
-    display: block !important;
-    width: 350px !important;
-    margin: auto !important;
-    margin-top: 15px !important;
-    margin-bottom: 15px !important;
+  display: block !important;
+  width: 350px !important;
+  margin: auto !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
 }
 
 /* btns */
 
 .btn-primary {
-    display: block !important;
-    width: 350px;
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
+  display: block !important;
+  width: 350px;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .btn-outline-light {
-    margin-right: 15px;
-    
+  margin-right: 15px;
 }
 
 .couch-icon {
-    color: rgb(87, 85, 85);
-    pointer-events: none;
-    border-radius: 10px;
-    z-index: 100;
-  }
+  color: rgb(87, 85, 85);
+  pointer-events: none;
+  border-radius: 10px;
+  z-index: 100;
+}
 
-  .couch-icon.active {
-    color: red;
-  }
-  
-  .year-filter {
-    padding-left: 60px;
-    margin: 0px 0 10px 0;
-  }
-  
-  .rendering-seats{
-    background-color: transparent !important;
-    border: 0 ;
-    margin: 0 ;
-    padding: 0 ;
-  }
+.couch-icon.active {
+  color: red;
+}
+
+.year-filter {
+  padding-left: 60px;
+  margin: 0px 0 10px 0;
+}
+
+.rendering-seats {
+  background-color: transparent !important;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
 
 .seat {
-    margin: 0 2px;
-    border: 0;
-    background: transparent;
-  }
+  margin: 0 2px;
+  border: 0;
+  background: transparent;
+}
 
-  .seat-taken svg {
-    color: red;
-  }
+.seat-taken svg {
+  color: red;
+}
 
-  .show-reservation-desc-title {
-    text-align: center;
-  }
+.show-reservation-desc-title {
+  text-align: center;
+}
 
-  .show-reservation-desc {
-    text-align: justify;
-  }
-  
-  .seat-taken {
-    pointer-events: none;
-  }
-  
-  .seat-current-reservation svg {
-    color: rgb(82, 154, 172);
-  }
+.show-reservation-desc {
+  text-align: justify;
+}
 
-  .nice-green-color svg{
-    color: rgb(51, 129, 99);
-  }
+.seat-taken {
+  pointer-events: none;
+}
 
-  /* user page */
+.seat-current-reservation svg {
+  color: rgb(82, 154, 172);
+}
 
-  .user-page{
-    margin-top: 75px;
-    margin-left: 28%;
-    margin-bottom: 20px;
-    /* padding: 4px; */
-    width: 65%;
-    display: flex;
-    /* border: 2px solid rgb(48, 47, 44);  */
-    border-radius: 5px; 
-    box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.8);
-    z-index: 1;
-  }
+.nice-green-color svg {
+  color: rgb(51, 129, 99);
+}
 
-  .user-page .left{
-    width: 50%;
-    background: rgb(48, 47, 44);
-    padding: 90px 25px;
-    border: 2px solid rgb(48, 47, 44);
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    text-align: center;
-    color: #fff;
-    box-shadow: 0 1px 20px 0 rgba(48, 47, 44,.08);
-  }
+/* user page */
 
-  .user-page .left .img-user{
-    margin-bottom: 5%;
-  }
+.user-page {
+  margin-top: 75px;
+  margin-left: 28%;
+  margin-bottom: 20px;
+  /* padding: 4px; */
+  width: 65%;
+  display: flex;
+  /* border: 2px solid rgb(48, 47, 44);  */
+  border-radius: 5px;
+  box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.8);
+  z-index: 1;
+}
 
-  .user-page .left h4{
-    margin-bottom: 10px;
-  }
+.user-page .left {
+  width: 50%;
+  background: rgb(48, 47, 44);
+  padding: 90px 25px;
+  border: 2px solid rgb(48, 47, 44);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.08);
+}
 
-  .user-page .right{
-    width: 80%;
-    background: #fff;
-    padding: 30px 25px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
+.user-page .left .img-user {
+  margin-bottom: 5%;
+}
 
-  .user-page .right .info,
-  .user-page .right .reservations{
-    margin-bottom: 50px;
+.user-page .left h4 {
+  margin-bottom: 10px;
+}
+
+.user-page .right {
+  width: 80%;
+  background: #fff;
+  padding: 30px 25px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.user-page .right .info,
+.user-page .right .reservations {
+  margin-bottom: 50px;
 }
 
 .user-page .right .info h3,
-.user-page .right .reservations h3{
+.user-page .right .reservations h3 {
   margin-bottom: 15px;
   padding-bottom: 5px;
   border-bottom: 1px solid #e0e0e0;
@@ -332,57 +324,53 @@ input[type=checkbox] {
   text-align: center;
 }
 
-.user-page .right .info_data{
+.user-page .right .info_data {
   display: flex;
   justify-content: space-between;
 }
 
-.user-page .right .info_data .info_data_item{
+.user-page .right .info_data .info_data_item {
   width: 45%;
 }
 
 .user-page .right .info_data .info_data_item h4,
-.user-page .right .reservations_data .reservations_data_item h4{
+.user-page .right .reservations_data .reservations_data_item h4 {
   color: #353c4e;
   margin-bottom: 5px;
   font-size: 20px;
   text-align: center;
 }
 
-.user-page .right .info_data .info_data_item p{
+.user-page .right .info_data .info_data_item p {
   font-size: 15px;
   margin-bottom: 10px;
   color: #919aa3;
   text-align: center;
-  
 }
 
-.user-page .right .reservations_data .reservations_data_item h4{
+.user-page .right .reservations_data .reservations_data_item h4 {
   width: 100%;
 }
 
-.user-page .right .reservations_data .reservations_data_item p{
- text-align: left;
+.user-page .right .reservations_data .reservations_data_item p {
+  text-align: left;
 }
-.reservation-components{
+.reservation-components {
   border-bottom: 1px solid black;
   margin-top: 10%;
-  display: flex;  
+  display: flex;
   justify-content: space-between;
-  
 }
 
-
-.reservation-components p span{
+.reservation-components p span {
   display: block;
 }
-.reservation-item{
- text-align: center;
- list-style-type: none;
- /* position: relative;
+.reservation-item {
+  text-align: center;
+  list-style-type: none;
+  /* position: relative;
  left: 50px; */
- /* margin-right: 50px; */
-
+  /* margin-right: 50px; */
 }
 
 #seats {
@@ -393,32 +381,31 @@ input[type=checkbox] {
   margin-left: 20px;
 }
 
-  
-  /* user page end */
+/* user page end */
 
 /* showItem */
-  .showItem {
-    margin-top: 6%;
-    margin-left: 25%;
-    list-style-type: none;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-    box-shadow: 0 1px 20px 0 rgba(48, 47, 44,.08);
-    width: 50%;
-  }
+.showItem {
+  margin-top: 6%;
+  margin-left: 25%;
+  list-style-type: none;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.08);
+  width: 50%;
+}
 
-  .showItem-left{
-    margin: 0 auto;
-    width: 50%;
-    padding-left: 15%;
-  }
-  
-  .showItem-right{
-    margin: 0 auto;
-    border-left: 1px solid black;
-    padding-left: 17%;
-    width: 50%;
-  }
+.showItem-left {
+  margin: 0 auto;
+  width: 50%;
+  padding-left: 15%;
+}
+
+.showItem-right {
+  margin: 0 auto;
+  border-left: 1px solid black;
+  padding-left: 17%;
+  width: 50%;
+}
 /* showItem end */

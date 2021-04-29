@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-
+import { isUserLogged } from '../../globalStorage/IsUserLogged'
+import { NotificationManager } from 'react-notifications'
 
 const ShowItem = (props) => {
     const history = useHistory()
@@ -29,7 +30,15 @@ const ShowItem = (props) => {
     }
 
     const goToShowReservation = (id) => {
-        history.push(`/showreservation/${id}`)
+        if(isUserLogged())
+        {
+            history.push(`/showreservation/${id}`)
+        }
+        else
+        {
+            NotificationManager.error('Molim ulogujte se kako biste izvrsili rezervaciju!')
+        }
+
     }
 
     return (
