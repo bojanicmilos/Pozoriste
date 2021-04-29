@@ -83,26 +83,26 @@ const LoginHeader = () => {
     };
 
     return (
-        <>
-            <div className='fixed-container'>
-                <div className='flex-container'>
-                    <Link to='/showlist' className='title-header'> Pozoriste</Link>
-                    {isUserLogged() && <Link to='/userprofile' className='user-profile-header'>Profil</Link>}
-                    <form type='text'>
-                        {!isUserLogged() && <>
-                            <label className='label' htmlFor='username'></label>
-                            <input placeholder='Korisnicko ime' onChange={handleChange} value={username} className='username-input' type='text' id='username' /></>}
-                        {!isUserLogged() && <button id='login' type='submit' onClick={handleSubmit} className='flex-item btn btn-outline-light'>
-                            Prijavite se
-                    </button>}
-                        {isUserLogged() && <button type='submit' onClick={handleSubmitLogout} className='btn btn-outline-light'>
-                            Odjavite se
-                    </button>}
-                    </form>
-                </div>
-            </div>
 
-        </>
+        <div className='fixed-container'>
+            <div className='flex-container'>
+                <Link to='/showlist' className='title-header'> Pozoriste</Link>
+                {isUserLogged() && <Link to='/userprofile' className='user-profile-header'>Profil</Link>}
+                <form type='text'>
+                    {!isUserLogged() && <>
+                        <label className='label' htmlFor='username'></label>
+                        <input placeholder='Korisnicko ime' onChange={handleChange} value={username} className='username-input' type='text' id='username' /></>}
+                    {!isUserLogged() && <button id='login' type='submit' onClick={handleSubmit} className='flex-item btn btn-outline-light'>
+                        Prijavite se
+                    </button>}
+                    {isUserLogged() && <button type='submit' onClick={handleSubmitLogout} className='btn btn-outline-light'>
+                        Odjavite se
+                    </button>}
+                </form>
+            </div>
+        </div>
+
+
 
     )
 }
