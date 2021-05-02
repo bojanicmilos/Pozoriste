@@ -1,10 +1,12 @@
 import React from 'react'
 import { getRole } from '../../globalStorage/RoleCheck';
+import img from '../../../images/delete-removebg-preview.png'
 
 const TheatreItem = (props) => {
     const {
         id,
         name,
+        index
     } = props;
 
     const removeTheatre = props.removeTheatre;
@@ -12,13 +14,15 @@ const TheatreItem = (props) => {
 
     const getDeleteBtn = (id) => {
         if (getRole() === 'admin')
-            return <button className='btn btn-danger' onClick={() => removeTheatre(id)} >OBRISI</button>
+            return <img src={img} alt='' style={{ height: '25px', width: '25px', cursor: 'pointer' }} onClick={() => removeTheatre(id)} />
     }
 
     return (
-        <li className='theatre-container'>
-            <p>Naziv pozorista:  {name}  {getDeleteBtn(id)} </p>
-        </li>
+        <tr className='theatre-container'>
+            <td>{index + 1}</td>
+            <td>{name}</td>
+            <td>{getDeleteBtn(id)}</td>
+        </tr>
     )
 }
 

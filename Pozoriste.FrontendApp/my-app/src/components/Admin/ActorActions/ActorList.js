@@ -2,8 +2,9 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { serviceConfig } from '../../../AppSettings/serviceConfig'
 import { NotificationManager } from 'react-notifications'
-import { Spinner } from '../../Spinner'
+import Spinner from '../../../components/Spinner'
 import Table from 'react-bootstrap/Table'
+import img from '../../../images/delete-removebg-preview.png'
 
 const ActorList = () => {
     const [actors, setActors] = useState([])
@@ -69,26 +70,27 @@ const ActorList = () => {
                     <td>{index + 1}</td>
                     <td>{actor.firstName} </td>
                     <td>{actor.lastName}</td>
-                    <td><button className='btn btn-danger' onClick={() => removeActor(actor.id)} >Obrisi</button></td>
+                    <td><img src={img} alt='' style={{ height: '25px', width: '25px', cursor: 'pointer' }} onClick={() => removeActor(actor.id)} /></td>
                 </tr>
             )
         })
     }
     return (
-
-        <Table className='actor-table' striped bordered hover variant='white' >
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Ime</th>
-                    <th>Prezime</th>
-                    <th>↓</th>
-                </tr>
-            </thead>
-            <tbody>
-                {showActors()}
-            </tbody>
-        </Table>
+        <React.Fragment>
+            {isLoading ? <Spinner></Spinner> : <Table className='white-table' striped bordered hover variant='white' >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ime</th>
+                        <th>Prezime</th>
+                        <th>↓</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {showActors()}
+                </tbody>
+            </Table>}
+        </React.Fragment>
 
     )
 }

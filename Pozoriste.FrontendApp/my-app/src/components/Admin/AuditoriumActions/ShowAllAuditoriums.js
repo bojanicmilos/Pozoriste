@@ -5,6 +5,7 @@ import '../../../style/spinner.css'
 import AuditoriumItem from '../Items/AuditoriumItem'
 import 'react-notifications/lib/notifications.css'
 import { NotificationManager } from 'react-notifications'
+import Table from 'react-bootstrap/Table'
 
 function ShowAllAuditoriums() {
     const [auditoriums, setShowAllAuditoriums] = useState([])
@@ -64,17 +65,31 @@ function ShowAllAuditoriums() {
     }
 
     const fillPageWithAuditoriums = () => {
-        return auditoriums.map((auditorium) => {
+        return auditoriums.map((auditorium, index) => {
             return (
-                <AuditoriumItem key={auditorium.id} {...auditorium} removeAuditorium={removeAuditorium} />
+                <AuditoriumItem key={auditorium.id} {...auditorium} index={index} removeAuditorium={removeAuditorium} />
             )
         })
     }
 
     return (
-        <div className='auditorium-container'>
-            { isLoading ? <Spinner></Spinner> : fillPageWithAuditoriums()}
-        </div>
+        <React.Fragment>
+            { isLoading ? <Spinner></Spinner> :
+                <Table className='white-table' striped bordered hover variant='white' >
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Sala</th>
+                            <th>Pozoriste</th>
+                            <th>↓</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {fillPageWithAuditoriums()}
+                    </tbody>
+                </Table>
+            }
+        </React.Fragment>
     )
 }
 

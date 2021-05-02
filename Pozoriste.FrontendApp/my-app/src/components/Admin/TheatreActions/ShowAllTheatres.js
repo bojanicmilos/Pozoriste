@@ -4,7 +4,7 @@ import { serviceConfig } from '../../../AppSettings/serviceConfig'
 import Spinner from '../../Spinner'
 import AuditoriumItem from '../Items/AuditoriumItem'
 import TheatreItem from '../Items/TheatreItem'
-
+import Table from 'react-bootstrap/Table'
 
 const ShowAllTheatres = () => {
     const [theatres, setShowAllTheatres] = useState([])
@@ -64,17 +64,29 @@ const ShowAllTheatres = () => {
     }
 
     const fillPageWithTheatres = () => {
-        return theatres.map((theatre) => {
+        return theatres.map((theatre, index) => {
             return (
-                <TheatreItem key={theatre.id} {...theatre} removeTheatre={removeTheatre} />
+                <TheatreItem key={theatre.id} {...theatre} index={index} removeTheatre={removeTheatre} />
             )
         })
     };
 
     return (
-        <ul>
-            { isLoading ? <Spinner></Spinner> : fillPageWithTheatres()}
-        </ul>
+        <React.Fragment>
+            {isLoading ? <Spinner></Spinner> : <Table className='white-table' striped bordered hover variant='white' >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ime pozorista</th>
+                        <th>↓</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {fillPageWithTheatres()}
+                </tbody>
+            </Table>}
+        </React.Fragment>
+
     )
 }
 
