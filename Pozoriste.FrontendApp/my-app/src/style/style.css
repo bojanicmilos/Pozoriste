@@ -94,7 +94,7 @@
 
 .add-show-page {
   margin-top: 6%;
-  margin-left: 18%;
+  margin-left: 20%;
 }
 
 .add-auditorium-page {
@@ -124,7 +124,7 @@ tr {
 
 .reservation-big-card {
   margin-top: 100px;
-  margin-left: 185px !important;
+  margin-left: 23% !important;
 }
 
 /* sadrzaj stranice kraj */
@@ -387,25 +387,85 @@ input[type="checkbox"] {
 .showItem {
   margin-top: 6%;
   margin-left: 25%;
+  margin-bottom: 13%;
   list-style-type: none;
   background-color: #fff;
   display: flex;
   align-items: center;
   border-radius: 5px;
-  box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.08);
-  width: 50%;
+  box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.8);
+  width: 60%;
+  border-radius: 15px;
 }
 
 .showItem-left {
-  margin: 0 auto;
-  width: 50%;
-  padding-left: 15%;
+  width: 60%;
+  padding-left: 12%;
+  padding-right: 12%;
+  text-align: center;
+}
+
+.showItem-left button{
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #fff;
+  background: rgb(51, 129, 99);
+  border-radius: 5px;
+  border: 2px solid rgb(48, 47, 44)
+}
+
+.showItem-left button:hover{
+  transform: scale(1.07);
+  z-index: 100;
+  transition: transform 0.5s;
+}
+
+.showItem-left-lastp{
+  border-bottom: 2px solid rgb(48, 47, 44) !important;
+  padding-bottom: 15px;
+}
+
+.showItem-left p{
+  font-size: 17.5px;
+  color: rgb(48, 47, 44);
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 30px;
+}
+.showItem-left h4, 
+.showItem-right h4{
+  text-transform: uppercase;
 }
 
 .showItem-right {
-  margin: 0 auto;
-  border-left: 1px solid black;
-  padding-left: 17%;
-  width: 50%;
+  text-align: center;
+  width: 60%;
+  background: rgb(48, 47, 44);
+  border-radius: 15px;
+  color: #fff;
+  padding-left: 12%;
+  padding-right: 12%;
 }
+
+.showItem-right-p{
+  margin-top: 50px;
+}
+
+.showItem-right-p p{
+  color: #ece8e8;
+  font-size: 17.5px;
+  border-bottom: 1px solid #8b8888;
+  margin-bottom: 30px;
+}
+
+.showItem-showActors{
+  column-count: 2;
+  color: #ece8e8;
+  margin-bottom: 35px;
+}
+
+.showItem-h4{
+  margin-bottom: 30px;
+}
+
 /* showItem end */

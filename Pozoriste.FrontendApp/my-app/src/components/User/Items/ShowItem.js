@@ -30,33 +30,39 @@ const ShowItem = (props) => {
     }
 
     const goToShowReservation = (id) => {
-        if(isUserLogged())
-        {
+        if (isUserLogged()) {
             history.push(`/showreservation/${id}`)
         }
-        else
-        {
+        else {
             NotificationManager.error('Molim ulogujte se kako biste izvrsili rezervaciju!')
         }
 
     }
 
     return (
-
         <li className='showItem'>
             <div className="showItem-left">
-                <p> {showTime} </p>
-                <p> cena karte: {ticketPrice} </p>
-                <p> Komad: {pieceTitle} </p>
+                <h4>Datum i vreme:</h4>
+                <p>{showTime} </p>
+                <h4> Cena karte:</h4>
+                <p>{ticketPrice} din</p>
+                <h4> Komad:</h4>
+                <p className='showItem-left-lastp'>{pieceTitle} </p>
                 <button onClick={() => goToShowReservation(id)}>Rezervisite predstavu</button>
             </div>
             <div className="showItem-right">
-                <p> Godina: {pieceYear} </p>
-                <p> Zanr: {genre} </p>
-                <p> Sala: {auditoriumName} </p>
-                <p> Pozoriste: {theatreName}</p>
-                <p> Glumci:</p>
-                {showActors()}
+                <div className='showItem-right-p'>
+                    <h4> Godina:</h4>
+                    <p>{pieceYear} </p>
+                    <h4> Zanr:</h4>
+                    <p>{genre} </p>
+                    <h4> Sala:</h4>
+                    <p>{auditoriumName} </p>
+                    <h4> Pozoriste:</h4>
+                    <p>{theatreName}</p>
+                </div>
+                <h4 className='showItem-h4'> Glumci:</h4>
+                <p className='showItem-showActors'>{showActors()} </p>
             </div>
         </li>
     )
