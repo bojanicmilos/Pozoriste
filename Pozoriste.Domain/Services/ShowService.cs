@@ -209,7 +209,7 @@ namespace Pozoriste.Domain.Services
             };
         }
 
-        public async Task<IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel>> GetAllShowsAsync()
+        public async Task<IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel>> GetAllShowsAsync(string search = "")
         {
             var shows = await _showsRepository.GetAllAsync();
 
@@ -221,6 +221,22 @@ namespace Pozoriste.Domain.Services
             //shows for current pieces with at least 1 actor and in future
             shows = shows
                 .Where(show => show.Piece.IsActive && show.ShowActors.Any() && show.ShowTime > DateTime.Now);
+
+            if (search != "")
+            {
+                shows = shows
+               .Where(show => show.TicketPrice.ToString().Contains(search) || show.ShowTime.ToString("MM/dd/yyyy HH:mm").Contains(search) || 
+                 show.Piece.Title.ToLower().Contains(search.ToLower()) ||
+                 show.Piece.Year.ToString().Contains(search) ||
+                 show.ShowActors.Any(showActor =>           showActor.Actor.FirstName.ToLower().Contains(search.ToLower()) || showActor.Actor.LastName.ToLower().Contains(search.ToLower())) ||
+                 show.Auditorium.Theatre.Name.ToLower().Contains(search.ToLower()) ||
+                 show.Auditorium.Name.ToLower().Contains(search.ToLower()) ||
+                 (show.Piece.Genre.ToString() == "DRAMA" ? "drama" : show.Piece.Genre.ToString() == "COMEDY" ? "komedija" : show.Piece.Genre.ToString() == "TRAGEDY" ? "tragedija" : "").Contains(search.ToLower())
+                    );
+                 
+            }
+
+
 
             IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel> domainModels =
                 shows.Select(show => new ShowPieceActorAuditoriumTheatreDomainModel

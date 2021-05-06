@@ -4,19 +4,31 @@ import ShowItem from '../Items/ShowItem'
 import '../../../style/style.css'
 import Spinner from '../../Spinner'
 import '../../../style/spinner.css'
+import { NotificationManager } from 'react-notifications'
+import img from '../../../images/sorry.png'
 
-
+//BRISI DO OVDE A POSLE
 
 const ShowList = () => {
-    const [shows, setShowList] = useState([])
+    const [state, setState] = useState({
+        shows: [],
+        search: ''
+    })
     const [isLoading, setIsLoading] = useState(true)
+
 
 
     useEffect(() => {
         getShows();
     }, [])
 
-    const getShows = () => {
+
+    const filterShows = (searchString) => {
+        getShows(searchString);
+    }
+
+    const getShows = (searchString = '') => {
+        console.log(searchString)
         const requestOptions = {
             method: 'GET',
             headers: {
@@ -24,7 +36,7 @@ const ShowList = () => {
             }
         };
 
-        fetch(`${serviceConfig.baseURL}/api/shows`, requestOptions)
+        fetch(`${serviceConfig.baseURL}/api/shows?Search=${searchString}`, requestOptions)
             .then((response) => {
                 if (!response.ok) {
                     return Promise.reject(response);
@@ -33,8 +45,10 @@ const ShowList = () => {
             })
             .then((data) => {
                 if (data) {
-                    setShowList(prevState => ([...prevState, ...data]))
+                    setState(prevState => ({ ...prevState, search: searchString }));
+                    setState(prevState => ({ ...prevState, shows: data }))
                     setIsLoading(false)
+
                 }
             })
             .catch((response) => {
@@ -44,9 +58,19 @@ const ShowList = () => {
     }
 
     const fillPageWithShows = () => {
-        const showsLenght = shows.length;
+        const showsLenght = state.shows.length;
 
-        return shows.map((show, index) => {
+        if (state.shows.length === 0) {
+            return (
+                <div className='not-found'>
+                    <img className='not-found-img' src={img} alt='404 not found'>
+                    </img>
+                </div>
+
+            )
+        }
+
+        return state.shows.map((show, index) => {
             return (
                 <ShowItem index={index} len={showsLenght} key={show.id} {...show} />
             )
@@ -54,9 +78,17 @@ const ShowList = () => {
     }
 
     return (
-        <ul className='show-container'>
-            { isLoading ? <Spinner></Spinner> : fillPageWithShows()}
-        </ul>
+        <React.Fragment>
+            <input
+                value={state.search}
+                onChange={(e) => filterShows(e.target.value)}
+                placeholder='Pretrazivanje' type='text'
+                className='form-control search'
+            />
+            <ul className='show-container'>
+                {isLoading ? <Spinner></Spinner> : fillPageWithShows()}
+            </ul>
+        </React.Fragment>
     )
 }
 

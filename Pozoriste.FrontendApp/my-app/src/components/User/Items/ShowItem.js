@@ -45,7 +45,7 @@ const ShowItem = (props) => {
         <React.Fragment>
             <li className='showItem'>
                 <div className="showItem-left">
-                    <h4>Datum i vreme:</h4>
+                    <h4>Datum<br /><div className='and-symbol'>&</div>vreme:</h4>
                     <p>{showTime} </p>
                     <h4> Cena karte:</h4>
                     <p>{ticketPrice} din</p>

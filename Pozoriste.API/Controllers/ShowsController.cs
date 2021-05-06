@@ -24,9 +24,21 @@ namespace Pozoriste.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel>>> GetAllShows()
+        public async Task<ActionResult<IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel>>> GetAllShows([FromQuery] ShowQuery showQuery)
         {
-            var shows = await _showService.GetAllShowsAsync();
+            IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel> shows;
+
+            if (showQuery.Search == null)
+            {
+                shows = await _showService.GetAllShowsAsync();
+            }
+            else
+            {
+                shows = await _showService.GetAllShowsAsync(showQuery.Search);
+            }
+            
+
+
 
             if (shows == null)
             {

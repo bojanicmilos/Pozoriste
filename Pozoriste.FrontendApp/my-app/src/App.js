@@ -20,6 +20,7 @@ import ShowReservation from './components/User/ShowActions/ShowReservation'
 import ShowAllAuditoriums from './components/Admin/AuditoriumActions/ShowAllAuditoriums'
 import AddAuditorium from './components/Admin/AuditoriumActions/AddAuditorium'
 import 'react-notifications/lib/notifications.css';
+import Image from './components/Image.js'
 
 export const Context = React.createContext();
 
