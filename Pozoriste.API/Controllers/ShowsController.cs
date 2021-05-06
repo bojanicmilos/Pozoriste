@@ -37,9 +37,6 @@ namespace Pozoriste.API.Controllers
                 shows = await _showService.GetAllShowsAsync(showQuery.Search);
             }
             
-
-
-
             if (shows == null)
             {
                 shows = new List<ShowPieceActorAuditoriumTheatreDomainModel>();
