@@ -184,7 +184,7 @@ const AddShow = () => {
 
     return (
         <div className='add-show-page'>
-            <strong className='date-show-title'>Datum predstave: </strong>
+            <strong className='show-title'>Datum predstave: </strong>
             <br />
             <form onSubmit={handleSubmit}>
                 <input
@@ -194,7 +194,8 @@ const AddShow = () => {
                     name="showTime"
                     type="datetime-local"
                     style={{
-                        marginLeft: '330px',
+                        marginTop: '10px',
+                        marginLeft: '41%',
                         borderRadius: '5px',
                         backgroundColor: '#fff',
                         padding: '3px 5px',
@@ -206,7 +207,7 @@ const AddShow = () => {
                 />
                 <br />
                 <br />
-                <strong>Glumci: </strong>
+                <strong className='show-title-actors'>Glumci: </strong>
                 <br />
                 <div className='actors-checkbox'>
                     {state.actors.map((actor, index) => {
@@ -224,46 +225,49 @@ const AddShow = () => {
                 </div>
 
                 <br />
-                <label htmlFor="theatres">Pozoriste: </label>
-                <select id="theatres" onChange={(e) => setSendState({ ...sendState, theatreId: e.target.value })}>
-                    <option value=''>Izaberite pozoriste</option>
-                    {state.theatres.map((theatre) => {
-                        return (
-                            <option key={theatre.id} value={theatre.id}>{theatre.name}</option>
-                        )
-                    })}
-                </select>
-                <br />
-                <label htmlFor="auditoriums"><strong>Sala: &nbsp; </strong></label>
-                <select disabled={(sendState.theatreId === '') ? true : false} onChange={(e) => setSendState({ ...sendState, auditoriumId: e.target.value })} id="auditoriums">
-                    <option value=''>Izaberite salu</option>
-                    {state.auditoriums.map((auditorium) => {
-                        return (
-                            <React.Fragment key={auditorium.id}>
-                                {
-                                    (auditorium.theatreId.toString() === sendState.theatreId) &&
-                                    <option value={auditorium.id}>{auditorium.name}</option>
+                <div className='theatres-labels'>
+                    <label htmlFor="theatres"><strong>Pozoriste: &nbsp;</strong></label><br />
+                    <select id="theatres" onChange={(e) => setSendState({ ...sendState, theatreId: e.target.value })}>
+                        <option value=''>Izaberite pozoriste</option>
+                        {state.theatres.map((theatre) => {
+                            return (
+                                <option key={theatre.id} value={theatre.id}>{theatre.name}</option>
+                            )
+                        })}
+                    </select> <br />
+                    <br />
+                    <label htmlFor="auditoriums"><strong>Sala: &nbsp; </strong></label> <br />
+                    <select disabled={(sendState.theatreId === '') ? true : false} onChange={(e) => setSendState({ ...sendState, auditoriumId: e.target.value })} id="auditoriums">
+                        <option value=''>Izaberite salu</option>
+                        {state.auditoriums.map((auditorium) => {
+                            return (
+                                <React.Fragment key={auditorium.id}>
+                                    {
+                                        (auditorium.theatreId.toString() === sendState.theatreId) &&
+                                        <option value={auditorium.id}>{auditorium.name}</option>
 
-                                }
-                            </React.Fragment>
-                        )
-                    })}
-                </select>
+                                    }
+                                </React.Fragment>
+                            )
+                        })}
+                    </select>
+                    <br />
+                    <br />
 
-                <br />
-
-                <label htmlFor="pieces"><strong>Pozorisni komad: &nbsp; </strong></label>
-                <select disabled={(sendState.auditoriumId === '') ? true : false} onChange={(e) => setSendState({ ...sendState, pieceId: e.target.value })} id="pieces">
-                    <option value=''>Izaberite pozorisni komad</option>
-                    {state.pieces.map((piece) => {
-                        return (
-                            <option key={piece.id} value={piece.id}>{piece.title}</option>
-                        )
-                    })}
-                </select>
-                <br />
-                <label htmlFor="ticket"><strong>Cena karte: &nbsp; </strong></label>
-                <input disabled={(sendState.pieceId === '') ? true : false} id='ticket' min='100' onChange={(e) => setSendState({ ...sendState, ticketPrice: e.target.value })} value={sendState.ticketPrice} type='number' />
+                    <label htmlFor="pieces"><strong>Pozorisni komad: &nbsp; </strong></label> <br />
+                    <select disabled={(sendState.auditoriumId === '') ? true : false} onChange={(e) => setSendState({ ...sendState, pieceId: e.target.value })} id="pieces">
+                        <option value=''>Izaberite pozorisni komad</option>
+                        {state.pieces.map((piece) => {
+                            return (
+                                <option key={piece.id} value={piece.id}>{piece.title}</option>
+                            )
+                        })}
+                    </select>
+                    <br />
+                    <br />
+                    <label htmlFor="ticket"><strong>Cena karte: &nbsp; </strong></label> <br />
+                    <input disabled={(sendState.pieceId === '') ? true : false} id='ticket' min='100' onChange={(e) => setSendState({ ...sendState, ticketPrice: e.target.value })} value={sendState.ticketPrice} type='number' />
+                </div>
                 <br />
                 <button className='btn btn-primary' type='submit'>Dodaj predstavu</button>
             </form>

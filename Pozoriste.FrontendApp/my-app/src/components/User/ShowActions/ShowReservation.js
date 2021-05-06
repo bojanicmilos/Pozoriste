@@ -461,19 +461,19 @@ const ShowReservation = () => {
                                     <table className="payment-table">
                                         <thead className="payment-table__head">
                                             <tr className="payment-table__row">
-                                                <th className="payment-table__cell">Ulaznice</th>
+                                                <th className="payment-table__cell-1">Ulaznice</th>
                                                 <th className="payment-table__cell">Cena</th>
                                                 <th className="payment-table__cell">Ukupno</th>
                                             </tr>
                                         </thead>
                                         <tbody className="payment-table__row">
                                             <tr>
-                                                <td className="payment-table__cell">
+                                                <td className="payment-table__cell-1">
                                                     <span>{state.currentReservationSeats.length}</span>
                                                 </td>
-                                                <td className="payment-table__cell">{state.show.ticketPrice}</td>
+                                                <td className="payment-table__cell">{state.show.ticketPrice},00 din</td>
                                                 <td className="payment-table__cell">
-                                                    {state.currentReservationSeats.length * state.show.ticketPrice},00 RSD
+                                                    {state.currentReservationSeats.length * state.show.ticketPrice},00 din
                             </td>
                                             </tr>
                                         </tbody>

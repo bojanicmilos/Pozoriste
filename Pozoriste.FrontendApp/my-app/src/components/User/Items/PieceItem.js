@@ -3,7 +3,7 @@ import { Button } from 'react'
 import { getRole } from '../../globalStorage/RoleCheck'
 import { NotificationManager } from 'react-notifications'
 import { serviceConfig } from '../../../AppSettings/serviceConfig'
-
+import img from '../../../images/delete-removebg-preview.png'
 
 const PieceItem = (props) => {
     const [isActive, setIsActive] = useState(props.isActive);
@@ -60,15 +60,16 @@ const PieceItem = (props) => {
 
     const getDeleteBtn = (id) => {
         if (getRole() === "admin")
-            return <button className="btn btn-danger" style={{ marginLeft: 10, marginBottom: 15 }} onClick={() => removePiece(id)}>OBRISI</button>
+            return <button id='delete-btn-piece' className="btn btn-danger" style={{ marginLeft: 10, marginBottom: 15 }} onClick={() => removePiece(id)}><img src={img} alt='' style={{ height: '25px', width: '25px', cursor: 'pointer' }} /></button>
     }
 
     return (
         <li className='pieceItem'>
-            <p> Naziv komada: {title} </p>
-            <p> Zanr: {genre} </p>
-            <p> O delu: {description} </p>
-            <p> Godina: {year} </p>
+            <h4> Naziv komada:</h4> <p>{title} </p>
+            <h4> Zanr:</h4> <p>{genre} </p>
+            <h4> Godina:</h4> <p>{year} </p>
+            <h4>O delu:</h4>
+            <p className='pieceItem-description'> {description} </p>
             {getBtn(isActive, id)}
             {getDeleteBtn(id)}
         </li>

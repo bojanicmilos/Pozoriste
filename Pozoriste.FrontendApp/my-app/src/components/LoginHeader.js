@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import { useContext } from 'react'
 import { Context } from '../App'
 import { NotificationManager } from 'react-notifications'
+import home from '../images/home.png'
 
 const LoginHeader = () => {
     const [username, setUsername] = useState('')
@@ -86,7 +87,7 @@ const LoginHeader = () => {
 
         <div className='fixed-container'>
             <div className='flex-container'>
-                <Link to='/showlist' className='title-header'> Pozoriste</Link>
+                <Link to='/showlist' className='title-header'> <img src={home} alt="home" style={{ height: '40px', width: '40px' }} /></Link>
                 {isUserLogged() && <Link to='/userprofile' className='user-profile-header'>Profil</Link>}
                 <form type='text'>
                     {!isUserLogged() && <>
