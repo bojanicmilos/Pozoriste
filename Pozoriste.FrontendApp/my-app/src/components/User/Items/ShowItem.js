@@ -16,7 +16,9 @@ const ShowItem = (props) => {
         genre,
         auditoriumName,
         theatreName,
-        actors
+        actors,
+        len,
+        index
     } = props;
 
     const showActors = () => {
@@ -40,31 +42,34 @@ const ShowItem = (props) => {
     }
 
     return (
-        <li className='showItem'>
-            <div className="showItem-left">
-                <h4>Datum i vreme:</h4>
-                <p>{showTime} </p>
-                <h4> Cena karte:</h4>
-                <p>{ticketPrice} din</p>
-                <h4> Komad:</h4>
-                <p className='showItem-left-lastp'>{pieceTitle} </p>
-                <button onClick={() => goToShowReservation(id)}>Rezervisite predstavu</button>
-            </div>
-            <div className="showItem-right">
-                <div className='showItem-right-p'>
-                    <h4> Godina:</h4>
-                    <p>{pieceYear} </p>
-                    <h4> Zanr:</h4>
-                    <p>{genre} </p>
-                    <h4> Sala:</h4>
-                    <p>{auditoriumName} </p>
-                    <h4> Pozoriste:</h4>
-                    <p>{theatreName}</p>
+        <React.Fragment>
+            <li className='showItem'>
+                <div className="showItem-left">
+                    <h4>Datum i vreme:</h4>
+                    <p>{showTime} </p>
+                    <h4> Cena karte:</h4>
+                    <p>{ticketPrice} din</p>
+                    <h4> Komad:</h4>
+                    <p className='showItem-left-lastp'>{pieceTitle} </p>
+                    <button onClick={() => goToShowReservation(id)}>Rezervisite predstavu</button>
                 </div>
-                <h4 className='showItem-h4'> Glumci:</h4>
-                <p className='showItem-showActors'>{showActors()} </p>
-            </div>
-        </li>
+                <div className="showItem-right">
+                    <div className='showItem-right-p'>
+                        <h4> Godina:</h4>
+                        <p>{pieceYear} </p>
+                        <h4> Zanr:</h4>
+                        <p>{genre} </p>
+                        <h4> Sala:</h4>
+                        <p>{auditoriumName} </p>
+                        <h4> Pozoriste:</h4>
+                        <p>{theatreName}</p>
+                    </div>
+                    <h4 className='showItem-h4'> Glumci:</h4>
+                    <p className='showItem-showActors'>{showActors()} </p>
+                </div>
+            </li>
+            {(index + 1 !== len) && <p className="arrow down"></p>}
+        </React.Fragment>
     )
 }
 

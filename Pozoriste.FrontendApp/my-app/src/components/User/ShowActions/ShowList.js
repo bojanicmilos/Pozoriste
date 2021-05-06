@@ -44,9 +44,11 @@ const ShowList = () => {
     }
 
     const fillPageWithShows = () => {
-        return shows.map((show) => {
+        const showsLenght = shows.length;
+
+        return shows.map((show, index) => {
             return (
-                <ShowItem key={show.id} {...show} />
+                <ShowItem index={index} len={showsLenght} key={show.id} {...show} />
             )
         })
     }
