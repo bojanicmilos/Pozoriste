@@ -5,9 +5,7 @@ import '../../../style/style.css'
 import Spinner from '../../Spinner'
 import '../../../style/spinner.css'
 import { NotificationManager } from 'react-notifications'
-import img from '../../../images/sorry.png'
-
-//BRISI DO OVDE A POSLE
+import img from '../../../images/404.png'
 
 const ShowList = () => {
     const [state, setState] = useState({
