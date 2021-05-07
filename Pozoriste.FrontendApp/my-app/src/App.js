@@ -31,6 +31,7 @@ function App() {
       <Router>
         <LoginHeader />
         <SideMenu />
+        <div className='blank-page'>
         <Switch>
           <Redirect exact from="/" to="/showlist" />
           <Route path="/showlist" component={ShowList} />
@@ -49,6 +50,7 @@ function App() {
 
           <Redirect exact from="*" to="/showlist" />
         </Switch>
+        </div>
         <NotificationContainer />
       </Router>
     </Context.Provider>

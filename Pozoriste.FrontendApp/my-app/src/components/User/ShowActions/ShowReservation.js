@@ -144,7 +144,11 @@ const ShowReservation = () => {
             getRole() === "user" ||
             getRole() === "admin"
         ) {
-            console.log('IN MAKE RESERVATION');
+            if(state.currentReservationSeats.length === 0)
+            {
+                NotificationManager.warning('Niste odabrali sedista!');
+                return;
+            }
             const showId = id;
 
             const { currentReservationSeats } = state;
