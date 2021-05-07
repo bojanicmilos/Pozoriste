@@ -120,12 +120,6 @@
   margin-left: 200px;
 }
 
-.add-show-page {
-  margin-top: 6%;
-  margin-left: 20%;
-  width: 78%;
-}
-
 .add-auditorium-page {
   margin-top: 100px;
   margin-left: 200px;
@@ -203,9 +197,21 @@ tr {
 menu kraj */
 
 .actors-checkbox {
+  width: 350%;
   column-count: 3;
-  margin-left: 10%;
+  margin-left: 90%;
   margin-top: 15px;
+  text-align: left;
+}
+
+.actors-checkbox input,
+label {
+  align-content: left !important;
+  align-items: left !important;
+}
+
+.form-check-input {
+  float: left !important;
 }
 
 input[type="checkbox"] {
@@ -564,25 +570,38 @@ input[type="checkbox"] {
 
 /* addShow  */
 
+.add-show-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6%;
+  margin-left: 20%;
+  width: 78%;
+}
+
+.add-show-page-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .show-title {
-  margin-left: 43%;
   font-size: 20px;
 }
 
 .show-title-actors {
-  margin-left: 46%;
-  font-size: 20px;
+  text-align: left;
 }
 
 .theatres-labels {
-  margin-left: 35%;
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 5px;
   text-align: center;
-  width: 35%;
+  width: 90%;
   margin-top: 5px;
   border: 1px solid black;
+  box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.8);
 }
 
 /* addShow end */

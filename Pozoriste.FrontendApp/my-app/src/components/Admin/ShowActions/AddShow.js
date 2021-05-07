@@ -186,22 +186,22 @@ const AddShow = () => {
         <div className='add-show-page'>
             <strong className='show-title'>Datum predstave: </strong>
             <br />
-            <form onSubmit={handleSubmit}>
+            <form className='add-show-page-form' onSubmit={handleSubmit}>
                 <input
                     onChange={(e) =>
                         setSendState({ ...sendState, showTime: e.target.value })
                     }
                     name="showTime"
                     type="datetime-local"
-                    style={{
-                        marginTop: '10px',
-                        marginLeft: '41%',
-                        borderRadius: '5px',
-                        backgroundColor: '#fff',
-                        padding: '3px 5px',
-                        boxShadow: 'inset 0 3px 6px rgba(0,0,0,0.1)',
-                        width: '235px'
-                    }}
+                    // style={{
+                    //     marginTop: '10px',
+                    //     marginLeft: '41%',
+                    //     borderRadius: '5px',
+                    //     backgroundColor: '#fff',
+                    //     padding: '3px 5px',
+                    //     boxShadow: 'inset 0 3px 6px rgba(0,0,0,0.1)',
+                    //     width: '235px'
+                    // }}
                     id="date"
                     className="input-date select-dropdown"
                 />
