@@ -6,7 +6,8 @@ import { NotificationManager } from 'react-notifications'
 import { getRole } from '../../globalStorage/RoleCheck'
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faCouch } from "@fortawesome/free-solid-svg-icons";
+import { faCouch } from "@fortawesome/free-solid-svg-icons";
+import cart from '../../../images/cart.png'
 
 const ShowReservation = () => {
     const { id } = useParams();
@@ -439,7 +440,7 @@ const ShowReservation = () => {
         return (
             <Card.Body>
                 <Card.Title>
-                    <span className="card-title-font">{state.show.pieceTitle}</span>
+                    <h3 className="card-title-font">{state.show.pieceTitle}</h3>
                     <span className="float-right">
 
                     </span>
@@ -483,10 +484,7 @@ const ShowReservation = () => {
                                         className="btn-payment"
                                     >
                                         Potvrdi
-                        <FontAwesomeIcon
-                                            className="text-primary mr-2 fa-1x btn-payment__icon"
-                                            icon={faShoppingCart}
-                                        />
+                                        <img className='shopping-cart' src={cart} alt="cart" style={{ height: '20px', width: '20px' }} />
                                     </button>
                                 </div>
                             </form>

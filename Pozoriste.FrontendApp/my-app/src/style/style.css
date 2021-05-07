@@ -97,8 +97,8 @@
 
 .piece-container {
   margin-top: 100px;
-  margin-left: 19%;
-  width: 78%;
+  margin-left: 27%;
+  width: 60%;
 }
 
 .theatre-container {
@@ -233,6 +233,8 @@ input[type="checkbox"] {
 
 .btn-primary {
   display: block !important;
+  background: rgb(51, 129, 99) !important;
+  border: 2px solid rgb(48, 47, 44) !important;
   width: 350px;
   margin: auto;
   margin-top: 15px;
@@ -504,6 +506,10 @@ input[type="checkbox"] {
   margin-bottom: 30px;
 }
 
+.card-title-font{
+  text-align: center;
+}
+
 .payment-table__cell{
   border: 1px solid black;
   padding: 5px;
@@ -514,8 +520,16 @@ input[type="checkbox"] {
 
 .btn-payment{
   margin-top: 15px;
-  margin-left: 50px;
+  margin-left: 5%;
+  color: #fff;
+  background: rgb(51, 129, 99);
+  border: 2px solid rgb(48, 47, 44) !important;
   border-radius: 4px;
+}
+
+.shopping-cart{
+  margin-left: 8px;
+  margin-bottom: 4px;
 }
 
 .arrow {
@@ -549,30 +563,55 @@ input[type="checkbox"] {
 /* addShow  */
 
 .show-title{
-  margin-left: 44%;
+  margin-left: 43%;
   font-size: 20px;
 }
 
 .show-title-actors{
-  margin-left: 47%;
+  margin-left: 46%;
   font-size: 20px;
 }
 
 .theatres-labels{
+  margin-left: 35%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
   text-align: center;
+  width: 30%;
   margin-top: 5px;
+  border: 1px solid black;
 }
+
 /* addShow end */
 
 /* piecePage  */
 
 .pieceItem{
+  display: flex;
+  padding-top: 20px;
+  padding-right: 20px;
   margin-top: 80px;
   padding-bottom: 15px;
   list-style-type: none;
   text-align: center;
   box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.8);
   border-radius: 10px;
+}
+
+.pieceItem-left{
+  width: 60%;
+  padding-right: 8%;
+  padding-left: 8%;
+
+}
+
+.pieceItem-left p{
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pieceItem-right{
+  width: 60%;
 }
 
 .pieceItem-description{
@@ -584,7 +623,16 @@ input[type="checkbox"] {
 }
 
 #delete-btn-piece{
-  background-color: white !important;
+  background-color: white;
+}
+
+.btn-danger{
+  border: 2px solid rgb(48, 47, 44) !important;
+}
+
+.btn-success{
+  background: rgb(51, 129, 99) !important;
+  border: 2px solid rgb(48, 47, 44) !important;
 }
 /* piecePage end */
 

@@ -64,15 +64,21 @@ const PieceItem = (props) => {
     }
 
     return (
+
         <li className='pieceItem'>
-            <h4> Naziv komada:</h4> <p>{title} </p>
-            <h4> Zanr:</h4> <p>{genre} </p>
-            <h4> Godina:</h4> <p>{year} </p>
-            <h4>O delu:</h4>
-            <p className='pieceItem-description'> {description} </p>
-            {getBtn(isActive, id)}
-            {getDeleteBtn(id)}
+            <div className='pieceItem-left'>
+                <h4> Naziv komada:</h4> <p>{title} </p>
+                <h4> Zanr:</h4> <p>{genre} </p>
+                <h4> Godina:</h4> <p>{year} </p>
+                {getBtn(isActive, id)}
+                {getDeleteBtn(id)}
+            </div>
+            <div className='pieceItem-right'>
+                <h4>O delu:</h4>
+                <p className='pieceItem-description'> {description} </p>
+            </div>
         </li>
+
     )
 }
 
