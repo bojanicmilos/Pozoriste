@@ -216,7 +216,7 @@ const AddShow = () => {
                                             name={'actor' + actor.id}
                                             type='checkbox'
                                             onChange={(e) => updateActorsList(e, actor.id)} />
-                                        <label className='form-check-label' htmlFor={'actor' + actor.id}>&nbsp; {actor.firstName} &nbsp; {actor.lastName}</label>
+                                        <label className='form-check-label' htmlFor={'actor' + actor.id}>&nbsp; {actor.firstName} &nbsp;{actor.lastName}</label>
                                     </React.Fragment>
                                 )
                             })}

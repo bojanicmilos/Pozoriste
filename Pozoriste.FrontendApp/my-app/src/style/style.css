@@ -3,6 +3,11 @@
   overflow: hidden;
 }
 
+.form-check-input, .form-check-label {
+  margin: 0;
+
+}
+
 .background-img {
   z-index: -1;
   position: fixed;
@@ -199,20 +204,10 @@ menu kraj */
 .actors-checkbox {
   width: 100%;
   column-count: 2;
-  column-gap: 65px;
+  column-gap: 100px;
   margin-top: 5px;
   margin-left: 50px;
   text-align: left;
-}
-
-.actors-checkbox input,
-label {
-  align-content: left !important;
-  align-items: left !important;
-}
-
-.form-check-input {
-  float: left !important;
 }
 
 input[type="checkbox"] {
@@ -572,18 +567,19 @@ input[type="checkbox"] {
 /* addShow  */
 
 .add-show-flex {
+  border: 2px solid rgb(48, 47, 44);
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
-  gap: 100px;
-  width: 60vw;
-  justify-content: space-evenly;
+  width: 1000px; 
+  justify-content: center;
   align-items: stretch;
 }
 
 .flex-child {
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 49.6%;
 }
 
 .add-show-left-flex {
@@ -591,9 +587,9 @@ input[type="checkbox"] {
   flex-direction: column;
   border: 1px solid black;
   text-align: center;
-  padding: 30px 200px;
+  padding: 30px 10px;
   box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.8);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .add-show-page {
@@ -618,7 +614,7 @@ input[type="checkbox"] {
 .theatres-labels {
   padding-top: 10px;
   padding-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
   border: 1px solid black;
   box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.8);
