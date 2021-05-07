@@ -416,7 +416,6 @@ input[type="checkbox"] {
 
 /* showItem */
 .showItem {
-  height: 570px;
   margin-top: 49px;
   margin-left: 25%;
   list-style-type: none;
@@ -475,7 +474,6 @@ input[type="checkbox"] {
 } 
 
 .showItem-right {
-  height: 570px;
   text-align: center;
   width: 60%;
   background: rgb(48, 47, 44);
