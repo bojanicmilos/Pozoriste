@@ -186,7 +186,7 @@ const AddShow = () => {
         <div className='add-show-page'>
             <form className='add-show-page-form' onSubmit={handleSubmit}>
                 <div className='add-show-flex'>
-                    <div className='add-show-left-flex'>
+                    <div className='flex-child add-show-left-flex'>
 
                         <h4 className='show-title'>Datum predstave: </h4>
                         <input
@@ -222,7 +222,7 @@ const AddShow = () => {
                             })}
                         </div>
                     </div>
-                    <div className='add-show-right-flex'>
+                    <div className='flex-child add-show-right-flex'>
                         <div className='theatres-labels'>
                             <label htmlFor="theatres"><strong>Pozoriste: &nbsp;</strong></label><br />
                             <select id="theatres" onChange={(e) => setSendState({ ...sendState, theatreId: e.target.value })}>
