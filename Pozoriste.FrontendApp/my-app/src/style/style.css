@@ -7,13 +7,13 @@
   z-index: -1;
   position: fixed;
   width: 2000px;
-  height: 1500px; 
+  height: 1500px;
   opacity: 0.3;
 }
 
 .not-found {
-   width: 50%; 
-  margin-left: 30% ; 
+  width: 50%;
+  margin-left: 30%;
   margin-top: 280px;
 }
 
@@ -21,7 +21,6 @@
   width: 80%;
   height: 80%;
 }
-
 
 /* Header pocetak */
 .fixed-container {
@@ -154,7 +153,7 @@ tr {
 
 .reservation-big-card {
   margin-top: 100px;
-  margin-left: 23% !important;
+  margin-left: 20% !important;
 }
 
 /* sadrzaj stranice kraj */
@@ -437,43 +436,43 @@ input[type="checkbox"] {
   text-align: center;
 }
 
-.showItem-left button{
+.showItem-left button {
   font-size: 20px;
   margin-top: 5px;
   margin-bottom: 10px;
   color: #fff;
   background: rgb(51, 129, 99);
   border-radius: 5px;
-  border: 2px solid rgb(48, 47, 44)
+  border: 2px solid rgb(48, 47, 44);
 }
 
-.showItem-left button:hover{
+.showItem-left button:hover {
   transform: scale(1.07);
   z-index: 100;
   transition: transform 0.5s;
 }
 
-.showItem-left-lastp{
+.showItem-left-lastp {
   border-bottom: 2px solid rgb(48, 47, 44) !important;
   padding-bottom: 5px;
 }
 
-.showItem-left p{
+.showItem-left p {
   font-size: 17.5px;
   color: rgb(48, 47, 44);
   border-bottom: 1px solid #e0e0e0;
   margin-bottom: 30px;
 }
-.showItem-left h4, 
-.showItem-right h4{
+.showItem-left h4,
+.showItem-right h4 {
   text-transform: uppercase;
 }
 
- .showItem-left h4 {
+.showItem-left h4 {
   width: 50%;
   margin: auto;
   padding-bottom: 20px;
-} 
+}
 
 .showItem-right {
   text-align: center;
@@ -485,40 +484,40 @@ input[type="checkbox"] {
   padding-right: 12%;
 }
 
-.showItem-right-p{
+.showItem-right-p {
   margin-top: 50px;
 }
 
-.showItem-right-p p{
+.showItem-right-p p {
   color: #ece8e8;
   font-size: 17.5px;
   border-bottom: 1px solid #8b8888;
   margin-bottom: 30px;
 }
 
-.showItem-showActors{
+.showItem-showActors {
   column-count: 2;
   color: #ece8e8;
   margin-bottom: 35px;
 }
 
-.showItem-h4{
+.showItem-h4 {
   margin-bottom: 30px;
 }
 
-.card-title-font{
+.card-title-font {
   text-align: center;
 }
 
-.payment-table__cell{
+.payment-table__cell {
   border: 1px solid black;
   padding: 5px;
 }
-.payment-table__cell-1{
+.payment-table__cell-1 {
   border: 1px solid black;
 }
 
-.btn-payment{
+.btn-payment {
   margin-top: 15px;
   margin-left: 5%;
   color: #fff;
@@ -527,7 +526,7 @@ input[type="checkbox"] {
   border-radius: 4px;
 }
 
-.shopping-cart{
+.shopping-cart {
   margin-left: 8px;
   margin-bottom: 4px;
 }
@@ -540,17 +539,21 @@ input[type="checkbox"] {
   display: block;
   padding: 3px;
   margin-left: 53.5%;
-  margin-top: 30px!important;
+  margin-top: 30px !important;
 }
 
 .down {
   -webkit-animation: animate 2s ease-in-out infinite;
-  animation: animate 2s ease-in-out infinite; 
+  animation: animate 2s ease-in-out infinite;
 }
 
 @keyframes animate {
-0%  { transform:translate(0,-20px) rotate(45deg); }
-100% { transform:translate(0,20px) rotate(45deg); }
+  0% {
+    transform: translate(0, -20px) rotate(45deg);
+  }
+  100% {
+    transform: translate(0, 20px) rotate(45deg);
+  }
 }
 
 .and-symbol {
@@ -559,20 +562,19 @@ input[type="checkbox"] {
 
 /* showItem end */
 
-
 /* addShow  */
 
-.show-title{
+.show-title {
   margin-left: 43%;
   font-size: 20px;
 }
 
-.show-title-actors{
+.show-title-actors {
   margin-left: 46%;
   font-size: 20px;
 }
 
-.theatres-labels{
+.theatres-labels {
   margin-left: 35%;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -587,7 +589,7 @@ input[type="checkbox"] {
 
 /* piecePage  */
 
-.pieceItem{
+.pieceItem {
   display: flex;
   padding-top: 20px;
   padding-right: 20px;
@@ -599,22 +601,21 @@ input[type="checkbox"] {
   border-radius: 10px;
 }
 
-.pieceItem-left{
+.pieceItem-left {
   width: 60%;
   padding-right: 8%;
   padding-left: 8%;
-
 }
 
-.pieceItem-left p{
+.pieceItem-left p {
   border-bottom: 1px solid #e0e0e0;
 }
 
-.pieceItem-right{
+.pieceItem-right {
   width: 60%;
 }
 
-.pieceItem-description{
+.pieceItem-description {
   text-align: justify !important;
   border: 1px solid black;
   padding: 10px;
@@ -622,29 +623,27 @@ input[type="checkbox"] {
   background-color: rgb(236, 229, 229);
 }
 
-#delete-btn-piece{
+#delete-btn-piece {
   background-color: white;
 }
 
-.btn-danger{
+.btn-danger {
   border: 2px solid rgb(48, 47, 44) !important;
 }
 
-.btn-success{
+.btn-success {
   background: rgb(51, 129, 99) !important;
   border: 2px solid rgb(48, 47, 44) !important;
 }
 /* piecePage end */
 
-
 /* ShowList begin  */
 .search {
   position: fixed;
-  margin-top: 100px!important;
-  margin-left: 19.2%!important;
-  width: 220px!important;
-  opacity: 0.65; 
+  margin-top: 100px !important;
+  margin-left: 19.2% !important;
+  width: 220px !important;
+  opacity: 0.65;
 }
 
 /* ShowList end */
-
