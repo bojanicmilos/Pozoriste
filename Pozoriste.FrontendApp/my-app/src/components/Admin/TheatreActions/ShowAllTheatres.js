@@ -36,7 +36,7 @@ const ShowAllTheatres = () => {
                 }
             })
             .catch((response) => {
-                NotificationManager.error('Greska prilikom prikazivanja pozorista!');
+                NotificationManager.error('Greska prilikom prikazivanja pozorista !');
             })
     }
 
@@ -56,10 +56,10 @@ const ShowAllTheatres = () => {
                 let theatresFiltered = theatres;
                 theatresFiltered = theatresFiltered.filter((theatre) => theatre.id !== id);
                 setShowAllTheatres(theatresFiltered);
-                NotificationManager.success('Uspesno obrisano pozoriste!');
+                NotificationManager.success('Uspesno obrisano pozoriste !');
             })
             .catch((response) => {
-                NotificationManager.error('Nije moguce obrisati teatar!')
+                NotificationManager.error('Nije moguce obrisati pozoriste !')
             })
     }
 

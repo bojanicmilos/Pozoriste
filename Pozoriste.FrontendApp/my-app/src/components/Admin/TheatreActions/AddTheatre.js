@@ -16,7 +16,7 @@ const AddTheatre = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         addTheatre();
-        setTheatre({name:'', auditName:'', seatRows: '', numberOfSeats: '', cityName: '', streetName:''})
+        setTheatre({ name: '', auditName: '', seatRows: '', numberOfSeats: '', cityName: '', streetName: '' })
     }
 
 
@@ -46,10 +46,10 @@ const AddTheatre = () => {
                 return response.json();
             })
             .then((json) => {
-                NotificationManager.success("Kreiran novi teatar!");
+                NotificationManager.success("Kreirano novo pozoriste !");
             })
             .catch((json) => {
-                NotificationManager.error("Nije moguce kreirati teatar!");
+                NotificationManager.error("Nije moguce kreirati pozoriste !");
             })
     }
 

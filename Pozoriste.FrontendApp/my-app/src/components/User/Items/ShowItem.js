@@ -36,7 +36,7 @@ const ShowItem = (props) => {
             history.push(`/showreservation/${id}`)
         }
         else {
-            NotificationManager.error('Molim ulogujte se kako biste izvrsili rezervaciju!')
+            NotificationManager.error('Molimo ulogujte se kako biste izvrsili rezervaciju !')
         }
 
     }

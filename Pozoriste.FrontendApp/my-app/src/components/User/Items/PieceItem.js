@@ -34,16 +34,16 @@ const PieceItem = (props) => {
             })
             .then((response) => {
                 if (isActive) {
-                    NotificationManager.success("Uspesno deaktivirana predstava!");
+                    NotificationManager.success("Uspesno deaktivirana predstava !");
                 }
                 else {
-                    NotificationManager.success("Uspesno aktivirana predstava!");
+                    NotificationManager.success("Uspesno aktivirana predstava !");
                 }
 
                 setIsActive(!isActive);
             })
             .catch((response) => {
-                NotificationManager.error("Ne moze se deaktivirati komad koji ima buduce predstava!");
+                NotificationManager.error("Ne moze se deaktivirati komad koji ima buduce predstave !");
             });
     };
 

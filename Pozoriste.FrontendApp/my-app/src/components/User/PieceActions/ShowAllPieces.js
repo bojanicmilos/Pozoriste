@@ -61,7 +61,7 @@ const ShowAllPieces = () => {
                 NotificationManager.success("Uspesno obrisan komad!");
             })
             .catch((response) => {
-                NotificationManager.error("Ne moze se obrisati komad koji ima buduce predstave!");
+                NotificationManager.error("Ne moze se obrisati komad koji ima buduce predstave !");
             })
     }
 
