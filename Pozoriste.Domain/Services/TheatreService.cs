@@ -203,6 +203,8 @@ namespace Pozoriste.Domain.Services
                     Id = theatre.Id,
                     Name = theatre.Name,
                     AddressId = theatre.AddressId,
+                    CityName = theatre.Address.CityName,
+                    StreetName = theatre.Address.StreetName,
                     AuditoriumsList = new List<AuditoriumDomainModel>()
                 };
 

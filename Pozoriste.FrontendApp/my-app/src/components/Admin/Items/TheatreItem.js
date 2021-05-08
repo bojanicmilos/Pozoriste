@@ -6,11 +6,12 @@ const TheatreItem = (props) => {
     const {
         id,
         name,
+        cityName,
+        streetName,
         index
     } = props;
 
     const removeTheatre = props.removeTheatre;
-    const getAuditoriumsForOneTheatre = props.getAuditoriumsForOneTheatre;
 
     const getDeleteBtn = (id) => {
         if (getRole() === 'admin')
@@ -21,6 +22,8 @@ const TheatreItem = (props) => {
         <tr className='theatre-container'>
             <td>{index + 1}</td>
             <td>{name}</td>
+            <td>{cityName}</td>
+            <td>{streetName}</td>
             <td>{getDeleteBtn(id)}</td>
         </tr>
     )

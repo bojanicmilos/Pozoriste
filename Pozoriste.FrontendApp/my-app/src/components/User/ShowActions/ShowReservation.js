@@ -144,8 +144,7 @@ const ShowReservation = () => {
             getRole() === "user" ||
             getRole() === "admin"
         ) {
-            if(state.currentReservationSeats.length === 0)
-            {
+            if (state.currentReservationSeats.length === 0) {
                 NotificationManager.warning('Niste odabrali sedista!');
                 return;
             }
@@ -466,7 +465,7 @@ const ShowReservation = () => {
                                     <table className="payment-table">
                                         <thead className="payment-table__head">
                                             <tr className="payment-table__row">
-                                                <th className="payment-table__cell-1">Ulaznice</th>
+                                                <th className="payment-table__cell-1">Sedista</th>
                                                 <th className="payment-table__cell">Cena</th>
                                                 <th className="payment-table__cell">Ukupno</th>
                                             </tr>

@@ -264,7 +264,7 @@ const AddShow = () => {
                             <br />
                             <br />
                             <label htmlFor="ticket"><strong>Cena karte: &nbsp; </strong></label> <br />
-                            <input disabled={(sendState.pieceId === '') ? true : false} id='ticket' min='100' onChange={(e) => setSendState({ ...sendState, ticketPrice: e.target.value })} value={sendState.ticketPrice} type='number' />
+                            <input disabled={(sendState.pieceId === '') ? true : false} id='ticket' min='100' max='5000' onChange={(e) => setSendState({ ...sendState, ticketPrice: e.target.value })} value={sendState.ticketPrice} type='number' />
                             <br />
                             <br />
                             <br />

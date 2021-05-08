@@ -78,6 +78,8 @@ const ShowAllTheatres = () => {
                     <tr>
                         <th>#</th>
                         <th>Ime pozorista</th>
+                        <th>Grad</th>
+                        <th>Ulica i broj</th>
                         <th>↓</th>
                     </tr>
                 </thead>

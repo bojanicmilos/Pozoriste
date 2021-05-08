@@ -150,9 +150,29 @@ tr {
   margin-left: 200px;
 }
 
+
+
 .reservation-big-card {
-  margin-top: 100px;
-  margin-left: 20% !important;
+  border: 2px solid rgb(48, 47, 44);
+  border-radius: 10px;
+  box-shadow: 0 1px 20px 0 rgba(48, 47, 44, 0.8);
+  margin-top: 80px;
+  margin-bottom: 25px;
+  padding-left: 2%!important;
+  padding-right: 2%!important;
+  margin-left: 19.1% !important;
+}
+
+
+.card-width {
+  border: 2px solid rgba(48, 47, 44, 0.4)!important;
+  margin-bottom: 40px!important;
+}
+
+ .card-width hr {
+  height: 2px!important;
+  background-color: #ccc!important;
+  border: none!important;
 }
 
 /* sadrzaj stranice kraj */
@@ -511,17 +531,26 @@ input[type="checkbox"] {
   text-align: center;
 }
 
+.payment-table {
+  border-collapse: collapse;
+  border-radius: 5px;
+  border-style: hidden; 
+  box-shadow: 0 0 0 2px #666; 
+}
 .payment-table__cell {
-  border: 1px solid black;
+  border: 1px solid rgb(48, 47, 44); 
+  border-radius: 10px!important;
   padding: 5px;
 }
 .payment-table__cell-1 {
   border: 1px solid black;
+  padding: 5px;
 }
 
 .btn-payment {
   margin-top: 15px;
-  margin-left: 5%;
+  margin-left: 6.5%;
+  margin-bottom: 15px;
   color: #fff;
   background: rgb(51, 129, 99);
   border: 2px solid rgb(48, 47, 44) !important;
