@@ -32,6 +32,17 @@ namespace Pozoriste.Tests.Services
                 Genre = Genre.COMEDY,
                 IsActive = true,
                 Year = 1999,
+                Shows = new List<Show>
+                {
+                    new Show
+                    {
+                        ShowTime = DateTime.Now.AddDays(-5)
+                    },
+                    new Show
+                    {
+                        ShowTime = DateTime.Now.AddDays(-25)
+                    }
+                }
             };
 
             _pieceDomainModel = new PieceDomainModel
@@ -111,8 +122,6 @@ namespace Pozoriste.Tests.Services
         }
 
 
-        // _pieceRepository.GetByIdAsync(id) // NOT NULL
-        // _pieceRepository.Delete(id) // NULL
         [TestMethod]
         public void DeletePiece_Not_Successful_Return_Null_On_Delete()
         {
@@ -120,6 +129,8 @@ namespace Pozoriste.Tests.Services
             _mockPieceRepository
                 .Setup(x => x.GetByIdAsync(It.IsAny<int>()))
                 .ReturnsAsync(_piece);
+
+
 
             _mockPieceRepository
                 .Setup(x => x.Delete(It.IsAny<int>()))
@@ -136,7 +147,7 @@ namespace Pozoriste.Tests.Services
             Assert.IsNull(resultObject);
         }
 
-        // _pieceRepository.GetByIdAsync(id) // NOT NULL
+        // _pieceRepository.GetByIdAsync(id) // NULL
         [TestMethod]
         public void DeletePiece_NotSuccessful_Return_Null_On_Get_By_Id()
         {
@@ -144,6 +155,42 @@ namespace Pozoriste.Tests.Services
             _mockPieceRepository
                 .Setup(x => x.GetByIdAsync(It.IsAny<int>()))
                 .ReturnsAsync(null as Piece);
+
+            // Act
+            var resultObject = _pieceService
+                .DeletePiece(_piece.Id)
+                .ConfigureAwait(false)
+                .GetAwaiter()
+                .GetResult();
+
+            // Assert
+            Assert.IsNull(resultObject);
+        }
+
+        [TestMethod]
+        public void DeletePiece_NoSuccessful_Return_Null_Piece_Has_Future_Shows()
+        {
+            // Arrange
+
+            Piece piece = new Piece
+            {
+                Shows = new List<Show>
+                {
+                    new Show
+                    {
+                        ShowTime = DateTime.Now.AddDays(5)
+                    },
+                    new Show
+                    {
+                        ShowTime = DateTime.Now.AddDays(10)
+                    }
+                }
+            };
+
+            _mockPieceRepository
+                .Setup(x => x.GetByIdAsync(It.IsAny<int>()))
+                .ReturnsAsync(piece);
+
 
             // Act
             var resultObject = _pieceService

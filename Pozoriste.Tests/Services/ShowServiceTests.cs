@@ -399,6 +399,14 @@ namespace Pozoriste.Tests.Services
                             ShowActors = new List<ShowActor>()
                         }
                     }
+                },
+                Piece = new Piece
+                {
+                    Id = 1,
+                    Title = "naslov123",
+                    Year = 1995,
+                    Description = "neki opis",
+                    IsActive = true
                 }
             };
 
