@@ -9,16 +9,19 @@ const AddPiece = () => {
         year: '',
         genre: '',
         isActive: '',
-        description: '',
+        description: ''
     })
 
     const handleSubmit = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         if (piece.genre === '' || piece.isActive === '') {
             NotificationManager.error('Popunite sva prazna polja!')
         }
         else {
             addPiece();
+            setPiece({title: '', year: '', genre: '', isActive: '', description: ''})
+            document.getElementById('genre').selectedIndex = 0
+            document.getElementById('isActive').selectedIndex = 0
         }
 
     }
@@ -87,7 +90,7 @@ const AddPiece = () => {
                     <option value='1'>Aktivan</option>
                     <option value='0'>Neaktivan</option>
                 </select>
-                <textarea className="form-control" id="exampleFormControlTextarea1" onChange={(e) => setPiece({ ...piece, description: e.target.value })} rows="3" maxLength='450' placeholder='Deskripcija' required></textarea>
+                <textarea className="form-control" id="exampleFormControlTextarea1" value={piece.description} onChange={(e) => setPiece({ ...piece, description: e.target.value })} rows="3" maxLength='450' placeholder='Deskripcija' required></textarea>
                 <button className='btn btn-primary' type='submit'>Dodaj komad</button>
             </form>
         </div>

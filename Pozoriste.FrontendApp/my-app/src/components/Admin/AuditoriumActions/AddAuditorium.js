@@ -20,11 +20,13 @@ const AddAuditorium = () => {
     }, [])
 
     const handleSubmit = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         if (auditorium.theatreId === '')
             return NotificationManager.error('Izaberite pozoriste!')
         else
             addAuditorium();
+            setAuditorium({ auditName: '', seatRows: '', numberOfSeats: '', theatreId: '', theatreName: ''})
+            document.getElementById('theatres').selectedIndex = 0
     }
 
     const getTheatres = () => {

@@ -14,6 +14,7 @@ const AddActor = () => {
 
         if (actor.firstName !== '' && actor.lastName !== '') {
             addActor();
+            setActor({firstName: '', lastName: ''})
         }
         else {
             NotificationManager.error('Unesite sve neophodne podatke');
