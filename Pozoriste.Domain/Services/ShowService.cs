@@ -171,6 +171,7 @@ namespace Pozoriste.Domain.Services
                     PieceId = createdShow.PieceId,
                     TicketPrice = createdShow.TicketPrice,
                     ShowTime = createdShow.ShowTime,
+                    PieceTitle = createdShow.Piece.Title,
                     ActorsList = createdShow.ShowActors.Select(showActor => new ActorDomainModel
                     {
                         Id = showActor.Actor.Id,
