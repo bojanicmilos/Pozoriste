@@ -228,7 +228,7 @@ namespace Pozoriste.Domain.Services
                .Where(show => show.TicketPrice.ToString().Contains(search) || show.ShowTime.ToString("MM/dd/yyyy HH:mm").Contains(search) || 
                  show.Piece.Title.ToLower().Contains(search.ToLower()) ||
                  show.Piece.Year.ToString().Contains(search) ||
-                 show.ShowActors.Any(showActor =>           showActor.Actor.FirstName.ToLower().Contains(search.ToLower()) || showActor.Actor.LastName.ToLower().Contains(search.ToLower())) ||
+                 show.ShowActors.Any(showActor =>           (showActor.Actor.FirstName.ToLower() + " " + showActor.Actor.LastName.ToLower()).Contains(search.ToLower())) ||
                  show.Auditorium.Theatre.Name.ToLower().Contains(search.ToLower()) ||
                  show.Auditorium.Name.ToLower().Contains(search.ToLower()) ||
                  (show.Piece.Genre.ToString() == "DRAMA" ? "drama" : show.Piece.Genre.ToString() == "COMEDY" ? "komedija" : show.Piece.Genre.ToString() == "TRAGEDY" ? "tragedija" : "").Contains(search.ToLower())
