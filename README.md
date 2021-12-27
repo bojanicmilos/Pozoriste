@@ -61,3 +61,9 @@ Moq
 MSTest.TestAdapter
 
 MSTest.TestFramework
+
+ZA SELENIUM : 
+MSTest.TestFramework
+NUnit
+Selenium.WebDriver
+Selenium.WebDriver.ChromeDriver
