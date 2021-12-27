@@ -50,3 +50,14 @@ Example:
 Example: 
 
 `refactor/ Some description`
+DEPENDENCIES:
+
+coverlet.collector
+
+Microsoft.NET.Test.Sdk
+
+Moq
+
+MSTest.TestAdapter
+
+MSTest.TestFramework
