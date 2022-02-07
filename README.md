@@ -50,28 +50,3 @@ Example:
 Example: 
 
 `refactor/ Some description`
-DEPENDENCIES:
-
-coverlet.collector
-
-Microsoft.NET.Test.Sdk
-
-Moq
-
-MSTest.TestAdapter
-
-MSTest.TestFramework
-
-ZA SELENIUM : 
-
-MSTest.TestFramework
-
-
-NUnit
-
-
-Selenium.WebDriver
-
-
-Selenium.WebDriver.ChromeDriver
-
