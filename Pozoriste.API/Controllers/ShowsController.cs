@@ -23,7 +23,6 @@ namespace Pozoriste.API.Controllers
             _showService = showService;
         }
 
-        // OVO JE KOMENTAR
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ShowPieceActorAuditoriumTheatreDomainModel>>> GetAllShows([FromQuery] ShowQuery showQuery)
         {
